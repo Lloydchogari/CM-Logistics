@@ -1,0 +1,75 @@
+@charset "UTF-8";
+.benefitsSection {
+  background-color: #ffffff;
+  padding: 4rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.benefitsSection .flags {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+}
+.benefitsSection .flags .flag {
+  width: 110px;
+  height: auto;
+}
+.benefitsSection .flags .flagflag-left {
+  width: 100px;
+  height: 80px;
+  padding-bottom: 10px;
+}
+.benefitsSection .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .benefitsSection .content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.benefitsSection .leftSide {
+  flex: 1;
+  max-width: 500px;
+}
+.benefitsSection .leftSide h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.benefitsSection .leftSide .benefitsList {
+  list-style: none;
+  padding-left: 0;
+}
+.benefitsSection .leftSide .benefitsList li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+  color: #333;
+}
+.benefitsSection .leftSide .benefitsList li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #d7263d;
+  font-weight: bold;
+}
+.benefitsSection .rightSide {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 4/3;
+}
+.benefitsSection .rightSide .benefitsImage {
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=Benefits.css.map */

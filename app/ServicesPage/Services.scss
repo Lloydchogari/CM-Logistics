@@ -1,0 +1,376 @@
+/* ===== 1) HERO SECTION ===== */
+.servicesHero {
+  background: url('/abt.jpg') center/cover no-repeat;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 4rem 2rem;
+
+  .servicesHeroContent {
+    max-width: 700px;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* ===== 2) INTRO SECTION ===== */
+.introSection {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background: #f7f7f7;
+
+  .introBox {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .introImage {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: #fff;
+      overflow: hidden;
+      min-height: 420px;
+
+      .flipImage {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        width: auto;
+        height: auto;
+        max-width: calc(100% - 40px);
+        max-height: calc(100% - 40px);
+        object-fit: cover;
+        border-radius: 12px;
+        opacity: 0;
+        z-index: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .flipImage.active {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+
+    .introText {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('/BossZegg.jpg') center/cover no-repeat;
+        filter: blur(6px) brightness(0.8);
+        transform: scale(1.05);
+        z-index: 0;
+      }
+
+      .textOverlay {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+
+        h2 {
+          font-size: 2rem;
+          color: #222;
+          margin-bottom: 15px;
+        }
+
+        p {
+          font-size: 1.1rem;
+          color: #444;
+          max-width: 460px;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+/* ===== 3) SERVICES CONTAINERS (NEW DESIGN) ===== */
+.servicesSection {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #f7f7f7;
+
+  .servicesContainer {
+    display: flex;
+    justify-content: flex-start; /* left-align by default */
+    background: #fff;
+    box-shadow: #3b3b3b 0px 0px 10px 0px;
+    border-radius: 30px;
+    padding: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: calc(100% - 60px); /* leaves gap on one side */
+
+    &.topContainer {
+      margin-left: auto; /* push it a bit to the right */
+      margin-right: 30px; /* gap from right margin */
+    }
+
+    &.bottomContainer {
+      margin-left: 30px; /* gap from left margin */
+      margin-right: auto; /* start from left, leave gap right automatically */
+    }
+
+    .serviceCard {
+      flex: 1;
+      min-width: 220px;
+      max-width: 250px;
+      text-align: left;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+
+      .serviceIcon {
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+        color: #222;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+/* ===== CTA ===== */
+.ctaSection {
+  padding: 4rem 2rem;
+  background: #ff0000;
+  color: #fff;
+  text-align: center;
+
+  .ctaContent {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      padding: 0.8rem 2rem;
+      background: #fff;
+      color: #ff0000;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background: #ffcccc;
+        color: #990000;
+      }
+    }
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .servicesContainer {
+    flex-direction: column;
+    align-items: center;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .servicesHeroContent h1 {
+    font-size: 2rem;
+  }
+
+  .ctaContent h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ===== 4) SERVICE OVERVIEW SECTION (NEW DESIGN) ===== */
+.serviceOverviewSection {
+  width: 100%;
+  background-color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+
+  .overviewText {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: url('../../public/Container\ Ship\ 🚢\ Coloring\ Page.jpg') center center no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    color: #222;
+
+    .textOverlay {
+      background: rgba(255, 255, 255, 0.6); // semi-transparent white
+      backdrop-filter: blur(6px);          // blur effect
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+    }
+
+    .companyName {
+      color: #ff0000;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    .overviewText p {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* ===== 5) WITH THOSE IMAGES SECTION (NEW DESIGN) ===== */
+
+.keyServicesSection {
+  width: 100%;
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #222;
+  }
+
+  .servicesRow {
+    display: flex;
+    justify-content: space-between; // even spacing
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+
+    .serviceItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1 1 18%; // roughly 5 items per row with space
+      max-width: 180px;
+
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        font-size: 1rem;
+        color: #222;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .servicesRow {
+      justify-content: space-around;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .serviceItem {
+      flex: 1 1 40%;
+      max-width: 140px;
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+
+      h3 {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .serviceItem {
+      flex: 1 1 80%;
+      max-width: 100%;
+    }
+  }
+}
+
+

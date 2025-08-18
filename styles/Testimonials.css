@@ -1,0 +1,107 @@
+.testimonialsSection {
+  padding: 6rem 2rem;
+  background: radial-gradient(circle, #e8d7f1 0%, #d0e9ff 100%);
+  text-align: center;
+}
+.testimonialsSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 8rem;
+  font-weight: bold;
+}
+
+.testimonialImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid white;
+  background-color: white;
+}
+.testimonialImage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carouselContainer {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8rem;
+}
+
+.navButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #444;
+  z-index: 2;
+}
+.navButton.left {
+  margin-right: 1rem;
+}
+.navButton.right {
+  margin-left: 1rem;
+}
+
+.cardTrackWrapper {
+  overflow: hidden;
+  width: 100%;
+  flex: 1;
+}
+
+.cardTrack {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  gap: 2rem;
+}
+
+.testimonialCard {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  padding: 3rem 1rem 2rem;
+  position: relative;
+  width: 33.3333333333%;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.imageCircle {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 5px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.cardContent {
+  margin-top: 2rem;
+}
+.cardContent h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.cardContent p {
+  font-style: italic;
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0 auto;
+  max-width: 250px;
+}/*# sourceMappingURL=Testimonials.css.map */

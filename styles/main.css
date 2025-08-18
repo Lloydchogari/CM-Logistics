@@ -1,0 +1,124 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+  line-height: 1.6;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.nav {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.nav .logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1976d2;
+}
+.nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.nav .nav-links a {
+  color: #222222;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav .nav-links a:hover, .nav .nav-links a:focus {
+  color: #1976d2;
+  outline: none;
+}
+.nav .lang-toggle-btn {
+  background: transparent;
+  border: 2px solid #1976d2;
+  color: #1976d2;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+}
+.nav .lang-toggle-btn:hover, .nav .lang-toggle-btn:focus {
+  background-color: #1976d2;
+  color: #ffffff;
+  outline: none;
+}
+
+.hero {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.hero .hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.hero .hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #222222;
+}
+.hero .btn {
+  display: inline-block;
+  background-color: #e53935;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.hero .btn:hover, .hero .btn:focus {
+  background-color: rgb(204.6578947368, 30.3947368421, 26.3421052632);
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero .hero-title {
+    font-size: 1.75rem;
+  }
+  .hero .hero-subtitle {
+    font-size: 1rem;
+  }
+  .nav .nav-links {
+    gap: 1rem;
+  }
+}/*# sourceMappingURL=main.css.map */

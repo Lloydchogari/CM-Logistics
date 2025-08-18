@@ -1,0 +1,122 @@
+.footerSection {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.8rem 0.8rem;
+}
+
+.footerInnerContainer {
+  background-color: #e2e2e2;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 1350px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footerLeft {
+  flex: 1;
+  min-width: 220px;
+}
+.footerLeft .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+}
+.footerLeft .tagline {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+.footerLeft .socialIcons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+.footerLeft .socialIcons svg {
+  cursor: pointer;
+  color: #f11c1c;
+  transition: 0.3s;
+  font-size: 2rem;
+}
+.footerLeft .socialIcons svg:hover {
+  color: #007bff;
+  font-size: 2.4rem;
+}
+
+.footerLinks {
+  flex: 1;
+  display: flex;
+  gap: 8rem;
+  min-width: 220px;
+  margin-left: 100px;
+}
+.footerLinks h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+.footerLinks ul {
+  list-style: none;
+  padding: 0;
+}
+.footerLinks ul li {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+.footerLinks ul li:hover {
+  color: #000;
+  cursor: pointer;
+}
+
+.footerRight {
+  flex: 1;
+  min-width: 220px;
+  margin-left: 100px;
+}
+.footerRight h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+.footerRight .whatsappBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footerRight .whatsappBtn svg {
+  font-size: 1.2rem;
+}
+.footerRight .whatsappBtn:hover {
+  background: #1ebe5d;
+}
+
+.footerCopyright {
+  text-align: center;
+  margin-top: 2rem;
+}
+.footerCopyright .footerLine {
+  height: 1px;
+  background-color: #ccc;
+  width: 80%;
+  margin: 0 auto 1rem auto;
+}
+.footerCopyright p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}/*# sourceMappingURL=Footer.css.map */
