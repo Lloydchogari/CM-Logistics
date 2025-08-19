@@ -63,8 +63,8 @@
         bottom: 20px;
         width: auto;
         height: auto;
-        max-width: calc(100% - 40px);
-        max-height: calc(100% - 40px);
+        max-width: calc(100% - 50px);
+        max-height: calc(100% - 50px);
         object-fit: cover;
         border-radius: 12px;
         opacity: 0;
@@ -88,8 +88,7 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: url('/BossZegg.jpg') center/cover no-repeat;
-        filter: blur(6px) brightness(0.8);
+        background: url('../../public/shiplink-logo2.png') center/cover no-repeat;
         transform: scale(1.05);
         z-index: 0;
       }
@@ -102,19 +101,19 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
-        background: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(4px);
+        align-items: flex-star;
+        background: #ebebebe5;
+       
 
         h2 {
           font-size: 2rem;
-          color: #222;
+          color: #000000;
           margin-bottom: 15px;
         }
 
         p {
           font-size: 1.1rem;
-          color: #444;
+          color: #000000;
           max-width: 460px;
           line-height: 1.6;
         }
@@ -244,7 +243,7 @@
 /* ===== 4) SERVICE OVERVIEW SECTION (NEW DESIGN) ===== */
 .serviceOverviewSection {
   width: 100%;
-  background-color: #fff;
+  background-color: #ebebebe5;
   padding: 80px 20px;
   text-align: center;
   position: relative;
@@ -267,16 +266,19 @@
     color: #222;
 
     .textOverlay {
-      background: rgba(255, 255, 255, 0.6); // semi-transparent white
-      backdrop-filter: blur(6px);          // blur effect
+      background: #ebebebe5; // semi-transparent white
+      backdrop-filter: blur(1px);          // blur effect
       padding: 30px;
-      border-radius: 12px;
+      width: 900px;
+      margin-left: -40px;
     }
 
     p {
       font-size: 1.2rem;
       line-height: 1.8;
       margin-bottom: 1.8rem;
+      text-align: start;
+      color: #000;
     }
 
     .companyName {

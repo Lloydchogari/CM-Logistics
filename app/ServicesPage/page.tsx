@@ -124,6 +124,20 @@ export default function Services() {
         </div>
       </section>
 
+
+        {/* CTA */}
+      <section className="ctaSection">
+        <div className="ctaContent">
+          <h2>Ready to ship your goods?</h2>
+          <p>Contact us today to get a free quote or discuss your shipping needs.</p>
+          <Link href="/Contact">
+            <button>Get in Touch</button>
+          </Link>
+        </div>
+      </section>
+
+
+
       {/* ===== 3) UPDATED SERVICES CONTAINERS ===== */}
       <section className="servicesSection">
         {/* TOP CONTAINER */}
@@ -163,6 +177,27 @@ export default function Services() {
 
 
 
+          {/* ===== 5) WITH THOSE IMAGES SECTION ===== */}
+        
+          <section className="keyServicesSection">
+            <h1>All About CM Logistics</h1>
+            {rows.map((row, rowIndex) => (
+              <div className="servicesRow" key={rowIndex}>
+                {row.map((item, index) => (
+                  <div className="serviceItem" key={index}>
+                    <img src={item.img} alt={item.title} />
+                    <h3>{item.title}</h3>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </section>
+
+
+
+
+
+
       {/* ===== 4) SERVICE OVERVIEW SECTION ===== */}
               <section className="serviceOverviewSection">
                 <h1>Service Overview</h1>
@@ -178,27 +213,18 @@ export default function Services() {
                       providing transparency, reliability, and peace of mind for every client. We handle all the complex documentation and logistics, 
                       allowing you to focus on growing your business while we take care of your shipments from start to finish.
                     </p>
+                    <p>
+                      With years of experience and a commitment to customer satisfaction, <span className="companyName">CM Logistics</span> streamlines international shipping, 
+                      providing transparency, reliability, and peace of mind for every client. We handle all the complex documentation and logistics, 
+                      allowing you to focus on growing your business while we take care of your shipments from start to finish.
+                    </p>
                   </div>
                 </div>
               </section>
       
 
        
-                {/* ===== 5) WITH THOSE IMAGES SECTION ===== */}
-        
-          <section className="keyServicesSection">
-            <h1>All About CM Logistics</h1>
-            {rows.map((row, rowIndex) => (
-              <div className="servicesRow" key={rowIndex}>
-                {row.map((item, index) => (
-                  <div className="serviceItem" key={index}>
-                    <img src={item.img} alt={item.title} />
-                    <h3>{item.title}</h3>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </section>
+             
 
 
 
