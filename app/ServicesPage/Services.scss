@@ -24,6 +24,91 @@
   }
 }
 
+
+/* My existing navbar styles */
+.headder {
+  position: fixed;
+  z-index: 1000;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 850px;
+}
+
+.nav {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 58px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: #ebebebe5;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  width: 100%;
+  max-width: 1200px;
+  height: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+  }
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: 700;
+
+  li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: 0.3s ease;
+
+    &:hover {
+      color: #ff0000;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .headder {
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .heroTextOverlay {
+    padding: 1.5rem 2rem;
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 16px;
+  }
+}
+
 /* ===== 2) INTRO SECTION ===== */
 .introSection {
   display: flex;
