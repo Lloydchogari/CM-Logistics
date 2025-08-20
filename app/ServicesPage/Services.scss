@@ -1,4 +1,10 @@
 /* ===== 1) HERO SECTION ===== */
+
+.mainHero{
+  padding: 1rem;
+  background-color: white;
+}
+
 .servicesHero {
   background: url('/abt.jpg') center/cover no-repeat;
   min-height: 50vh;
@@ -8,6 +14,8 @@
   text-align: center;
   color: #fff;
   padding: 4rem 2rem;
+  border-radius: 40px 40px 0 0;
+
 
   .servicesHeroContent {
     max-width: 700px;

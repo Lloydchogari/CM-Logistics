@@ -30,6 +30,7 @@ export default function ContactUs() {
   return (
     <>
       {/* === HERO SECTION === */}
+      <div className="wholepage">
       <section className="contactHero">
         <header className="headder">
           <nav className="nav">
@@ -198,7 +199,7 @@ export default function ContactUs() {
             </div>
           </div>
         </footer>
-
+      </div>
     </>
   );
 }

@@ -89,6 +89,7 @@ export default function Services() {
   return (
     <>
       {/* ===== 1) HERO SECTION ===== */}
+      <div className="mainHero">
       <section className="servicesHero">
 
              <header className="headder">
@@ -299,7 +300,7 @@ export default function Services() {
                   </footer>
       
 
-       
+     </div>  
       
     </>
   );
