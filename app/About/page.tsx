@@ -38,7 +38,7 @@ export default function About() {
         <div className="imageContainer">
           <div className="darkOverlay" />
           <Image
-            src="/26.7.jpg"
+            src="/many.jpg"
             alt="CM Logistics Ship"
             width={1600}
             height={600}

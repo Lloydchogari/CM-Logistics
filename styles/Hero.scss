@@ -1,5 +1,5 @@
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), url('../public/Cont4.png') no-repeat center center;
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), url('../public/many.jpg') no-repeat center center;
   background-size: cover;
   flex-direction: column;
   justify-content: center;
@@ -10,6 +10,7 @@
   margin-right: auto;
   display: flex;
   padding-left: 3rem;
+  
   
 
   .hero-title {

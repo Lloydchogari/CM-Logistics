@@ -51,9 +51,10 @@ export default function Services() {
   const flipImages = [
     '/abt.jpg',
     '/26.5.jpg',
-    '/China.jpeg',
-    '/Client1.jpeg',
-    '/Cont3.jpg'
+    '/26.7.jpg',
+    '/solo.jpg',
+    '/Cont3.jpg',
+    '/ships.jpg'
   ];
 
   //FOR THOSE IMAGES ======
@@ -62,7 +63,7 @@ export default function Services() {
     { img: '/abt.jpg', title: 'Customer Satisfaction' },
     { img: '/Cont3.jpg', title: 'On-time Delivery' },
     { img: '/China.jpeg', title: 'Affordable Deals' },
-    { img: '/Client1.jpeg', title: 'Secure Handling' },
+    { img: '/conts.jpg', title: 'Secure Handling' },
     { img: '/21.jpg', title: '24/7 Support' },
     { img: '/26.5.jpg', title: 'Shipment Tracking' },
     { img: '/Cont1.jpg', title: 'Flexible Scheduling' },
@@ -150,20 +151,6 @@ export default function Services() {
         </div>
       </section>
 
-
-        {/* CTA */}
-      <section className="ctaSection">
-        <div className="ctaContent">
-          <h2>Ready to ship your goods?</h2>
-          <p>Contact us today to get a free quote or discuss your shipping needs.</p>
-          <Link href="/Contact">
-            <button>Get in Touch</button>
-          </Link>
-        </div>
-      </section>
-
-
-
       {/* ===== 3) UPDATED SERVICES CONTAINERS ===== */}
       <section className="servicesSection">
         {/* TOP CONTAINER */}
@@ -190,20 +177,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="ctaSection">
-        <div className="ctaContent">
-          <h2>Ready to ship your goods?</h2>
-          <p>Contact us today to get a free quote or discuss your shipping needs.</p>
-          <Link href="/Contact">
-            <button>Get in Touch</button>
-          </Link>
-        </div>
-      </section>
-
-
-
-
           {/* ===== 5) WITH THOSE IMAGES SECTION ===== */}
         
           <section className="keyServicesSection">
@@ -219,10 +192,6 @@ export default function Services() {
               </div>
             ))}
           </section>
-
-
-
-
 
 
       {/* ===== 4) SERVICE OVERVIEW SECTION ===== */}
@@ -248,6 +217,18 @@ export default function Services() {
                   </div>
                 </div>
               </section>
+
+
+        {/* CTA */}
+      <section className="ctaSection">
+        <div className="ctaContent">
+          <h2>Ready to ship your goods?</h2>
+          <p>Contact us today to get a free quote or discuss your shipping needs.</p>
+          <Link href="/Contact">
+            <button>Get in Touch</button>
+          </Link>
+        </div>
+      </section>
 
               {/*=====6 FOOTER OUR FOOTER */}
 

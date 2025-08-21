@@ -9,6 +9,8 @@
   text-align: center;
   color: #fff;
   overflow: hidden;
+  background-attachment: fixed; /* optional for parallax feel */
+
 
   .contactOverlay {
     position: absolute;
