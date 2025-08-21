@@ -54,28 +54,6 @@
     }
   }
 
-  .whatsapp-btn {
-    background-color: #25d366;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-right: 48rem;
-
-    &:hover {
-      background-color: #1ebe5d;
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding-left: 2rem;
-  }
-  
-  @media (max-width: 480px) {
-    padding-left: 1rem;
-  }
 }
 
 .hero-content {
