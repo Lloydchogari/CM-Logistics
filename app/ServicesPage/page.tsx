@@ -230,7 +230,15 @@ export default function Services() {
         </div>
       </section>
 
-              {/*=====6 FOOTER OUR FOOTER */}
+      {/* Scrolling bottom strip */}
+      <div className="scrolling-strip">
+        <div className="scrolling-text">
+          <span>Digital Design ✱ Digital Marketing ✱ Web Design & Development ✱ Creative Marketing ✱ Media Production ✱ Signage Solutions ✱</span>
+          <span>Digital Design ✱ Digital Marketing ✱ Web Design & Development ✱ Creative Marketing ✱ Media Production ✱ Signage Solutions ✱</span>
+        </div>
+      </div>
+
+              {/*=====6 FOOTER OUR FOOTER==== */}
 
               <footer className="footerSection">
                     <div className="footerInnerContainer">

@@ -482,6 +482,43 @@
 }
 
 
+
+
+/* Scrolling strip */
+.scrolling-strip {
+  width: 1500px;
+  background: #155993;
+  padding: 12px 10px;
+  margin-top: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin-left: -20px;
+  margin-bottom: -60px;
+}
+
+.scrolling-text {
+  display: inline-block;
+  animation: scroll-left 60s linear infinite;
+}
+
+.scrolling-text span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 50px;
+  color: white;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
 /* ===== 6) FOOTER OUR FOOTER===== */
 
 .footerSection {
