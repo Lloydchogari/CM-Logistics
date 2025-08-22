@@ -38,7 +38,7 @@ export default function About() {
         <div className="imageContainer">
           <div className="darkOverlay" />
           <Image
-            src="/many.jpg"
+            src="/abt.jpg"
             alt="CM Logistics Ship"
             width={1600}
             height={600}
@@ -87,7 +87,7 @@ export default function About() {
             THE WAY TO MOVE WITH CARE
           </h3>
           <p>
-            We are committed to prompt delivery of your consignment. Our dedicated staff and resources work diligently to eliminate unnecessary delays, ensuring a seamless experience for all oue clients.
+            We are committed to prompt delivery of your consignment. Our dedicated staff and resources work diligently to eliminate unnecessary delays, ensuring a seamless experience for all our clients.
           </p>
         </div>
         </div>
@@ -151,9 +151,9 @@ export default function About() {
       </div>
       <div className="about-content">
         <p className="section-label">About Company</p>
-        <h2 className="main-title">We Are Creative Journey Your Branding & Digital Partner</h2>
+        <h2 className="main-title">We Are CM Logistics Your Branding & Shipping Partner</h2>
         <p className="description">
-          Creative Journey is a full-service digital agency committed to helping brands scale creatively. We mix strategy, design, and technology to tell your story in a way that inspires action.
+          CM Logistics is a full-service shipping society committed to helping clients and organizations scale creatively. We mix strategy, design, and technology to tell your story in a way that inspires action.
         </p>
 
         <div className="features">
@@ -169,7 +169,7 @@ export default function About() {
             <FaRocket className="feature-icon" />
             <div>
               <h3>Fast-Track Campaigns</h3>
-              <p>We deploy strategies quickly, so your brand reaches its audience without delay.</p>
+              <p>We deploy strategies quickly, so that clients get their goods without delay.</p>
             </div>
           </div>
 

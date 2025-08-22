@@ -90,7 +90,7 @@ export default function ContactUs() {
                 <FaEnvelope size={40} color="#ff0000" />
               </div>
               <h3>Email</h3>
-              <p>info@yourcompany.com</p>
+              <p>info@cmlogistics.com</p>
             </div>
 
             {/* Card 3: Location */}
