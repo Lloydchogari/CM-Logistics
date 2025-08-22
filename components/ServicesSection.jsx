@@ -73,7 +73,7 @@ const ServicesSection = () => {
       </div>
 
       <div className="see-more-left-wrapper">
-        <Link href="/services" className="see-more-left-btn">
+        <Link href="/ServicesPage" className="see-more-left-btn">
           See More
         </Link>
       </div>
