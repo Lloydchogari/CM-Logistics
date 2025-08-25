@@ -60,7 +60,7 @@ const Testimonials2 = () => {
   return (
     <section className="testimonials-section">
       <h4 className="section-subtitle">Testimonials</h4>
-      <h2 className="section-title">Client says about us</h2>
+      <h2 className="section-title">What clients say about us...</h2>
 
       <Slider {...settings} className="testimonials-slider">
         {testimonials.map((t, index) => (
