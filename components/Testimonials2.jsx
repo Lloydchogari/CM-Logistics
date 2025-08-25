@@ -8,31 +8,31 @@ import "slick-carousel/slick/slick-theme.css";
 
 const testimonials = [
   {
-    name: "",
+    name: "Edwin Moyo",
     position: "MyCash",
     text: "Creative Journey transformed our brand presence with their innovative approach and attention to detail. Their team is professional, creative, and truly invested in our success from start to finish.",
     rating: 5,
   },
   {
-    name: "CEO",
+    name: "Feng Wei",
     position: "Leengate",
     text: "Their approach transforms ideas into impactful brand experiences, positioning them as trusted partners and true architects of meaningful marketing and storytelling excellence.",
     rating: 4,
   },
   {
-    name: "Manager",
+    name: "Grace Ncube",
     position: "Karan Investiments",
     text: "Creative Journey delivered stunning signage that turned heads and boosted our visibility bold, professional, and perfectly on brand.",
     rating: 5,
   },
   {
-    name: "CEO",
+    name: "Tonderai Rudyi",
     position: "Tatu Capital",
     text: "The visuals from Creative Journey captured our event’s energy perfectly crisp photography and cinematic videography that truly impressed.",
     rating: 5,
   },
   {
-    name: "Marketing Executive",
+    name: "Huang Min",
     position: "Nbs Bank",
     text: "Creative Journey delivered powerful visuals for NBS sharp, professional shots that brought our brand story to life beautifully.",
     rating: 3,

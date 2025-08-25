@@ -6,7 +6,6 @@ import '../styles/main.scss';
 import Motto from '../components/Motto';
 import Benefits from '../components/Benefits';
 import Statistics from '../components/Statistics';
-import Testimonials from '../components/Testimonials';
 import Testimonials2 from '../components/Testimonials2';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -23,7 +22,6 @@ export default function Home() {
       <Motto />
       <Statistics />
       <Benefits />
-      <Testimonials />
       <Testimonials2 />
       <Contact /> 
       <Offices />

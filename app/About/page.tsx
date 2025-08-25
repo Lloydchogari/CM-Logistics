@@ -188,27 +188,61 @@ export default function About() {
 {/* Team section*/}
 
 
-     <section className="teamSection">
-      <div className="teamContainer">
-        <div className="teamImage">
-           <Image
-              src="/TeamZegg1.png"
-              alt="Warehouse"
-              width={400}
-              height={200}
-            />
+ <section className="teamSection">
+  <div className="teamContainer">
+    {/* Team Image */}
+    <div className="teamImage">
+      <Image
+        src="/TeamZegg1.png"
+        alt="CM Logistics Team Leaders"
+        width={800}          // higher width for better quality
+        height={500}         // higher height for better quality
+        quality={100}        // max quality
+        className="teamPhoto"
+      />
+    </div>
+
+    {/* Team Content */}
+    <div className="teamContent">
+      <h2>
+        Shipping made <span>easy</span> <br /> with our Team Leaders
+      </h2>
+
+      {/* Cards */}
+      <div className="leaderCards">
+        <div className="card">
+          <h3>Qualified Leaders</h3>
+          <div className="line"></div>
+          <p>
+            Our leaders have years of experience in logistics and supply chain management, ensuring efficient and reliable deliveries.
+          </p>
         </div>
-        <div className="teamContent">
-          <h2>Shipping made <span>easy</span> <br /> with our Team Leaders</h2>
-          <div className="ptext">
-            <p>
-              At CM Logistics, our team is the driving force behind our success. We are a diverse group of logistics professionals, customer service experts, and tech enthusiasts united by a passion for reliable delivery.
-              From planning shipments to handling customs, every team member plays a vital role in ensuring your goods reach their destination smoothly and efficiently. We're proud of the work we do — and even prouder of the trust our clients place in us.
-            </p>
-          </div>
+        <div className="card">
+          <h3>Innovative Strategists</h3>
+          <div className="line"></div>
+          <p>
+            They continuously innovate and optimize operations to stay ahead in the fast-paced logistics industry.
+          </p>
+        </div>
+        <div className="card">
+          <h3>Customer-Focused</h3>
+          <div className="line"></div>
+          <p>
+            Each leader prioritizes customer satisfaction, making sure that every shipment is handled with care and professionalism.
+          </p>
         </div>
       </div>
-    </section>
+
+      {/* Description */}
+      <div className="ptext">
+        <p>
+          At CM Logistics, our team is the driving force behind our success. We are a diverse group of logistics professionals, customer service experts, and tech enthusiasts united by a passion for reliable delivery. From planning shipments to handling customs, every team member plays a vital role in ensuring your goods reach their destination smoothly and efficiently. We're proud of the work we do — and even prouder of the trust our clients place in us.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
      {/* WHY CHOOSE section*/}
