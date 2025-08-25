@@ -35,7 +35,7 @@ const Testimonials = () => {
     const animation = track.animate(
       [
         { transform: 'translateX(0)' },
-        { transform: 'translateX(-50%)' },
+        { transform: 'translateX(-100%)' },
       ],
       {
         duration: 50000, // ✅ Slower scroll: 50 seconds

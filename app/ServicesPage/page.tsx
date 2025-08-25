@@ -50,10 +50,10 @@ export default function Services() {
   // Images for the flipping section
   const flipImages = [
     '/abt.jpg',
-    '/26.5.jpg',
     '/26.7.jpg',
     '/solo.jpg',
-    '/Cont3.jpg',
+    '/tlogo.png',
+    '/the1.jpg',
     '/ships.jpg'
   ];
 
