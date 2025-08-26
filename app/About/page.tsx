@@ -208,6 +208,43 @@ export default function About() {
         Shipping made <span>easy</span> <br /> with our Team Leaders
       </h2>
 
+
+
+
+      <section id="testimonials">
+       
+       
+        <blockquote>
+          “Creative Journey gave our brand a voice and visual identity that resonates with our market. We couldn't be happier.”
+          <cite>— Marketing Lead, MyCash</cite>
+        </blockquote>
+        <blockquote>
+          “Their work is professional, inspiring, and deeply collaborative. True brand architects.”
+          <cite>— CEO, Bell Petroleum</cite>
+        </blockquote>
+          <blockquote>
+          “Creative Journey gave our brand a voice and visual identity that resonates with our market. We couldn't be happier.”
+          <cite>— Marketing Lead, MyCash</cite>
+        </blockquote>
+        <blockquote>
+          “Their work is professional, inspiring, and deeply collaborative. True brand architects.”
+          <cite>— CEO, Bell Petroleum</cite>
+        </blockquote>
+        <blockquote>
+          “Their work is professional, inspiring, and deeply collaborative. True brand architects.”
+          <cite>— CEO, Bell Petroleum</cite>
+        </blockquote>
+          <blockquote>
+          “Creative Journey gave our brand a voice and visual identity that resonates with our market. We couldn't be happier.”
+          <cite>— Marketing Lead, MyCash</cite>
+        </blockquote>
+       
+      </section>
+
+
+
+
+
       {/* Cards */}
       <div className="leaderCards">
         <div className="card">
