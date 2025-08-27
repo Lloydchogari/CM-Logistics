@@ -194,6 +194,7 @@ export default function About() {
 
 
 <section className="teamSection">
+  <h2>Meet Our Team</h2>
   {/* Top four containers */}
   <div className="topContainers">
     <div className="topContainer">
@@ -286,24 +287,43 @@ export default function About() {
 
      {/* WHY CHOOSE section*/}
      
-     <section className="top-notch-services">
-      <div className="topcont">
-      <div className="services-header">
-        <h2>OUR TOP NOTCH SERVICES</h2>
-        <p className="subtitle">Magno voluptatem dolorem Dolorosi Sociis...</p>
-      </div>
-      <section className="staggered-section">
-          <div className="services-grid">
-            <div className="crazy-box box-1">...</div>
-            <div className="crazy-box box-2">...</div>
-            <div className="crazy-box box-3">...</div>
-            <div className="crazy-box box-4">...</div>
-            <div className="crazy-box box-5">...</div>
-          </div>
+    <section className="top-notch-services">
+  <div className="topcont">
+    <div className="services-header">
+      <h2>OUR TOP NOTCH SERVICES</h2>
+      <p className="subtitle">Magno voluptatem dolorem Dolorosi Sociis...</p>
+    </div>
 
-        </section>
+    <section className="staggered-section">
+      <div className="services-grid">
+        <div className="crazy-box box-1">
+          <h3 className="big-text">
+            $460<span className="small-text">/cbm</span>
+          </h3>
         </div>
+
+        <div className="crazy-box box-2">
+          <h3 className="big-text">
+            45<span className="small-text">days</span>
+          </h3>
+        </div>
+
+        <div className="crazy-box box-3">
+          <h3 className="big-text">Secure</h3>
+        </div>
+
+        <div className="crazy-box box-4">
+          <h3 className="big-text">Tracking</h3>
+        </div>
+
+        <div className="crazy-box box-5">
+          <h3 className="big-text">Customs</h3>
+        </div>
+      </div>
     </section>
+  </div>
+</section>
+
 
 
 
