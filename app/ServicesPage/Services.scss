@@ -274,129 +274,11 @@
   }
 }
 
-/* ===== CTA ===== */
-.ctaSection {
-  padding: 3rem 2rem;
-  background: #ebebebe8;
-  color: #000000;
-  text-align: center;
-  margin-left: 360px;
-  margin-top: -40px;
-  width: 600px;
-  border-radius: 40px;
 
-  .ctaContent {
-    max-width: 600px;
-    margin: 0 auto;
 
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
 
-    p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
 
-    button {
-      padding: 0.8rem 2rem;
-      background: #fff;
-      color: #ff0000;
-      font-size: 1rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 
-      &:hover {
-        background: #ffcccc;
-        color: #990000;
-      }
-    }
-  }
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 992px) {
-  .servicesContainer {
-    flex-direction: column;
-    align-items: center;
-    max-width: 90% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .servicesHeroContent h1 {
-    font-size: 2rem;
-  }
-
-  .ctaContent h2 {
-    font-size: 1.8rem;
-  }
-}
-
-/* ===== 4) SERVICE OVERVIEW SECTION (NEW DESIGN) ===== */
-.serviceOverviewSection {
-  width: 100%;
-  background-color: #ebebebe5;
-  padding: 80px 20px;
-  text-align: center;
-  position: relative;
-
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: #222;
-  }
-
-  .overviewText {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px;
-    background: url('../../public/Container\ Ship\ 🚢\ Coloring\ Page.jpg') center center no-repeat;
-    background-size: cover;
-    border-radius: 12px;
-    text-align: center;
-    position: relative;
-    color: #222;
-
-    .textOverlay {
-      background: #ebebebe5; // semi-transparent white
-      backdrop-filter: blur(1px);          // blur effect
-      padding: 30px;
-      width: 900px;
-      margin-left: -40px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin-bottom: 1.8rem;
-      text-align: start;
-      color: #000;
-    }
-
-    .companyName {
-      color: #ff0000;
-      font-weight: bold;
-    }
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2.2rem;
-    }
-
-    .overviewText p {
-      font-size: 1rem;
-    }
-  }
-}
 
 /* ===== 5) WITH THOSE IMAGES SECTION (NEW DESIGN) ===== */
 
@@ -489,12 +371,77 @@
 
 
 
-/* Scrolling strip */
-.scrolling-strip {
+
+
+/* ===== 4) SERVICE OVERVIEW SECTION (NEW DESIGN) ===== */
+.serviceOverviewSection {
   width: 100%;
+  background-color: #ebebebe5;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 8rem;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+
+  .overviewText {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: url('../../public/Container\ Ship\ 🚢\ Coloring\ Page.jpg') center center no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    color: #222;
+
+    .textOverlay {
+      background: #ebebebe5; // semi-transparent white
+      backdrop-filter: blur(1px);          // blur effect
+      padding: 30px;
+      width: 900px;
+      margin-left: -40px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+      text-align: start;
+      color: #000;
+    }
+
+    .companyName {
+      color: #ff0000;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    .overviewText p {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+
+/* ==Scrolling strip== */
+.scrolling-strip {
+  width: 50%;
   background: #155993;
   padding: 12px 10px;
   margin-top: 40px;
+  margin-left: 20rem;
+  border-radius: 3px;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
@@ -523,7 +470,195 @@
 }
 
 
-/* ===== 6) FOOTER OUR FOOTER===== */
+
+
+
+/* ===== CTA ===== */
+.ctaSection {
+  padding: 3rem 2rem;
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), #ebebebe8;
+  color: #000000;
+  text-align: center;
+  margin-left: 320px;
+  margin-top: -40px;
+  width: 656px;
+  border-radius: 5px;
+
+  .ctaContent {
+    max-width: 600px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    button {
+      padding: 0.8rem 2rem;
+      background: #fff;
+      color: #ff0000;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+
+      &:hover {
+        background: #ffcccc;
+        color: #990000;
+      }
+    }
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .servicesContainer {
+    flex-direction: column;
+    align-items: center;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .servicesHeroContent h1 {
+    font-size: 2rem;
+  }
+
+  .ctaContent h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+
+
+/*===== () PRICING SECTION===*/
+
+.pricing {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.pricingline{
+  color: #000;
+  height: 1.5px;
+  background-color: #000000;
+  width: 80%;
+  margin: 0 auto 1rem auto;
+}
+
+.pricingline2{
+  color: #000;
+  height: 1.5px;
+  background-color: #000000;
+  width: 80%;
+  margin: 0 auto 1rem auto;
+  margin-bottom: 8rem;
+}
+
+
+.pricing h5 {
+  color: #1c1fff;
+  font-weight: 600;
+}
+
+.pricing h2 {
+  font-size: 28px;
+  margin: 10px 0;
+  color: #000;
+  font-weight: 600;
+}
+
+.pricing p {
+  color: #222222;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pricing-card {
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), #ebebebe8;
+  color: #fff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  width: 300px;
+  text-align: left;
+}
+
+.pricing-card.highlight-card {
+  background: linear-gradient(rgba(96, 248, 177, 0), rgb(30, 1, 197)), #a8e6eee8 ;
+  color: #000;
+}
+
+.pricing-card h4 {
+  font-size: 22px;
+}
+
+.pricing-card h2 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.pricing-card span {
+  font-size: 16px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.pricing-card ul li::before {
+  content: "✔";
+  color: #cf0000;
+  margin-right: 8px;
+}
+
+.pricing-card button {
+  background-color: #9dcf00;
+  color: #000;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pricing-card button:hover{
+  background-color: #00ff62;
+}
+
+.daes{
+  margin-top: 40px;
+  color: red;
+}
+
+
+
+
+
+/* =====(6) FOOTER OUR FOOTER ===== */
 
 .footerSection {
   background-color: #ffffff;
@@ -533,11 +668,11 @@
 }
 
 .footerInnerContainer {
-  background-color: #e2e2e2;
+  background-color: #155993;
   border-radius: 10px;
-  padding: 2rem;
-  max-width: 1350px;
-  margin: 0 auto;
+  padding: 3rem;
+  width: 1310px;
+  margin-left: -13px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
@@ -562,7 +697,7 @@
   .tagline {
     margin: 1rem 0;
     font-size: 0.9rem;
-    color: #333;
+    color: #ffffff;
   }
 
   .socialIcons {
@@ -572,7 +707,7 @@
 
     svg {
       cursor: pointer;
-      color: #f11c1c;
+      color: #ffffff;
       transition: 0.3s;
       font-size: 1.2rem;
 
@@ -592,7 +727,8 @@
   margin-left: 100px;
 
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 1rem;
     color: #000;
   }
@@ -603,10 +739,13 @@
 
     li {
       margin-bottom: 0.5rem;
-      color: #333;
+      color: #ffffff;
+      font-size: 1rem;
+
 
       &:hover {
-        color: #000;
+        color: #fc8d8d;
+        text-decoration: underline;
         cursor: pointer;
       }
     }
@@ -619,7 +758,8 @@
   margin-left: 100px;
 
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 1rem;
     color: #000;
   }
@@ -642,7 +782,7 @@
     }
 
     &:hover {
-      background: #66ca8e;
+      background: #77c998;
     }
   }
 }
@@ -660,7 +800,7 @@
 
   p {
     font-size: 0.9rem;
-    color: #555;
+    color: #9bdefd;
     margin: 0;
   }
 }

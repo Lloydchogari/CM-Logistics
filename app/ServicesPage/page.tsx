@@ -219,6 +219,17 @@ export default function Services() {
               </section>
 
 
+
+    {/* Scrolling bottom strip */}
+    <div className="pricingline"></div>
+      <div className="scrolling-strip">
+        <div className="scrolling-text">
+          <span>Digital Design ✱ Digital Marketing ✱ Web Design & Development ✱ Creative Marketing ✱ Media Production ✱ Signage Solutions ✱</span>
+          <span>Digital Design ✱ Digital Marketing ✱ Web Design & Development ✱ Creative Marketing ✱ Media Production ✱ Signage Solutions ✱</span>
+        </div>
+      </div>
+
+
         {/* CTA */}
       <section className="ctaSection">
         <div className="ctaContent">
@@ -230,13 +241,71 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Scrolling bottom strip */}
-      <div className="scrolling-strip">
-        <div className="scrolling-text">
-          <span>Digital Design ✱ Digital Marketing ✱ Web Design & Development ✱ Creative Marketing ✱ Media Production ✱ Signage Solutions ✱</span>
-          <span>Digital Design ✱ Digital Marketing ✱ Web Design & Development ✱ Creative Marketing ✱ Media Production ✱ Signage Solutions ✱</span>
-        </div>
-      </div>
+
+
+
+
+      {/* Pricing Section */}
+        <section className="pricing">
+          <div className="pricingline2"></div>
+          <h5>Pricing Plan</h5>
+          <h2>We Make IT Simple, Faster, And Less Expensive</h2>
+          <p>
+          Flexible pricing designed to grow with your vision choose the plan that fits your journey
+          </p>
+
+          <div className="pricing-cards">
+            {[
+              {
+                title: 'Basic Plan',
+                price: '$460',
+                target: 'Good For Personal Portfolio',
+                benefits: [
+                  'Logo design + social kit',
+                  '1-Page Website',
+                  '1 Month Support',
+                ],
+              },
+              {
+                title: 'Premium Plan',
+                price: '$1000',
+                target: 'Good For Small Company',
+                benefits: [
+                  'Full branding & guidelines',
+                  'Corporate Website (5 Pages)',
+                  '2 Months Support + SEO Setup',
+                ],
+                highlight: true,
+              },
+              {
+                title: 'Corporate Plan',
+                price: '$1500',
+                target: 'Good For Big Company',
+                benefits: [
+                  'Brand strategy + marketing kit',
+                  'Advanced Website + eCommerce',
+                  '3 Months Support & Analytics',
+                ],
+              },
+            ].map((plan, index) => (
+              <div
+                className={`pricing-card ${plan.highlight ? 'highlight-card' : ''}`}
+                key={index}
+              >
+                <h4>{plan.title}</h4>
+                <h2>{plan.price}<span>/cbm</span></h2>
+                <p>{plan.target}</p>
+                <ul>
+                  {plan.benefits.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+                <button>Choose Plan</button>
+              </div>
+            ))}
+          </div>
+          <div className="daes">China to Zimbabwe in just 45days</div>
+        </section>
 
               {/*=====6 FOOTER OUR FOOTER==== */}
 

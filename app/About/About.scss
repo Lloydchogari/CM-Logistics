@@ -925,9 +925,9 @@
 }
 
 .footerInnerContainer {
-  background-color: #e2e2e2;
+  background-color: #155993;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 3rem;
   width: 1310px;
   margin-left: -13px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
@@ -954,7 +954,7 @@
   .tagline {
     margin: 1rem 0;
     font-size: 0.9rem;
-    color: #333;
+    color: #ffffff;
   }
 
   .socialIcons {
@@ -964,7 +964,7 @@
 
     svg {
       cursor: pointer;
-      color: #f11c1c;
+      color: #ffffff;
       transition: 0.3s;
       font-size: 1.2rem;
 
@@ -984,7 +984,8 @@
   margin-left: 100px;
 
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 1rem;
     color: #000;
   }
@@ -995,10 +996,13 @@
 
     li {
       margin-bottom: 0.5rem;
-      color: #333;
+      color: #ffffff;
+      font-size: 1rem;
+
 
       &:hover {
-        color: #000;
+        color: #fc8d8d;
+        text-decoration: underline;
         cursor: pointer;
       }
     }
@@ -1011,7 +1015,8 @@
   margin-left: 100px;
 
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 1rem;
     color: #000;
   }
@@ -1034,7 +1039,7 @@
     }
 
     &:hover {
-      background: #66ca8e;
+      background: #77c998;
     }
   }
 }
@@ -1052,7 +1057,7 @@
 
   p {
     font-size: 0.9rem;
-    color: #555;
+    color: #9bdefd;
     margin: 0;
   }
 }
