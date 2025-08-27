@@ -188,102 +188,104 @@ export default function About() {
 {/* Team section*/}
 
 
- <section className="teamSection">
-  <div className="teamContainer">
-    {/* Team Image */}
-    <div className="teamImage">
+
+
+
+
+
+<section className="teamSection">
+  {/* Top four containers */}
+  <div className="topContainers">
+    <div className="topContainer">
+      <h3>Qualified Leaders</h3>
+      <div className="line"></div>
+      <p>
+        Our leaders have years of experience in logistics and supply chain management, ensuring efficient and reliable deliveries.
+      </p>
+    </div>
+    <div className="topContainer">
+      <h3>Innovative Strategists</h3>
+      <div className="line"></div>
+      <p>
+        They continuously innovate and optimize operations to stay ahead in the fast-paced logistics industry.
+      </p>
+    </div>
+    <div className="topContainer">
+      <h3>Customer-Focused</h3>
+      <div className="line"></div>
+      <p>
+        Each leader prioritizes customer satisfaction, making sure that every shipment is handled with care and professionalism.
+      </p>
+    </div>
+    <div className="topContainer">
+      <h3>Expert Team</h3>
+      <div className="line"></div>
+      <p>
+        Our dedicated team members ensure that every shipment reaches its destination smoothly and efficiently.
+      </p>
+    </div>
+  </div>
+
+  {/* Member Cards */}
+  <div className="memberCards">
+    <div className="card">
       <Image
-        src="/TeamZegg1.png"
-        alt="CM Logistics Team Leaders"
-        width={800}          // higher width for better quality
-        height={500}         // higher height for better quality
-        quality={100}        // max quality
-        className="teamPhoto"
+        src="/member1.png"
+        alt="Member 1"
+        width={300}
+        height={300}
+        className="memberImage"
       />
-    </div>
-
-    {/* Team Content */}
-    <div className="teamContent">
-      <h2>
-        Shipping made <span>easy</span> <br /> with our Team Leaders
-      </h2>
-
-
-
-
-      <section id="testimonials">
-       
-       
-        <blockquote>
-          “Creative Journey gave our brand a voice and visual identity that resonates with our market. We couldn't be happier.”
-          <cite>— Marketing Lead, MyCash</cite>
-        </blockquote>
-        <blockquote>
-          “Their work is professional, inspiring, and deeply collaborative. True brand architects.”
-          <cite>— CEO, Bell Petroleum</cite>
-        </blockquote>
-          <blockquote>
-          “Creative Journey gave our brand a voice and visual identity that resonates with our market. We couldn't be happier.”
-          <cite>— Marketing Lead, MyCash</cite>
-        </blockquote>
-        <blockquote>
-          “Their work is professional, inspiring, and deeply collaborative. True brand architects.”
-          <cite>— CEO, Bell Petroleum</cite>
-        </blockquote>
-        <blockquote>
-          “Their work is professional, inspiring, and deeply collaborative. True brand architects.”
-          <cite>— CEO, Bell Petroleum</cite>
-        </blockquote>
-          <blockquote>
-          “Creative Journey gave our brand a voice and visual identity that resonates with our market. We couldn't be happier.”
-          <cite>— Marketing Lead, MyCash</cite>
-        </blockquote>
-       
-      </section>
-
-
-
-
-
-      {/* Cards */}
-      <div className="leaderCards">
-        <div className="card">
-          <h3>Qualified Leaders</h3>
-          <div className="line"></div>
-          <p>
-            Our leaders have years of experience in logistics and supply chain management, ensuring efficient and reliable deliveries.
-          </p>
-        </div>
-        <div className="card">
-          <h3>Innovative Strategists</h3>
-          <div className="line"></div>
-          <p>
-            They continuously innovate and optimize operations to stay ahead in the fast-paced logistics industry.
-          </p>
-        </div>
-        <div className="card">
-          <h3>Customer-Focused</h3>
-          <div className="line"></div>
-          <p>
-            Each leader prioritizes customer satisfaction, making sure that every shipment is handled with care and professionalism.
-          </p>
-        </div>
-      </div>
-
-      {/* Description */}
-      <div className="ptext">
-        <p>
-          At CM Logistics, our team is the driving force behind our success. We are a diverse group of logistics professionals, customer service experts, and tech enthusiasts united by a passion for reliable delivery. From planning shipments to handling customs, every team member plays a vital role in ensuring your goods reach their destination smoothly and efficiently. We're proud of the work we do — and even prouder of the trust our clients place in us.
-        </p>
+      <div className="memberText">
+        <h4>John Doe</h4>
+        <p>Logistics Manager with 10 years of experience ensuring smooth operations.</p>
       </div>
     </div>
+
+    <div className="card">
+      <Image
+        src="/member2.png"
+        alt="Member 2"
+        width={300}
+        height={300}
+        className="memberImage"
+      />
+      <div className="memberText">
+        <h4>Jane Smith</h4>
+        <p>Customer Relations Lead, dedicated to client satisfaction and support.</p>
+      </div>
+    </div>
+
+    <div className="card">
+      <Image
+        src="/member3.png"
+        alt="Member 3"
+        width={300}
+        height={300}
+        className="memberImage"
+      />
+      <div className="memberText">
+        <h4>Michael Brown</h4>
+        <p>Operations Specialist handling logistics planning and tracking shipments.</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Blurry Description Container */}
+  <div className="ptext">
+    <p>
+      At CM Logistics, our team is the driving force behind our success. We are a diverse group of logistics professionals, customer service experts, and tech enthusiasts united by a passion for reliable delivery. From planning shipments to handling customs, every team member plays a vital role in ensuring your goods reach their destination smoothly and efficiently. We're proud of the work we do — and even prouder of the trust our clients place in us.
+    </p>
   </div>
 </section>
 
 
 
-     {/* WHY CHOOSE section*/}
 
+
+
+     {/* WHY CHOOSE section*/}
+     
      <section className="top-notch-services">
       <div className="topcont">
       <div className="services-header">
