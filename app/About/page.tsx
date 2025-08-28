@@ -185,21 +185,16 @@ export default function About() {
     </section>
 
 
+
+
 {/* Team section*/}
 
-
-
-
-
-
-
 <section className="teamSection">
-  <h2>Meet Our Team</h2>
+   <div className="team1"><h2>Meet Our Team</h2></div>
   {/* Top four containers */}
   <div className="topContainers">
     <div className="topContainer">
       <h3>Qualified Leaders</h3>
-      <div className="line"></div>
       <p>
         Our leaders have years of experience in logistics and supply chain management, ensuring efficient and reliable deliveries.
       </p>
@@ -231,7 +226,7 @@ export default function About() {
   <div className="memberCards">
     <div className="card">
       <Image
-        src="/member1.png"
+        src="/client1.jpeg"
         alt="Member 1"
         width={300}
         height={300}
@@ -245,7 +240,7 @@ export default function About() {
 
     <div className="card">
       <Image
-        src="/member2.png"
+        src="/client3.jpeg"
         alt="Member 2"
         width={300}
         height={300}
@@ -259,7 +254,7 @@ export default function About() {
 
     <div className="card">
       <Image
-        src="/member3.png"
+        src="/client4.jpeg"
         alt="Member 3"
         width={300}
         height={300}

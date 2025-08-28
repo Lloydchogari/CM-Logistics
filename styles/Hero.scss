@@ -1,3 +1,16 @@
+/* Global font family for entire page */
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Import Poppins from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+
+
+
+
 .hero {
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), url('../public/many.jpg') no-repeat center center;
   background-size: cover;
