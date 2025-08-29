@@ -22,8 +22,8 @@ const Footer = () => {
             <div>
               <h3>Platforms</h3>
               <ul>
-                <li>Web App</li>
-                <li>Mobile App</li>
+                <li>Track shipment</li>
+                <li>Pricing</li>
                 <li>API Access</li>
               </ul>
             </div>
