@@ -1,11 +1,47 @@
 'use client';
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../styles/HeroSection.scss';
-import { FaGlobe, FaUserTie, FaHandshake, FaClipboardCheck } from 'react-icons/fa';
 import logo from '../public/shiplink-logo2.png';
+import heroImage from '../public/shiplink-logo2.png'; // Replace with your background image
+
+const animatedTexts = [
+  "NO LONGER WANT THOSE CARDS WITH ICONS",
+  "UPGRADE YOUR SHIPPING EXPERIENCE",
+  "GLOBAL PARTNERS AT YOUR SERVICE",
+];
 
 const HeroSection = () => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const speed = deleting ? 50 : 150;
+
+    const timeout = setTimeout(() => {
+      const fullText = animatedTexts[textIndex];
+
+      if (!deleting) {
+        setDisplayedText(fullText.substring(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+        if (charIndex + 1 === fullText.length) setDeleting(true);
+      } else {
+        setDisplayedText(fullText.substring(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+        if (charIndex - 1 === 0) {
+          setDeleting(false);
+          setTextIndex((textIndex + 1) % animatedTexts.length);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, deleting, textIndex]);
+
   return (
     <section className="hero-section">
       {/* Wavy header with floating logo */}
@@ -13,63 +49,35 @@ const HeroSection = () => {
         <div className="logo-circle">
           <Image src={logo} alt="Company Logo" width={150} height={150} />
         </div>
-
-        {/* SVG Wave */}
         <div className="wave-container">
           <svg className="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
               d="M0,60 C300,120 600,0 900,60 C1050,90 1150,30 1200,60 L1200,120 L0,120 Z"
               fill="white"
-            ></path>
+            />
           </svg>
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="main-content">
-        <div className="angled-container">
-          <div className="angled-top-section">
-            <div className="angled-inner">
-              <div className="glass-info-box">
-                <h1>Your Global Real Shipping Partners</h1>
-                <p>
-                  CM Logistics is your gateway to a world of shipping all kinds of goods.
-                  With a global network of trusted partners, we're dedicated to connecting
-                  clients across borders.
-                </p>
-                   <div className="see-more-left-wrapper">
-                    <Link href="/About" className="see-more-left-btn">
-                      About Us
-                    </Link>
-                  </div>
-              </div>
-            </div>
+      {/* Master container with left image + glass text and right animated text */}
+      <div className="master-container">
+        <div className="left-side">
+          <Image src={heroImage} alt="Background" fill style={{ objectFit: 'cover' }} />
+          <div className="glass-overlay">
+            <h1>Your Global Real Shipping Partners</h1>
+            <p>
+              CM Logistics is your gateway to a world of shipping all kinds of goods.
+            </p>
+            <Link href="/About" className="btn">
+              About Us
+            </Link>
           </div>
         </div>
 
-        <div className="right">
-          <div className="card-container">
-            <span className="corner top-left horizontal"></span>
-            <span className="corner top-left vertical"></span>
-            <span className="corner bottom-right horizontal"></span>
-            <span className="corner bottom-right vertical"></span>
-
-            <div className="feature-box">
-              <FaGlobe className="icon" />
-              <span>Global Reach</span>
-            </div>
-            <div className="feature-box">
-              <FaUserTie className="icon" />
-              <span>Expert Guideline</span>
-            </div>
-            <div className="feature-box">
-              <FaHandshake className="icon" />
-              <span>Personalized Service</span>
-            </div>
-            <div className="feature-box">
-              <FaClipboardCheck className="icon" />
-              <span>Transparent Process</span>
-            </div>
+        <div className="right-side">
+          <div className="animated-text">
+            <span>{displayedText}</span>
+            <span className="cursor">|</span>
           </div>
         </div>
       </div>

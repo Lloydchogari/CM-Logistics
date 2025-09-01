@@ -342,7 +342,7 @@ export default function About() {
         <p>Your products are in secure hands</p>
         <h5>
           Direct sourcing & shipping from China to Zimbabwe! <br />
-          --For just $460 per cbm-- <br /> --Shipping takes only 45 Days--
+          --For just $460 per cbm including duty-- <br /> --Shipping takes not more than 55 Days--
         </h5>
         <p>
           Whether you're a small business or a growing brand, we've made importing easier than ever.

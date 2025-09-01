@@ -236,6 +236,13 @@
   gap: 2rem;
   background: #f7f7f7;
 
+  .headtag h1{
+    color: #000;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
   .servicesContainer {
     display: flex;
     justify-content: flex-start; /* left-align by default */
@@ -551,6 +558,101 @@
   .ctaContent h2 {
     font-size: 1.8rem;
   }
+}
+
+
+
+
+/*our work */
+.our-works {
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), url("../../public/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  background-attachment: fixed;
+  text-align: center;
+  padding: 40px;
+
+  p{
+    color: #ffffff;
+  }
+
+  h3{
+    color: #ffffff;
+  }
+ 
+}
+
+  
+
+  .our-works h2{
+  font-size: 50px;
+  color: red;
+  font-weight: 600;
+}
+.carousel {
+  position: relative;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Positioning for the carousel cards */
+.left2 {
+  transform: translateX(-350px) scale(0.7) rotateY(20deg);
+  z-index: 1;
+}
+.left1 {
+  transform: translateX(-200px) scale(0.85) rotateY(15deg);
+  z-index: 2;
+}
+.active {
+  transform: translateX(0) scale(1);
+  z-index: 3;
+}
+.right1 {
+  transform: translateX(200px) scale(0.85) rotateY(-15deg);
+  z-index: 2;
+}
+.right2 {
+  transform: translateX(350px) scale(0.7) rotateY(-20deg);
+  z-index: 1;
+}
+
+.caption {
+  margin-top: 20px;
+}
+
+.controls {
+  margin-top: 15px;
+}
+.controls button {
+  background: orange;
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 15px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 20px;
+}
+.controls button:hover {
+  background: #ffd08a;
 }
 
 

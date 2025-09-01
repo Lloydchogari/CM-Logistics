@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import abt from '../../public/abt.jpg';
 import './Services.scss';
 import { FaShip, FaBox, FaTruck, FaPlane, FaWarehouse, FaBoxes, FaClipboardList } from 'react-icons/fa';
 import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa';
@@ -56,6 +57,24 @@ export default function Services() {
     '/the1.jpg',
     '/ships.jpg'
   ];
+
+    const images = [
+  { src: abt, title: "Work One", author: "John Doe" },
+  { src: abt, title: "Work Two", author: "Jane Smith" },
+  { src: abt, title: "Work Three", author: "Alex Ray" },
+  { src: abt, title: "Work Four", author: "Lisa Brown" },
+  { src: abt, title: "Work Five", author: "David Lee" },
+  
+];
+  const [current, setCurrent] = useState(2); // Start with middle image
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   //FOR THOSE IMAGES ======
 
@@ -154,7 +173,7 @@ export default function Services() {
       {/* ===== 3) UPDATED SERVICES CONTAINERS ===== */}
       <section className="servicesSection">
         {/* TOP CONTAINER */}
-        <h1>Services CM Logistics</h1>
+           <div className="headtag"><h1>CM Logistics</h1></div>
         <div className="servicesContainer topContainer">
           {topServices.map((service, index) => (
             <div className="serviceCard" key={index}>
@@ -192,6 +211,49 @@ export default function Services() {
               </div>
             ))}
           </section>
+
+          
+ {/* our work 22 Section */}  
+    <section>
+      <div className="our-works">
+          <h2>Our Works</h2>
+            <p className="work-text">
+            We create visually striking branding and marketing campaigns that
+            captivate audiences and tell your story.
+          </p>
+          <div className="carousel">
+            {images.map((img, index) => {
+              let position = index - current;
+              if (position < 0) position += images.length;
+
+              let className = "card";
+              if (position === 0) className += " left2";
+              else if (position === 1) className += " left1";
+              else if (position === 2) className += " active";
+              else if (position === 3) className += " right1";
+              else className += " right2";
+
+              return (
+                <div
+                  key={index}
+                  className={className}
+                  style={{ backgroundImage: `url(${img.src})` }}
+                ></div>
+              );
+            })}
+          </div>
+          <div className="caption">
+            <h3>{images[current].title}</h3>
+            <p>{images[current].author}</p>
+          </div>
+          <div className="controls">
+            <button onClick={prevSlide}>&larr;</button>
+            <button onClick={nextSlide}>&rarr;</button>
+          </div>
+       </div>
+    </section>
+ 
+
 
 
       {/* ===== 4) SERVICE OVERVIEW SECTION ===== */}
@@ -249,9 +311,9 @@ export default function Services() {
         <section className="pricing">
           <div className="pricingline2"></div>
           <h5>Pricing Plan</h5>
-          <h2>We Make IT Simple, Faster, And Less Expensive</h2>
+          <h2>We Make Shipping Simple And Less Expensive</h2>
           <p>
-          Flexible pricing designed to grow with your vision choose the plan that fits your journey
+          Flexible pricing designed to grow with your vision, choose the plan that fits your journey
           </p>
 
           <div className="pricing-cards">
@@ -304,7 +366,6 @@ export default function Services() {
               </div>
             ))}
           </div>
-          <div className="daes">China to Zimbabwe in just 45days</div>
         </section>
 
               {/*=====6 FOOTER OUR FOOTER==== */}
