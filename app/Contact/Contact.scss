@@ -114,7 +114,7 @@
   list-style: none;
   gap: 2rem;
   padding: 1rem 2rem;
-  margin-right: 10px;
+  margin-left: 10px;
   font-size: 18px;
   font-weight: 700;
 
@@ -446,45 +446,40 @@
 @media (max-width: 768px) {
   
   /* NAVIGATION - Keep horizontal layout */
-  .headder {
-    width: 95%;
-    max-width: 600px;
-    top: 20px;
-  }
-  
-  .nav {
-    gap: 1rem;
-    padding: 0.8rem 1.5rem;
-    height: auto;
-    min-height: 60px;
-    border-radius: 30px;
-  }
-  
-  .logo img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  /* Keep desktop nav visible on mobile - horizontal layout */
-  .nav-links.desktop-nav {
-    display: flex;
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
-    font-weight: 600;
+@media (max-width: 768px) {
+  .contactHero {
+    min-height: 100vh; /* Make it fill full viewport height */
+    border-radius: 0;   /* Remove top rounded corners */
+    margin: 0;          /* Remove any margins */
+    padding: 0;         /* Remove padding so bg fits */
+    background-position: center top; /* Keep image aligned nicely */
     
-    li a {
-      padding: 0.5rem 0.8rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      
-      &:hover {
-        background: rgba(255, 0, 0, 0.1);
-        color: #ff0000;
-      }
+    &::before {
+      border-radius: 0; /* Remove overlay rounded corners */
+    }
+
+    .contactHeroContent {
+      margin: 0 auto;
+      max-width: 90%;
+      padding: 1.5rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
+
+  /* Optional: remove header top spacing */
+  .headder {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+  }
+}
+
   
   /* Hide mobile toggle since we're using horizontal nav */
   .mobile-menu-toggle {
@@ -873,7 +868,7 @@
     margin-right: 1em;
     padding-top: 90px;
     gap: 1px;
-    li a, li button.close-menu { font-size: 1em; }
+    li a, li button.close-menu { font-size: 2em; }
   }
 }
 
