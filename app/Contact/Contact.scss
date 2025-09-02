@@ -132,7 +132,7 @@
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   color: #000;
   cursor: pointer;
   z-index: 1001;
@@ -766,25 +766,29 @@
   }
 }
 
-/* Hide desktop nav-links */
-.nav-links {
-  display: none !important;
+/* Hide desktop nav-links on mobile only */
+@media (max-width: 768px) {
+  .nav-links.desktop-nav {
+    display: none !important;
+  }
+
+  /* Show mobile menu button only on mobile */
+  .mobile-menu-toggle {
+    display: block;
+  }
 }
 
-/* Hamburger Menu Button - Always visible */
-.mobile-menu-toggle {
-  display: block;
-  background: none;
-  border: none;
-  color: #000;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 24px;
-  transition: background 0.12s;
-  z-index: 1200;
-  &:hover { background: rgba(255,0,0,0.08); }
+/* Desktop: show nav-links, hide mobile menu button */
+@media (min-width: 769px) {
+  .nav-links.desktop-nav {
+    display: flex !important;
+  }
+
+  .mobile-menu-toggle {
+    display: none !important;
+  }
 }
+
 
 /* Overlay: glass, covers all, transitions, disables scroll */
 .mobile-nav-blur {
