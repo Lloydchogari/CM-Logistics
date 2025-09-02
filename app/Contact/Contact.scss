@@ -659,7 +659,7 @@
       .contactForm {
         width: 100%;
         max-width: 100%;
-        padding: 1.5rem;
+        padding: 1rem;
       }
     }
     
@@ -753,8 +753,9 @@
   }
   
   .footerLinks {
-    gap: 2rem;
-    
+    gap: 5rem;
+    text-align: left;
+
     h3 { 
       font-size: 1.1rem; 
     } 
@@ -844,6 +845,7 @@
   flex-direction: column;
   justify-content: center;
   margin-left: 15px;
+  padding-right: 20px;
   li {
     a, button.close-menu {
       color: #000;

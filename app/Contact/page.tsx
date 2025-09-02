@@ -107,7 +107,7 @@ export default function ContactUs() {
         <section className="contactInfoSection">
           <div className="contactInfoHeader">
             <p className="sectionLabel">CONTACT</p>
-            <h2 className="sectionTitle">Get in Touch with Us</h2>
+            <h2 className="sectionTitle">Get in Connected with Us</h2>
             <p className="sectionDescription">
               Whether you have questions or need assistance, our team is here to help.<br />
               Reach out to us anytime.
@@ -225,7 +225,7 @@ export default function ContactUs() {
             </div>
             <div className="footerCopyright">
               <div className="footerLine"></div>
-              <p>© {new Date().getFullYear()} CMLogistics. All rights reserved.</p>
+              <p>©CMLogistics. All rights reserved.</p>
             </div>
           </div>
         </footer>
