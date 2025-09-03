@@ -196,63 +196,54 @@ export default function Services() {
         </div>
       </section>
 
-          {/* ===== 5) WITH THOSE IMAGES SECTION ===== */}
-        
-          <section className="keyServicesSection">
-            <h1>All About CM Logistics</h1>
-            {rows.map((row, rowIndex) => (
-              <div className="servicesRow" key={rowIndex}>
-                {row.map((item, index) => (
-                  <div className="serviceItem" key={index}>
-                    <img src={item.img} alt={item.title} />
-                    <h3>{item.title}</h3>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </section>
-
+      
           
  {/* our work 22 Section */}  
     <section>
       <div className="our-works">
-          <h2>Our Works</h2>
-            <p className="work-text">
-            We create visually striking branding and marketing campaigns that
-            captivate audiences and tell your story.
-          </p>
-          <div className="carousel">
-            {images.map((img, index) => {
-              let position = index - current;
-              if (position < 0) position += images.length;
+        <h2>Our Works</h2>
+        <p className="work-text">
+          We create visually striking branding and marketing campaigns that
+          captivate audiences and tell your story.
+        </p>
 
-              let className = "card";
-              if (position === 0) className += " left2";
-              else if (position === 1) className += " left1";
-              else if (position === 2) className += " active";
-              else if (position === 3) className += " right1";
-              else className += " right2";
+        <div className="carousel">
+          {images.map((img, index) => {
+            let position = index - current;
+            if (position < 0) position += images.length;
 
-              return (
-                <div
-                  key={index}
-                  className={className}
-                  style={{ backgroundImage: `url(${img.src})` }}
-                ></div>
-              );
-            })}
-          </div>
-          <div className="caption">
-            <h3>{images[current].title}</h3>
-            <p>{images[current].author}</p>
-          </div>
-          <div className="controls">
-            <button onClick={prevSlide}>&larr;</button>
-            <button onClick={nextSlide}>&rarr;</button>
-          </div>
-       </div>
+            let className = "card";
+            if (position === 0) className += " left2";
+            else if (position === 1) className += " left1";
+            else if (position === 2) className += " active";
+            else if (position === 3) className += " right1";
+            else className += " right2";
+
+            return (
+              <div
+                key={index}
+                className={className}
+                style={{
+                  backgroundImage: `url(${img.src?.src || img.src})`
+                }}
+              ></div>
+            );
+          })}
+        </div>
+
+        <div className="caption">
+          <h3>{images[current].title}</h3>
+          <p>{images[current].author}</p>
+        </div>
+
+        <div className="controls">
+          <button onClick={prevSlide}>&larr;</button>
+          <button onClick={nextSlide}>&rarr;</button>
+        </div>
+      </div>
     </section>
- 
+
+    
 
 
 
