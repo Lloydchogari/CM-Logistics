@@ -4,6 +4,10 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import abt from '../../public/abt.jpg';
+import logo from '../../public/shiplink-logo2.png';
+import the1 from '../../public/the1.jpg';
+import solo from '../../public/solo.jpg';
+import tlogo from '../../public/tlogo.png';
 import './Services.scss';
 import { FaShip, FaBox, FaTruck, FaPlane, FaWarehouse, FaBoxes, FaClipboardList } from 'react-icons/fa';
 import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa';
@@ -60,10 +64,10 @@ export default function Services() {
 
     const images = [
   { src: abt, title: "Work One", author: "John Doe" },
-  { src: abt, title: "Work Two", author: "Jane Smith" },
-  { src: abt, title: "Work Three", author: "Alex Ray" },
-  { src: abt, title: "Work Four", author: "Lisa Brown" },
-  { src: abt, title: "Work Five", author: "David Lee" },
+  { src: logo, title: "Work Two", author: "Jane Smith" },
+  { src: the1, title: "Work Three", author: "Alex Ray" },
+  { src: solo, title: "Work Four", author: "Lisa Brown" },
+  { src: tlogo, title: "Work Five", author: "David Lee" },
   
 ];
   const [current, setCurrent] = useState(2); // Start with middle image
@@ -76,26 +80,6 @@ export default function Services() {
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  //FOR THOSE IMAGES ======
-
-    const services = [
-    { img: '/abt.jpg', title: 'Customer Satisfaction' },
-    { img: '/Cont3.jpg', title: 'On-time Delivery' },
-    { img: '/China.jpeg', title: 'Affordable Deals' },
-    { img: '/conts.jpg', title: 'Secure Handling' },
-    { img: '/21.jpg', title: '24/7 Support' },
-    { img: '/26.5.jpg', title: 'Shipment Tracking' },
-    { img: '/Cont1.jpg', title: 'Flexible Scheduling' },
-    { img: '/flift.jpeg', title: 'Quality Assurance' },
-    { img: '/load.jpeg', title: 'Wide Coverage' },
-    { img: '/logo.png', title: 'Custom Solutions' },
-  ];
-
-  // Split into rows of 5
-  const rows = [];
-  for (let i = 0; i < services.length; i += 5) {
-    rows.push(services.slice(i, i + 5));
-  }
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -196,7 +180,7 @@ export default function Services() {
         </div>
       </section>
 
-      
+
           
  {/* our work 22 Section */}  
     <section>

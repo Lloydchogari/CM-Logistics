@@ -106,29 +106,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .headder {
-    width: 95%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .heroTextOverlay {
-    padding: 1.5rem 2rem;
-    h1 {
-      font-size: 2.2rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-
-  .nav-links {
-    gap: 1rem;
-    font-size: 16px;
-  }
-}
 
 /* ===== 2) INTRO SECTION ===== */
 .introSection {
@@ -145,10 +122,6 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
     border-radius: 15px;
     overflow: hidden;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
 
     .introImage {
       flex: 1;
@@ -340,16 +313,6 @@
       font-weight: bold;
     }
   }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2.2rem;
-    }
-
-    .overviewText p {
-      font-size: 1rem;
-    }
-  }
 }
 
 
@@ -378,15 +341,6 @@
   font-weight: bold;
   margin-right: 50px;
   color: white;
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
 }
 
 
@@ -441,31 +395,9 @@
   }
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 992px) {
-  .servicesContainer {
-    flex-direction: column;
-    align-items: center;
-    max-width: 90% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .servicesHeroContent h1 {
-    font-size: 2rem;
-  }
-
-  .ctaContent h2 {
-    font-size: 1.8rem;
-  }
-}
 
 
-
-
-/*our work */
+/*OUR WORKS */
 .our-works {
   background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), url("../../public/logo.png");
   background-repeat: no-repeat;
@@ -510,7 +442,7 @@
   background-size: cover;
   background-position: center;
   border-radius: 20px;
-  transition: all 0.5s ease-in-out;
+  transition: all 2.9s ease-in-out;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
@@ -575,8 +507,8 @@
     background-size: cover;
     background-position: center;
     border-radius: 12px;
-    transition: all 0.6s ease;
-    filter: blur(6px);
+    transition: all 0.9s ease;
+    filter: blur(3px);
     opacity: 0.4;
     z-index: 1;
   }
@@ -898,5 +830,206 @@
     font-size: 0.9rem;
     color: #9bdefd;
     margin: 0;
+  }
+}
+
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+/* Medium mobile devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .introBox {
+    flex-direction: column;
+  }
+
+   /* Intro section */
+  .introBox {
+    flex-direction: column;
+  }
+  .introImage, .introText {
+    width: 100%;
+    min-height: auto;
+  }
+  .introText .textOverlay {
+    margin-top: -10px;
+    text-align: center;
+  }
+
+  .servicesContainer {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px !important;
+    max-width: calc(100% - 40px) !important;
+  }
+
+  .carousel .left2, .carousel .right2 {
+    opacity: 0.2;
+    transform: translateY(-50%) scale(0.4);
+  }
+
+  .pricing-cards {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .pricing-card {
+    width: clamp(280px, 45vw, 300px);
+  }
+
+  .footerLinks {
+    gap: 4rem;
+    margin-left: 0;
+  }
+
+  .footerRight {
+    margin-left: 0;
+  }
+}
+
+
+/* Intro section fix for mobile and medium devices */
+@media (max-width: 768px) {
+  .introBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    text-align: center;
+    gap: 5px; /* Space between image and text */
+  }
+
+  .introImage {
+    width: 100%;
+    max-width: 400px; /* Keep it from stretching too much */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .introText {
+    width: 90%;
+    padding: 10px;
+  }
+}
+
+
+
+/* Tablets (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav {
+    gap: 50px;
+  }
+
+  .introBox {
+    flex-direction: row;
+  }
+
+  .servicesContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .carousel .active {
+    width: 280px;
+    height: 350px;
+  }
+
+  .pricing-cards {
+    justify-content: center;
+  }
+
+  .pricing-card {
+    width: 280px;
+  }
+
+  .footerLinks {
+    gap: 6rem;
+    margin-left: 50px;
+  }
+
+  .footerRight {
+    margin-left: 50px;
+  }
+}
+
+/* Large screens (1025px and up) */
+@media (min-width: 1025px) {
+  .nav {
+    gap: 100px;
+  }
+
+  .servicesContainer.topContainer {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  .servicesContainer.bottomContainer {
+    margin-left: 30px;
+    margin-right: auto;
+  }
+
+  .footerLinks {
+    margin-left: 100px;
+  }
+
+  .footerRight {
+    margin-left: 100px;
+  }
+}
+
+/* Fix for very large screens */
+@media (min-width: 1440px) {
+  .servicesHero .servicesHeroContent {
+    max-width: 800px;
+  }
+
+  .introBox {
+    max-width: 1400px;
+  }
+
+  .serviceOverviewSection .overviewText {
+    max-width: 1000px;
+  }
+}
+
+/* CTA Section */
+@media (max-width: 768px) {
+  .ctaSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 20px;
+  }
+
+  .ctaSection .ctaText {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    max-width: 90%;
+  }
+
+  .ctaSection .ctaButton {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .servicesHero {
+    min-height: 70vh;
+  }
+
+  .carousel {
+    height: 250px;
+  }
+
+  .carousel .active {
+    width: 200px;
+    height: 240px;
   }
 }
