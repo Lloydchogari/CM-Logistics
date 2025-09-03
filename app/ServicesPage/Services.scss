@@ -878,6 +878,8 @@
     width: clamp(280px, 45vw, 300px);
   }
 
+
+
   .footerLinks {
     gap: 4rem;
     margin-left: 0;
@@ -994,15 +996,28 @@
   }
 }
 
-/* CTA Section */
-@media (max-width: 768px) {
-  .ctaSection {
-    display: flex;
+
+  /* Scrolling strip */
+  .scrolling-strip {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Pricing cards */
+  .pricing-cards {
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-    gap: 20px;
+  }
+
+
+
+/* CTA Section */
+@media (max-width: 768px) {
+ .ctaSection {
+    margin-left: 0;
+    width: 100%;
+    border-radius: 0;
   }
 
   .ctaSection .ctaText {
@@ -1016,6 +1031,19 @@
     font-size: 1rem;
   }
 }
+
+ /* Scrolling strip */
+  .scrolling-strip {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Pricing cards */
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
 
 
 /* Landscape mobile orientation */
