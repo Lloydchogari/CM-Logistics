@@ -107,7 +107,7 @@
   display: none;
   background: none;
   border: none;
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   color: #000;
   cursor: pointer;
   z-index: 1001;
@@ -823,56 +823,47 @@
    RESPONSIVE DESIGN - MOBILE FIRST
 ===================================== */
 
-
-
-
-
-@media (max-width: 768px) {
-  .servicestHero {
-    min-height: 100vh; /* Make it fill full viewport height */
-    border-radius: 0;   /* Remove top rounded corners */
-    margin: 0;          /* Remove any margins */
-    padding: 0;         /* Remove padding so bg fits */
-    background-position: center top; /* Keep image aligned nicely */
-    
-   
-  }
-
-  /* Optional: remove header top spacing */
-  .headder {
-    top: 0;
-    left: 8.5px;
-    transform: none;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 0;
-  }
-}
-
-  
-  /* Hide mobile toggle since we're using horizontal nav */
-  .mobile-menu-toggle {
-    display: none;
-  }
-
-
-
 /* Mobile phones (up to 768px) */
 @media (max-width: 768px) {
   
-  
+  /* NAVBAR - Mobile hamburger menu */
+  .headder {
+    position: fixed;
+    top: 15px;
+    left: 2.5%;
+    transform: none;
+    width: 95%;
+    max-width: 450px;
+    z-index: 1000;
+  }
+
+  .nav {
+    padding: 0.8rem 1.5rem;
+    gap: 1rem;
+    height: auto;
+    min-height: 55px;
+    border-radius: 25px;
+  }
+
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
   .mobile-menu-toggle {
     display: block !important;
   }
 
   /* HERO SECTION */
   .servicesHero {
-    min-height: 70vh; 
-    border-radius: 24px 24px 0 0;
-    
-    &::before { 
-      border-radius: 24px 24px 0 0; 
-    }
+    min-height: 60vh;
+    padding: 2rem 1rem;
+    border-radius: 20px 20px 0 0;
+    margin-top: 80px;
 
     .servicesHeroContent {
       h1 {
@@ -887,7 +878,10 @@
     }
   }
 
-  
+  .mainHero {
+    margin-top: 80px;
+  }
+
   /* INTRO SECTION */
   .introSection {
     padding: 40px 15px;
@@ -1096,243 +1090,75 @@
     }
   }
 
-  
-
-  /* FOOTER - Center logo and increase gaps */
-
-  .footerInnerContainer { 
-    width: 100%; 
-    margin: 0 auto; 
-    padding: 2rem 1.5rem; 
-    border-radius: 10px; 
+  /* FOOTER */
+  .footerSection {
+    padding: 1rem;
   }
-  
-  .footerContainer { 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 2.5rem; /* Increased gap */
-    text-align: center; 
+
+  .footerInnerContainer {
+    width: 100%;
+    margin: 0;
+    padding: 2rem 1rem;
   }
-  
-  .footerLeft {
-    /* Center the logo */
-    display: flex;
+
+  .footerContainer {
     flex-direction: column;
-    align-items: center;
-    
-    .logoImage { 
-      width: 120px; 
-    }
-    
-    .socialIcons { 
-      justify-content: center; 
-      gap: 1.5rem; /* Increased gap between social icons */
-    }
+    gap: 2rem;
+    text-align: center;
   }
-  
-  .footerLinks { 
-    gap: 3rem; /* Increased gap between link groups */
-    justify-content: center;
-    
-    h3 { 
-      font-size: 1.2rem; 
-    } 
-    
-    ul {
-      li { 
-        font-size: 1rem;
-        margin-bottom: 0.8rem; /* Increased gap between links */
+
+  .footerLeft {
+    .logoImage {
+      width: clamp(100px, 20vw, 120px);
+    }
+
+    .tagline {
+      font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+
+    .socialIcons {
+      justify-content: center;
+      font-size: clamp(1rem, 4vw, 1.2rem);
+
+      svg {
+        &:hover {
+          font-size: clamp(1.2rem, 5vw, 1.4rem);
+        }
       }
-    }
-  }
-  
-  .footerRight { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    
-    h3 { 
-      font-size: 1.2rem; 
-    } 
-    
-    .whatsappBtn { 
-      width: 100%; 
-      max-width: 250px; 
-      justify-content: center; 
-      margin-top: 1rem;
-    } 
-  }
-  
-  .footerCopyright {
-    margin-top: 2.5rem; /* Increased gap */
-    
-    .footerLine { 
-      width: 100%; 
-      margin-bottom: 1.5rem; /* Increased gap */
-    } 
-    
-    p { 
-      font-size: 0.9rem; 
-    }
-  }
-}
-
-
-
-
-
-/* Ultra-small phones */
-@media (max-width: 480px) {
-  .headder {
-    width: 95%;
-    top: 15px;
-  }
-  
-  .nav {
-    padding: 0.6rem 1rem;
-    gap: 0.5rem;
-  }
-  
-  .logo img {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .nav-links.desktop-nav {
-    gap: 0.5rem;
-    font-size: 12px;
-    
-    li a {
-      padding: 0.4rem 0.6rem;
     }
   }
 
   .footerLinks {
-    left: 0;
-    gap: 5rem;
-    text-align: left;
+    gap: 2rem;
+    margin-left: 0;
+    flex-direction: column;
 
-    h3 { 
-      font-size: 1.1rem; 
-      left: 0;
-    } 
-    
-    ul li { 
-      font-size: 0.9rem; 
+    h3 {
+      font-size: clamp(1.1rem, 4vw, 1.2rem);
+    }
+
+    ul li {
+      font-size: clamp(0.8rem, 3vw, 0.9rem);
     }
   }
-}
 
+  .footerRight {
+    margin-left: 0;
 
-
-
-/* Hide desktop nav-links on mobile only */
-@media (max-width: 768px) {
-  .nav-links.desktop-nav {
-    display: none !important;
-  }
-
-  /* Show mobile menu button only on mobile */
-  .mobile-menu-toggle {
-    display: block;
-  }
-}
-
-/* Desktop: show nav-links, hide mobile menu button */
-@media (min-width: 769px) {
-  .nav-links.desktop-nav {
-    display: flex !important;
-  }
-
-  .mobile-menu-toggle {
-    display: none !important;
-  }
-}
-
-
-/* Overlay: glass, covers all, transitions, disables scroll */
-.mobile-nav-blur {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  z-index: 1200;
-  background: #ebebebe5;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mobile-nav-blur.open {
-  pointer-events: auto;
-  opacity: 1;
-}
-
-.mobile-nav-content {
-  display: flex;
-  width: 90vw;
-  max-width: 850px;
-  border-radius: 38px;
-  background: transparent;
-  box-shadow: 0 6px 38px rgba(0,0,0,0.10);
-  overflow: hidden;
-}
-
-/* Logo on left: big and centered */
-.mobile-logo-side {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-right: 2px solid #d5d5d5ad;
-  background: transparent;
-  img {
-    width: 132px;
-    height: 132px;
-    object-fit: contain;
-  }
-}
-@media (max-width: 600px) {
-  .mobile-logo-side img {
-    width: 85px;
-    height: 85px;
-  }
-}
-
-/* Nav links on the right, stacked, right-aligned */
-.mobile-nav-links {
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 15px;
-  padding-right: 20px;
-  li {
-    a, button.close-menu {
-      color: #000;
-      
-      &:hover { color: #ff0000; }
+    h3 {
+      font-size: clamp(1.1rem, 4vw, 1.2rem);
     }
-    button.close-menu {
-      font-size: 0.8rem;
-      margin-top: 0.9em;
-      color: #555;
-      text-align: right;
-      &:hover { color: #ff0000; }
+
+    .whatsappBtn {
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      padding: 0.6rem 1rem;
+      justify-content: center;
+      margin: 0 auto;
     }
   }
-}
 
-/* Optional: Responsive logo size inside nav */
-@media (max-width: 480px) {
-  .mobile-nav-content { width: 98vw; }
-  .mobile-nav-links {
-    margin-right: 1em;
-    padding-top: 90px;
-    gap: 1px;
-    li a, li button.close-menu { font-size: 1em; }
+  .footerCopyright p {
+    font-size: clamp(0.7rem, 2.5vw, 0.8rem);
   }
 }
+

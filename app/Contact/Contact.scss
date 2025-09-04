@@ -440,9 +440,18 @@
   p { font-size: 0.9rem; color: #9bdefd; margin: 0; }
 }
 
+
+
+
+
+
 /* ==============================
    MOBILE & RESPONSIVE STYLES
 ============================== */
+
+
+
+
 @media (max-width: 768px) {
   
   /* NAVIGATION - Keep horizontal layout */
@@ -472,7 +481,7 @@
   /* Optional: remove header top spacing */
   .headder {
     top: 0;
-    left: 0;
+    left: 9.3px;
     transform: none;
     width: 100%;
     padding: 1rem;

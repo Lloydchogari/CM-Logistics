@@ -14,6 +14,27 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 
 
 export default function Services() {
+
+//mobile responsive nav-bar
+
+ const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Prevent scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+
   // First container (Sea, Air, Land)
   const topServices = [
     {
@@ -108,13 +129,66 @@ export default function Services() {
                 priority
               />
             </div>
-            <ul className="nav-links">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/About">About</Link></li>
-              <li><Link href="/ServicesPage">Services</Link></li>
-              <li><Link href="/Contact">Contact</Link></li>
-            </ul>
+
+            {/* Show mobile menu button only on mobile */}
+            {isMobile && (
+              <button
+                className="mobile-menu-toggle"
+                aria-label="Open navigation menu"
+                onClick={() => setMenuOpen(true)}
+              >
+                Menu
+              </button>
+            )}
+
+
+            
+             {/* Desktop nav-links */}
+            {!isMobile && (
+              <ul className="nav-links desktop-nav">
+                <li><Link href="/">Home</Link></li>
+                <li><Link href="/About">About</Link></li>
+                <li><Link href="/ServicesPage">Services</Link></li>
+                <li><Link href="/Contact">Contact</Link></li>
+              </ul>
+            )}
           </nav>
+
+
+           {/* Mobile overlay menu */}
+                     {isMobile && (
+                       <div className={`mobile-nav-blur${menuOpen ? ' open' : ''}`}>
+                         <div className="mobile-nav-content">
+                           <div className="mobile-logo-side">
+                             <Image
+                               src="/shiplink-logo2.png"
+                               alt="ShipLink Logo"
+                               width={130}
+                               height={130}
+                               quality={100}
+                               priority
+                             />
+                           </div>
+                           <ul className="mobile-nav-links">
+                             <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+                             <li><Link href="/About" onClick={() => setMenuOpen(false)}>About</Link></li>
+                             <li><Link href="/ServicesPage" onClick={() => setMenuOpen(false)}>Services</Link></li>
+                             <li><Link href="/Contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+                             <li>
+                               <button
+                                 className="close-menu"
+                                 onClick={() => setMenuOpen(false)}
+                                 aria-label="Close navigation menu"
+                               >
+                                 Close
+                               </button>
+                             </li>
+                           </ul>
+                         </div>
+                       </div>
+                     )}
+
+
         </header>
         
         <div className="servicesHeroContent">
