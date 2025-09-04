@@ -819,6 +819,9 @@
   }
 }
 
+
+
+
 /* =====================================
    RESPONSIVE DESIGN - MOBILE FIRST
 ===================================== */
@@ -1334,5 +1337,615 @@
     padding-top: 90px;
     gap: 1px;
     li a, li button.close-menu { font-size: 1em; }
+  }
+}
+
+
+
+
+
+
+/* 1. GLASSMORPHISM CONTAINER FOR HERO TEXT */
+.servicesHero .servicesHeroContent {
+  /* Add glassmorphism background to the text content */
+  
+  border-radius: 20px;
+  padding: 1rem;
+  background: rgba(41, 40, 40, 0.35);
+  border-radius: 20px;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+
+  h1{
+    text-align: center;
+  }
+}
+
+/* 2. FOOTER LINKS ALIGNMENT FIX */
+@media (max-width: 768px) {
+  .footerLinks {
+    margin-left: 0 !important; /* Remove the left margin causing misalignment */
+    gap: 2rem;
+    width: 100%;
+    justify-content: flex-start; /* Align to left instead of center */
+    text-align: left;
+  }
+  
+  .footerRight {
+    margin-left: 0 !important; /* Remove left margin from footer right too */
+  }
+}
+
+/* 3. TABLET RESPONSIVENESS (820px - 1220px) */
+@media (min-width: 821px) and (max-width: 1220px) {
+  
+  /* Header adjustments */
+  .headder {
+    width: 95%;
+    max-width: 1000px;
+  }
+  
+  .nav {
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .nav-links {
+    gap: 1.5rem;
+    font-size: 16px;
+  }
+  
+  /* Hero section */
+  .servicesHero {
+    min-height: 75vh;
+    padding: 3rem 1.5rem;
+    
+    .servicesHeroContent {
+      max-width: 80%;
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+  
+  /* Intro section */
+  .introSection {
+    padding: 50px 20px;
+  }
+  
+  .introBox {
+    width: 95%;
+    max-width: 1000px;
+  }
+  
+  .introText .textOverlay {
+    padding: 35px;
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    p {
+      font-size: 1rem;
+      max-width: 400px;
+    }
+  }
+  
+  /* Services section */
+  .servicesSection {
+    padding: 3.5rem 1.5rem;
+    
+    .headtag h1 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  .servicesContainer {
+    max-width: calc(100% - 40px);
+    padding: 1.8rem;
+    
+    &.topContainer {
+      margin-right: 20px;
+    }
+    
+    &.bottomContainer {
+      margin-left: 20px;
+    }
+  }
+  
+  .serviceCard {
+    min-width: 200px;
+    max-width: 230px;
+    
+    h3 {
+      font-size: 1.3rem;
+    }
+    
+    p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Service overview */
+  .serviceOverviewSection {
+    padding: 70px 20px;
+    margin-bottom: 6rem;
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    .overviewText {
+      max-width: 800px;
+      padding: 35px;
+      
+      .textOverlay {
+        width: 800px;
+        margin-left: -35px;
+        padding: 25px;
+        
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+  
+  /* Scrolling strip */
+  .scrolling-strip {
+    width: 60%;
+    margin-left: 15rem;
+    
+    .scrolling-text span {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* CTA section */
+  .ctaSection {
+    width: 500px;
+    margin-left: 250px;
+    
+    .ctaContent {
+      h2 {
+        font-size: 1.4rem;
+      }
+      
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+  
+  /* Carousel */
+  .carousel {
+    height: 420px;
+    
+    .card {
+      width: 180px;
+      height: 260px;
+    }
+    
+    .active {
+      width: 300px;
+      height: 380px;
+    }
+    
+    .left1, .right1 {
+      transform: translateY(-50%) scale(0.85);
+    }
+    
+    .left2, .right2 {
+      transform: translateY(-50%) scale(0.65);
+    }
+  }
+  
+  /* Pricing */
+  .pricing {
+    padding: 50px 20px;
+  }
+  
+  .pricing-cards {
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .pricing-card {
+    width: 280px;
+    padding: 28px 18px;
+  }
+  
+  /* Footer */
+  .footerInnerContainer {
+    width: calc(100% + 26px);
+    margin-left: -13px;
+    padding: 2.5rem;
+  }
+  
+  .footerContainer {
+    gap: 1.5rem;
+  }
+  
+  .footerLinks {
+    gap: 4rem;
+    margin-left: 50px;
+  }
+  
+  .footerRight {
+    margin-left: 50px;
+  }
+}
+
+/* Fine-tune for smaller tablets (821px - 950px) */
+@media (min-width: 821px) and (max-width: 950px) {
+  .servicesContainer {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto !important;
+    max-width: 90% !important;
+  }
+  
+  .serviceCard {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .footerLinks {
+    gap: 2rem;
+    margin-left: 20px;
+  }
+  
+  .footerRight {
+    margin-left: 20px;
+  }
+}
+
+
+
+
+/* 1. GLASSMORPHISM CONTAINER FOR HERO TEXT */
+.servicesHero .servicesHeroContent {
+  /* Add glassmorphism background to the text content */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 2. FOOTER LINKS ALIGNMENT FIX */
+@media (max-width: 768px) {
+  .footerLinks {
+    margin-left: 0 !important; /* Remove the left margin causing misalignment */
+    gap: 2rem;
+    width: 100%;
+    justify-content: flex-start; /* Align to left instead of center */
+    text-align: left;
+  }
+  
+  .footerRight {
+    margin-left: 0 !important; /* Remove left margin from footer right too */
+  }
+}
+
+/* 3. TABLET RESPONSIVENESS (820px - 1220px) */
+@media (min-width: 821px) and (max-width: 1220px) {
+  
+  /* Header adjustments */
+  .headder {
+    width: 95%;
+    max-width: 1000px;
+  }
+  
+  .nav {
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .nav-links {
+    gap: 1.5rem;
+    font-size: 16px;
+  }
+  
+  /* Hero section */
+  .servicesHero {
+    min-height: 75vh;
+    padding: 3rem 1.5rem;
+    
+    .servicesHeroContent {
+      max-width: 80%;
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+  
+  /* Intro section */
+  .introSection {
+    padding: 50px 20px;
+  }
+  
+  .introBox {
+    width: 95%;
+    max-width: 1000px;
+  }
+  
+  .introText .textOverlay {
+    padding: 35px;
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    p {
+      font-size: 1rem;
+      max-width: 400px;
+    }
+  }
+  
+  /* Services section */
+  .servicesSection {
+    padding: 3.5rem 1.5rem;
+    
+    .headtag h1 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  .servicesContainer {
+    max-width: calc(100% - 40px);
+    padding: 1.8rem;
+    
+    &.topContainer {
+      margin-right: 20px;
+    }
+    
+    &.bottomContainer {
+      margin-left: 20px;
+    }
+  }
+  
+  .serviceCard {
+    min-width: 200px;
+    max-width: 230px;
+    
+    h3 {
+      font-size: 1.3rem;
+    }
+    
+    p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Service overview */
+  .serviceOverviewSection {
+    padding: 70px 20px;
+    margin-bottom: 6rem;
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    .overviewText {
+      max-width: 800px;
+      padding: 35px;
+      
+      .textOverlay {
+        width: 800px;
+        margin-left: -35px;
+        padding: 25px;
+        
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+  
+  /* Scrolling strip */
+  .scrolling-strip {
+    width: 60%;
+    margin-left: 15rem;
+    
+    .scrolling-text span {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* CTA section */
+  .ctaSection {
+    width: 500px;
+    margin-left: 250px;
+    
+    .ctaContent {
+      h2 {
+        font-size: 1.4rem;
+      }
+      
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+  
+  /* Carousel */
+  .carousel {
+    height: 420px;
+    
+    .card {
+      width: 180px;
+      height: 260px;
+    }
+    
+    .active {
+      width: 300px;
+      height: 380px;
+    }
+    
+    .left1, .right1 {
+      transform: translateY(-50%) scale(0.85);
+    }
+    
+    .left2, .right2 {
+      transform: translateY(-50%) scale(0.65);
+    }
+  }
+  
+  /* Pricing */
+  .pricing {
+    padding: 50px 20px;
+  }
+  
+  .pricing-cards {
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .pricing-card {
+    width: 280px;
+    padding: 28px 18px;
+  }
+  
+  /* Footer */
+  .footerInnerContainer {
+    width: calc(100% + 26px);
+    margin-left: -13px;
+    padding: 2.5rem;
+  }
+  
+  .footerContainer {
+    gap: 1.5rem;
+  }
+  
+  .footerLinks {
+    gap: 4rem;
+    margin-left: 50px;
+  }
+  
+  .footerRight {
+    margin-left: 50px;
+  }
+}
+
+/* 5. MOBILE VIEWPORT FIX - PREVENT ZOOMING ON DIFFERENT SCREEN SIZES */
+
+/* Ultra-small phones - Fixed viewport */
+@media (max-width: 380px) {
+  html {
+    font-size: 14px; /* Base font size adjustment */
+  }
+  
+  .headder {
+    width: 98%;
+    top: 10px;
+    left: 1%;
+    transform: none;
+  }
+  
+  .nav {
+    padding: 0.5rem 0.8rem;
+    height: auto;
+    min-height: 50px;
+  }
+  
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .servicesHero {
+    min-height: 60vh;
+    padding: 2rem 1rem;
+  }
+  
+  .servicesHero .servicesHeroContent {
+    padding: 1.5rem;
+    width: 100%;
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+    
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* Small phones - Fixed viewport */
+@media (min-width: 381px) and (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .headder {
+    width: 96%;
+    top: 12px;
+    left: 2%;
+    transform: none;
+  }
+  
+  .servicesHero .servicesHeroContent {
+    width: 100%;
+    padding: 1.8rem;
+  }
+}
+
+/* Medium phones - Fixed viewport */
+@media (min-width: 481px) and (max-width: 768px) {
+  html {
+    font-size: 16px; /* Default size */
+  }
+  
+  .headder {
+    width: 94%;
+    top: 15px;
+    left: 3%;
+    transform: none;
+  }
+  
+  .servicesHero .servicesHeroContent {
+    width: 95%;
+    padding: 2rem;
+  }
+}
+
+/* Add viewport meta tag suggestion */
+/* Add this to your HTML head: <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> */
+@media (min-width: 821px) and (max-width: 950px) {
+  .servicesContainer {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto !important;
+    max-width: 90% !important;
+  }
+  
+  .serviceCard {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .footerLinks {
+    gap: 2rem;
+    margin-left: 20px;
+  }
+  
+  .footerRight {
+    margin-left: 20px;
   }
 }

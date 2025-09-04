@@ -194,7 +194,7 @@ export default function Services() {
         <div className="servicesHeroContent">
           <h1>Our Services</h1>
           <p>
-            We specialize in shipping goods from China to Zimbabwe efficiently and securely.<br />
+            We specialize in shipping goods efficiently and securely.<br />
             Explore the wide range of services we offer to simplify your logistics.
           </p>
         </div>
