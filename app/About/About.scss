@@ -845,6 +845,8 @@
         right: 10px; // after image
       }
 
+
+
       // Gradient overlay on image
         .companyImageWrapper {
           position: relative;
@@ -1030,4 +1032,206 @@
     color: #9bdefd;
     margin: 0;
   }
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MEDIA QUERIES
+========================= */
+@media (max-width: 1024px) {
+  .heroTextOverlay h1 {
+    font-size: 2.5rem;
+  }
+
+  .heroTextOverlay p {
+    font-size: 1rem;
+  }
+
+  .aboutIntroSection .introGroup {
+    flex: 1 1 100%;
+  }
 }
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 1rem;
+    font-size: 16px;
+  }
+
+  .heroTextOverlay {
+    padding: 1.5rem 1rem;
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 0.95rem;
+    }
+  }
+
+  .companyInfoSection .companyInfoContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutWrapper, .story, .motto, .aboutIntroSection, .teamSection, .companySection {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTextOverlay {
+    padding: 1rem;
+    h1 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .nav-links {
+    font-size: 14px;
+    gap: 0.5rem;
+  }
+
+  .aboutIntroSection .introGroup {
+    padding: 1rem;
+  }
+
+  .teamSection .topContainer, .teamSection .card {
+    flex: 1 1 100%;
+  }
+}
+
+/* ===== Services Section Mobile Responsive ===== */
+@media (max-width: 1024px) {
+  .companySection {
+    padding: 1.5rem;
+
+    .companyOuter {
+      flex-direction: column;
+      align-items: center;
+      min-height: auto;
+      padding: 1rem;
+
+      .companyLeft {
+        width: 100%;
+        min-height: auto;
+        margin-bottom: 1.5rem;
+
+        .companyBgImage img {
+          width: 100%;
+          height: auto;
+          transform: scale(1);
+        }
+
+        .companyGlassBox {
+          text-align: center;
+          p, h5 {
+            text-align: center;
+          }
+        }
+      }
+
+      .companyRight {
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          width: 80%;       // horizontal line across container
+          height: 5px;      // thickness
+          background: #eb0c0c;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 2px;
+        }
+
+        &::before {
+          top: 0;           // line above image
+        }
+
+        &::after {
+          bottom: 0;        // line below image
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .companySection {
+    padding: 1rem;
+
+    .companyOuter {
+      padding: 0.8rem;
+
+      .companyLeft {
+        .companyGlassBox {
+          padding: 12px;
+          h5 {
+            font-size: 1rem;
+          }
+          p {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .companyRight::before,
+      .companyRight::after {
+        height: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .companyOuter {
+    padding: 0.5rem;
+
+    .companyLeft {
+      .companyGlassBox {
+        padding: 10px;
+        h5 {
+          font-size: 0.95rem;
+        }
+        p {
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    .companyRight::before,
+    .companyRight::after {
+      height: 3px;
+    }
+  }
+}
+
