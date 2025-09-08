@@ -8,9 +8,13 @@ import logo from '../public/shiplink-logo2.png';
 import heroImage from '../public/shiplink-logo2.png'; // Replace with your background image
 
 const animatedTexts = [
-  "NO LONGER WANT THOSE CARDS WITH ICONS",
-  "UPGRADE YOUR SHIPPING EXPERIENCE",
+  "CHINA TO ZIMBABWE",
+  "CHINA TO SOUTH AFRICE",
   "GLOBAL PARTNERS AT YOUR SERVICE",
+  "LET'S WORK TOGETHER",
+
+  
+
 ];
 
 const HeroSection = () => {
@@ -20,7 +24,7 @@ const HeroSection = () => {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const speed = deleting ? 50 : 150;
+    const speed = deleting ? 150 : 200;
 
     const timeout = setTimeout(() => {
       const fullText = animatedTexts[textIndex];

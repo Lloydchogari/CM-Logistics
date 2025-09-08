@@ -1,39 +1,177 @@
 'use client';
 
 import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './About.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaHandshake, FaRocket, FaShieldAlt } from 'react-icons/fa';
 import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 
-
-
 export default function About() {
+
+
+//NAVBAR
+ const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+
+
+  // ✅ Declare refs at the top of your component
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const topContainersRef = useRef<HTMLDivElement>(null);
+  const [currentMemberIndex, setCurrentMemberIndex] = useState(0);
+
+
+  // Member data
+  const members = [
+    {
+      id: 1,
+      image: "/client1.jpeg",
+      name: "John Doe",
+      description: "Logistics Manager with 10 years of experience ensuring smooth operations."
+    },
+    {
+      id: 2,
+      image: "/client3.jpeg",
+      name: "Jane Smith",
+      description: "Customer Relations Lead, dedicated to client satisfaction and support."
+    },
+    {
+      id: 3,
+      image: "/client4.jpeg",
+      name: "Michael Brown",
+      description: "Operations Specialist handling logistics planning and tracking shipments."
+    }
+  ];
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    const topScroll = topContainersRef.current;
+
+    if (!carousel && !topScroll) return;
+
+    let scrollAmount = 0;
+    let topScrollAmount = 0;
+
+    const interval = setInterval(() => {
+      if (window.innerWidth <= 768) {
+        // topContainers horizontal auto-scroll (keep existing functionality)
+        if (topScroll) {
+          const maxTopScroll = topScroll.scrollWidth - topScroll.clientWidth;
+          topScrollAmount += 0.5; // slower than memberCards
+          if (topScrollAmount >= maxTopScroll) topScrollAmount = 0;
+          topScroll.scrollLeft = topScrollAmount;
+        }
+      }
+    }, 16); // ~60fps
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-slide member cards vertically on mobile
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      const memberInterval = setInterval(() => {
+        setCurrentMemberIndex((prevIndex) => 
+          prevIndex === members.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 3000); // Change every 3 seconds
+
+      return () => clearInterval(memberInterval);
+    }
+  }, [members.length]);
+
+  // Function to get card class based on position
+  const getCardClass = (index: number) => {
+    if (window.innerWidth > 768) return ''; // No special classes on desktop
+    
+    if (index === currentMemberIndex) return 'active';
+    if (index === (currentMemberIndex + 1) % members.length) return 'next';
+    return 'prev';
+  };
+
   return (
     <div className="aboutWrapper">
       {/* Hero Section */}
       <section className="aboutHeroSection">
         <header className="headder">
-          <nav className="nav">
-            <div className="logo">
-              <Image
-                src="/shiplink-logo2.png"
-                alt="ShipLink Logo"
-                width={80}
-                height={80}
-                quality={100}
-                priority
-              />
-            </div>
-            <ul className="nav-links">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/About">About</Link></li>
-              <li><Link href="/ServicesPage">Services</Link></li>
-              <li><Link href="/Contact">Contact</Link></li>
-            </ul>
-          </nav>
-        </header>
+                 <nav className="nav">
+                   <div className="logo">
+                     <Image
+                       src="/shiplink-logo2.png"
+                       alt="ShipLink Logo"
+                       width={80}
+                       height={80}
+                       quality={100}
+                       priority
+                     />
+                   </div>
+       
+                   {/* Show mobile menu button only on mobile */}
+                   {isMobile && (
+                     <button
+                       className="mobile-menu-toggle"
+                       aria-label="Open navigation menu"
+                       onClick={() => setMenuOpen(true)}
+                     >
+                       Menu
+                     </button>
+                   )}
+       
+                   {/* Desktop nav-links */}
+                   {!isMobile && (
+                     <ul className="nav-links desktop-nav">
+                       <li><Link href="/">Home</Link></li>
+                       <li><Link href="/About">About</Link></li>
+                       <li><Link href="/ServicesPage">Services</Link></li>
+                       <li><Link href="/Contact">Contact</Link></li>
+                     </ul>
+                   )}
+                 </nav>
+       
+                 {/* Mobile overlay menu */}
+                 {isMobile && (
+                   <div className={`mobile-nav-blur${menuOpen ? ' open' : ''}`}>
+                     <div className="mobile-nav-content">
+                       <div className="mobile-logo-side">
+                         <Image
+                           src="/shiplink-logo2.png"
+                           alt="ShipLink Logo"
+                           width={130}
+                           height={130}
+                           quality={100}
+                           priority
+                         />
+                       </div>
+                       <ul className="mobile-nav-links">
+                         <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+                         <li><Link href="/About" onClick={() => setMenuOpen(false)}>About</Link></li>
+                         <li><Link href="/ServicesPage" onClick={() => setMenuOpen(false)}>Services</Link></li>
+                         <li><Link href="/Contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+                         <li>
+                           <button
+                             className="close-menu"
+                             onClick={() => setMenuOpen(false)}
+                             aria-label="Close navigation menu"
+                           >
+                             Close
+                           </button>
+                         </li>
+                       </ul>
+                     </div>
+                   </div>
+                 )}
+               </header>
 
         <div className="imageContainer">
           <div className="darkOverlay" />
@@ -135,9 +273,7 @@ export default function About() {
         </div>
       </section>
 
-
       {/* Third section*/}
-
 <section className="about-company">
       <div className="about-images">
         <div className="image-group">
@@ -184,15 +320,12 @@ export default function About() {
       </div>
     </section>
 
-
-
-
-{/* Team section*/}
-
+{/* TEAM SECTION */}
 <section className="teamSection">
-   <div className="team1"><h2>Meet Our Team</h2></div>
+  <div className="team1"><h2>Meet Our Team</h2></div>
+
   {/* Top four containers */}
-  <div className="topContainers">
+<div className="topContainers mobile-scroll" ref={topContainersRef}>
     <div className="topContainer">
       <h3>Qualified Leaders</h3>
       <p>
@@ -223,65 +356,26 @@ export default function About() {
   </div>
 
   {/* Member Cards */}
-  <div className="memberCards">
-    <div className="card">
-      <Image
-        src="/client1.jpeg"
-        alt="Member 1"
-        width={300}
-        height={300}
-        className="memberImage"
-      />
-      <div className="memberText">
-        <h4>John Doe</h4>
-        <p>Logistics Manager with 10 years of experience ensuring smooth operations.</p>
+<div className="memberCards mobile-carousel" ref={carouselRef}>
+    {members.map((member, index) => (
+      <div key={member.id} className={`card ${getCardClass(index)}`}>
+        <Image
+          src={member.image}
+          alt={`Member ${index + 1}`}
+          width={300}
+          height={300}
+          className="memberImage"
+        />
+        <div className="memberText">
+          <h4>{member.name}</h4>
+          <p>{member.description}</p>
+        </div>
       </div>
-    </div>
-
-    <div className="card">
-      <Image
-        src="/client3.jpeg"
-        alt="Member 2"
-        width={300}
-        height={300}
-        className="memberImage"
-      />
-      <div className="memberText">
-        <h4>Jane Smith</h4>
-        <p>Customer Relations Lead, dedicated to client satisfaction and support.</p>
-      </div>
-    </div>
-
-    <div className="card">
-      <Image
-        src="/client4.jpeg"
-        alt="Member 3"
-        width={300}
-        height={300}
-        className="memberImage"
-      />
-      <div className="memberText">
-        <h4>Michael Brown</h4>
-        <p>Operations Specialist handling logistics planning and tracking shipments.</p>
-      </div>
-    </div>
-  </div>
-
-  {/* Blurry Description Container */}
-  <div className="ptext">
-    <p>
-      At CM Logistics, our team is the driving force behind our success. We are a diverse group of logistics professionals, customer service experts, and tech enthusiasts united by a passion for reliable delivery. From planning shipments to handling customs, every team member plays a vital role in ensuring your goods reach their destination smoothly and efficiently. We're proud of the work we do — and even prouder of the trust our clients place in us.
-    </p>
+    ))}
   </div>
 </section>
 
-
-
-
-
-
      {/* WHY CHOOSE section*/}
-     
     <section className="top-notch-services">
   <div className="topcont">
     <div className="services-header">
@@ -318,14 +412,6 @@ export default function About() {
     </section>
   </div>
 </section>
-
-
-
-
-
-   
-       {/* MOTTO SECTION*/}
-  
 
     <section className="companySection">
   <div className="companyOuter">
@@ -364,11 +450,6 @@ export default function About() {
 
   </div>
 </section>
-
-
-
-
-        {/* Company Info Section */}
 
      <footer className="footerSection">
           <div className="footerInnerContainer">

@@ -130,7 +130,7 @@ export default function ContactUs() {
       <section className="contactInfoSection">
         <div className="contactInfoHeader">
           <p className="sectionLabel">CONTACT</p>
-          <h2 className="sectionTitle">Get in Connected with Us</h2>
+          <h2 className="sectionTitle">Get Connected with Us</h2>
           <p className="sectionDescription">
             Whether you have questions or need assistance, our team is here to help.<br />
             Reach out to us anytime.

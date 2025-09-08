@@ -576,7 +576,7 @@
     }
   }
 
-  /* FOOTER - Center logo and increase gaps */
+  /* FOOTER - Center logo */
   .footerInnerContainer { 
     width: 100%; 
     margin: 0 auto; 
@@ -587,7 +587,7 @@
   .footerContainer { 
     flex-direction: column; 
     align-items: center; 
-    gap: 2.5rem; /* Increased gap */
+    gap: 2.5rem; 
     text-align: center; 
   }
   
@@ -603,12 +603,12 @@
     
     .socialIcons { 
       justify-content: center; 
-      gap: 1.5rem; /* Increased gap between social icons */
+      gap: 1.5rem; 
     }
   }
   
   .footerLinks { 
-    gap: 3rem; /* Increased gap between link groups */
+    gap: 3rem; 
     justify-content: center;
     
     h3 { 
@@ -618,7 +618,7 @@
     ul {
       li { 
         font-size: 1rem;
-        margin-bottom: 0.8rem; /* Increased gap between links */
+        margin-bottom: 0.8rem; 
       }
     }
   }
@@ -641,11 +641,11 @@
   }
   
   .footerCopyright {
-    margin-top: 2.5rem; /* Increased gap */
+    margin-top: 2.5rem; 
     
     .footerLine { 
       width: 100%; 
-      margin-bottom: 1.5rem; /* Increased gap */
+      margin-bottom: 1.5rem; 
     } 
     
     p { 
