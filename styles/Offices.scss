@@ -141,3 +141,9 @@
     transform: scale(1);
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Hide horizontal overflow */
+  }
+}

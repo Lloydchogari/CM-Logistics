@@ -6,13 +6,8 @@
 /* Import Poppins from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-
-
-
-
-
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), url('../public/many.jpg') no-repeat center center;
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../public/many.jpg') no-repeat center center;
   background-size: cover;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +18,7 @@
   margin-right: auto;
   display: flex;
   padding-left: 3rem;
-  
-  
+  position: relative;
 
   .hero-title {
     font-size: 3.6rem;
@@ -37,78 +31,68 @@
     line-height: 1.6;
     
     @media (max-width: 768px) {
+      font-size: 3.5rem;
+      margin-right: 0;
+      margin-top: -80px;
+      text-align: center;
+      width: 100%;
+      padding: 0 1rem;
+    }
+    
+    
+    @media (max-width: 480px) {
       font-size: 2.8rem;
     }
     
-    @media (max-width: 480px) {
-      font-size: 2.2rem;
+    @media (max-width: 360px) {
+      font-size: 2.4rem;
     }
   }
 
-  
   .hero-subtitle {
-    font-size: 1rem; /* Reduced from 1.2rem */
+    font-size: 1rem;
     max-width: 700px;
     margin: 0 0 2rem 0;
     margin-right: 38rem;
     padding: 0;
     text-align: left;
     color: white;
-
-    /* Animate color dimming */
     animation: dimColor 3s ease-in-out infinite;
     
     @media (max-width: 768px) {
-      font-size: 0.9rem; /* reduced */
+      font-size: 1.1rem;
+      margin-right: 0;
+      text-align: center;
+      width: 100%;
+      padding: 0 1rem;
+      max-width: 100%;
     }
     
     @media (max-width: 480px) {
-      font-size: 0.85rem; /* reduced */
+      font-size: 1rem;
     }
   }
 
+  @media (max-width: 768px) {
+    align-items: center;
+    padding-left: 0;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 .hero-content {
   padding: 2rem 3rem;
   border-radius: 16px;
-
-  /* optional animation pop effect */
   animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes dimColor {
-  0%, 100% {
-    color: white;
-  }
-  50% {
-    color: rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
   }
 }
-
-
-.hero-content {
-   padding: 2rem 3rem;
-  border-radius: 16px;
-
-  // optional animation pop effect
-  animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-
-
-
-
 
 .hero-cards {
   position: absolute;
@@ -119,9 +103,16 @@
   z-index: 5;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    right: 1rem;
-    bottom: 1rem;
+    position: relative;
+    bottom: auto;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 0;
+    justify-content: center;
+    width: 280px;
+    height: 180px;
+    margin-top: 2rem;
   }
 }
 
@@ -139,6 +130,23 @@
   padding: 0.8rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease forwards;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: cardRotate 6s infinite;
+    
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+    
+    &:nth-child(2) {
+      animation-delay: 3s;
+    }
+  }
 }
 
 .card-image {
@@ -167,20 +175,55 @@
     font-weight: 400;
     margin-left: 2px;
   }
+  
+  // Large phones
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    
+    span {
+      font-size: 0.85rem;
+    }
+  }
+  
+  // Medium phones
+  @media (max-width: 390px) {
+    font-size: 1.2rem;
+    
+    span {
+      font-size: 0.8rem;
+    }
+  }
+  
+  // Small phones
+  @media (max-width: 360px) {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    
+    span {
+      font-size: 0.75rem;
+    }
+  }
+  
+  // Very small phones
+  @media (max-width: 320px) {
+    font-size: 1rem;
+    
+    span {
+      font-size: 0.7rem;
+    }
+  }
 }
 
-
-.hero-content {
-  padding: 2rem 3rem;
-  border-radius: 16px;
-
-  /* optional animation pop effect */
-  animation: fadeIn 1s ease forwards;
-}
-
+/* Animations */
 @keyframes fadeIn {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from { 
+    transform: translateY(30px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
 }
 
 @keyframes dimColor {
@@ -188,7 +231,35 @@
     color: white;
   }
   50% {
-    color: rgb(109, 109, 109);
+    color: rgba(255, 255, 255, 0.1);
   }
 }
 
+@keyframes cardRotate {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+  8% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  42% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Hide horizontal overflow */
+  }
+}
