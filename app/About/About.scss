@@ -1273,7 +1273,7 @@
 
     .textContent h2 {
       font-size: 2rem;
-      margin-top: -30rem;
+      margin-top: 2rem;
     }
 
     .logotext {
@@ -1490,7 +1490,7 @@
           }
 
           p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.4;
             color: #333;
           }
@@ -1514,9 +1514,9 @@
   }
 
   /* MOBILE: Crazy boxes in 2x2 grid layout */
-  .services-grid {
+ .services-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
     gap: 1rem;
     max-width: 100%;
     justify-items: center;
@@ -1524,15 +1524,20 @@
 
   .crazy-box {
     width: 100%;
-    max-width: 160px; /* Smaller width for 2x2 layout */
-    min-height: 180px; /* Smaller height */
+    max-width: 160px;
+    min-height: 180px;
     padding: 1rem;
 
-    /* Reset transformations on mobile for clean grid */
-    &.box-1, &.box-2, &.box-3, &.box-4, &.box-5 {
-      transform: none;
-    }
+    /* Remove any desktop transformations */
+    transform: none !important;
   }
+
+  /* Center the last box (5th card) */
+  .services-grid .crazy-box.box-5 {
+    grid-column: 1 / -1; /* Span both columns */
+    justify-self: center; /* Center horizontally */
+  }
+}
 
   .big-text {
     font-size: 1.8rem; /* Smaller text for mobile grid */
@@ -1673,7 +1678,7 @@
       font-size: 0.9rem; 
     }
   }
-}
+
 
 /* Desktop only - keep original team section layout */
 @media (min-width: 769px) {
