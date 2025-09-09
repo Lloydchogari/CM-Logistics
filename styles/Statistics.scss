@@ -1,6 +1,6 @@
 .statsSection {
   background-color: #ff0000;
-  padding: 9rem 5rem;
+  padding: 12rem 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -213,7 +213,7 @@
 // Responsive adjustments
 @media (max-width: 768px) {
   .statsSection {
-    padding: 6rem 2rem;
+    padding: 12rem 2rem;
     gap: 2rem;
 
     .statBox {
@@ -233,7 +233,7 @@
 
 @media (max-width: 480px) {
   .statsSection {
-    padding: 4rem 1rem;
+    padding: 10rem 1rem;
     gap: 1.5rem;
 
     .statBox {
