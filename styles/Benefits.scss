@@ -44,8 +44,9 @@
 
     h2 {
       font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #222;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #141414;
     }
 
     .benefitsList {
@@ -58,6 +59,7 @@
         margin-bottom: 0.8rem;
         font-size: 1.05rem;
         color: #333;
+        text-align: left;
 
         &::before {
           content: '✔';

@@ -1,4 +1,3 @@
-
 .cityHeader {
   display: flex;
   align-items: center;
@@ -30,7 +29,7 @@
 }
 
 .officeSection {
-  background:  #ffffff;
+  background: #ffffff;
   padding: 4rem 7rem;
 
   .officeWrapper {
@@ -46,46 +45,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    .officeCardsRow {
-      display: flex;
-      gap: 1.5rem;
-
-      .officeCard {
-        flex: 1;
-        background: #afafaf;
-        padding: 1.5rem;
-        border-radius: 12px;
-        text-align: left;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        animation: pulseSize 3s infinite ease-in-out;
-        margin-top: 2rem;
-
-        h3 {
-          font-size: 1.5rem; // slightly larger
-          font-weight: 700; // bold
-          margin-bottom: 1rem;
-          color: #222;
-        }
-
-        p {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          margin: 0.6rem 0;
-          color: #111111;
-
-          .icon {
-            color: #ff0015; // restore red icons
-            font-size: 1.1rem;
-          }
-        }
-      }
-
-      .officeCard:nth-child(2) {
-        animation-delay: 1.5s;
-      }
-    }
 
     .officeNote {
       margin-top: 2rem;
@@ -109,42 +68,6 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-  }
-
-  @media (max-width: 900px) {
-    .officeWrapper {
-      flex-direction: column;
-    }
-
-    .officeCardsRow {
-      flex-direction: column;
-    }
-
-    .officeVideo {
-      height: auto;
-
-      video {
-        height: auto;
-      }
-    }
-  }
-}
-
-@keyframes pulseSize {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.04);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    overflow-x: hidden; /* Hide horizontal overflow */
   }
 }
 
@@ -188,27 +111,120 @@
   }
 }
 
-/* Desktop: preserve the original layout */
-@media (min-width: 769px) {
-  .officeCardsRow {
-    flex-direction: row; /* Side by side */
+@keyframes pulseSize {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
-/* Mobile flip effect */
+/* Desktop styles */
+@media (min-width: 769px) {
+  .officeSection {
+    .officeWrapper {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .officeCardsRow {
+      flex-direction: column;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .officeVideo {
+      flex: 0 0 60%;
+      max-width: 60%;
+      
+      video {
+        width: 100%;
+        height: auto;
+        min-height: 340px;
+        max-height: 500px;
+      }
+    }
+
+    /* Hide mobile flip styles on desktop */
+    .mobileFlip {
+      .flipCard {
+        perspective: none;
+      }
+
+      .flipCardInner {
+        animation: none;
+        transform: none;
+      }
+
+      .flipCardFront,
+      .flipCardBack {
+        position: static;
+        backface-visibility: visible;
+        margin-bottom: 1.5rem;
+      }
+
+      .flipCardBack {
+        transform: none;
+      }
+    }
+  }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
-  .officeCardsRow {
-    flex-direction: column; /* Stack for mobile */
-    margin: bottom 4rem; ;
+  body {
+    overflow-x: hidden;
   }
 
-  /* Wrap the two cards into a flip container */
+  .officeSection {
+    padding: 2rem 1rem;
+
+    .officeWrapper {
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .officeCardsRow {
+      order: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .officeVideo {
+      order: 2;
+      width: 100vw;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      
+      video {
+        width: 100%;
+        height: 250px;
+        border-radius: 0;
+        object-fit: cover;
+        animation: videoGlow 4s ease-in-out infinite alternate;
+      }
+    }
+  }
+
+  /* Mobile flip effect with enhanced animations */
   .mobileFlip {
-    perspective: 1000px;
+    perspective: 1200px;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    animation: floatCard 6s ease-in-out infinite;
 
     .flipCard {
       width: 100%;
-      height: auto;
+      height: 220px;
+      position: relative;
+      cursor: pointer;
     }
 
     .flipCardInner {
@@ -216,53 +232,165 @@
       width: 100%;
       height: 100%;
       transform-style: preserve-3d;
-      animation: flipMobile 6s infinite; /* Flip every few seconds */
+      animation: flipMobile 8s infinite ease-in-out;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
     }
 
     .flipCardFront,
     .flipCardBack {
       position: absolute;
       width: 100%;
+      height: 100%;
       backface-visibility: hidden;
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 1.5rem;
-      background: #afafaf;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .flipCardFront {
+      background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite;
+      box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.2);
     }
 
     .flipCardBack {
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite reverse;
       transform: rotateY(180deg);
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.2);
     }
 
-    @keyframes flipMobile {
-      0%, 45% { transform: rotateY(0deg); }
-      50%, 95% { transform: rotateY(180deg); }
-      100% { transform: rotateY(0deg); }
+    .flipCardFront::before,
+    .flipCardBack::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      animation: shimmer 3s infinite;
     }
 
-    /* Optional: keep text styling inside flipped cards */
     .flipCardFront h3,
     .flipCardBack h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #222;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      animation: titlePulse 2s ease-in-out infinite alternate;
     }
 
     .flipCardFront p,
     .flipCardBack p {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
       margin: 0.6rem 0;
-      color: #111111;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      animation: slideIn 0.6s ease-out forwards;
+      opacity: 0;
+      transform: translateX(-20px);
+
+      &:nth-child(2) { animation-delay: 0.2s; }
+      &:nth-child(3) { animation-delay: 0.4s; }
+      &:nth-child(4) { animation-delay: 0.6s; }
 
       .icon {
-        color: #ff0015;
+        color: #ffff00;
         font-size: 1.1rem;
+        flex-shrink: 0;
+        animation: iconBounce 2s ease-in-out infinite;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
       }
+    }
+
+    @keyframes flipMobile {
+      0%, 35% { 
+        transform: rotateY(0deg) rotateX(0deg);
+      }
+      45% { 
+        transform: rotateY(90deg) rotateX(5deg);
+      }
+      55% { 
+        transform: rotateY(180deg) rotateX(0deg);
+      }
+      90%, 100% { 
+        transform: rotateY(180deg) rotateX(0deg);
+      }
+    }
+
+    @keyframes floatCard {
+      0%, 100% { 
+        transform: translateY(0px) scale(1);
+      }
+      50% { 
+        transform: translateY(-8px) scale(1.02);
+      }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    @keyframes titlePulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes iconBounce {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.1) rotate(-5deg); }
+      75% { transform: scale(1.1) rotate(5deg); }
+    }
+  }
+
+  @keyframes videoGlow {
+    0% { 
+      box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+    }
+    100% { 
+      box-shadow: 0 0 30px rgba(102, 126, 234, 0.4);
     }
   }
 }
 
-
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .officeSection {
+    padding: 3rem 2rem;
+    
+    .officeVideo {
+      flex: 0 0 55%;
+      max-width: 55%;
+    }
+  }
+}

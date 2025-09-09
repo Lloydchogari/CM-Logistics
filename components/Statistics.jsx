@@ -61,10 +61,25 @@ const StatCounter = ({ value }) => {
 };
 
 const StatsSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animations after component mounts
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="statsSection">
+    <div className={`statsSection ${isLoaded ? 'loaded' : ''}`}>
       {stats.map((stat, index) => (
-        <div key={index} className="statBox">
+        <div 
+          key={index} 
+          className={`statBox slide-in-${index % 4}`}
+          style={{ animationDelay: `${index * 0.2}s` }}
+        >
           <StatCounter value={stat.value} />
           <p>{stat.label}</p>
         </div>

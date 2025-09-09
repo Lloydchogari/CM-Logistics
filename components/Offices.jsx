@@ -7,7 +7,7 @@ const Offices = () => {
   return (
     <section className="officeSection">
 
-      {/* 👇 NEW City Header Block */}
+      {/* City Header Block */}
       <div className="cityHeader">
         <div className="line"></div>
         <h1 className="cityName">GUANGZHOU</h1>
@@ -19,14 +19,14 @@ const Offices = () => {
         <div className="officeCardsRow mobileFlip">
           <div className="flipCard">
             <div className="flipCardInner">
-              {/* Front side */}
+              {/* Front side - China */}
               <div className="flipCardFront officeCard">
                 <h3>China</h3>
                 <p><FaMapMarkerAlt className="icon" /> 88 NanJing Road, Shanghai</p>
                 <p><FaPhoneAlt className="icon" /> +86 21 1234 5678</p>
                 <p><FaEnvelope className="icon" /> china@shiplink.com</p>
               </div>
-              {/* Back side */}
+              {/* Back side - Zimbabwe */}
               <div className="flipCardBack officeCard">
                 <h3>Zimbabwe</h3>
                 <p><FaMapMarkerAlt className="icon" /> 45 Samora Machel Ave, Harare</p>
@@ -37,13 +37,12 @@ const Offices = () => {
           </div>
         </div>
 
-
-          <div className="officeVideo">
-            <video autoPlay loop muted playsInline>
-              <source src="/ZeggVid1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+        <div className="officeVideo">
+          <video autoPlay loop muted playsInline>
+            <source src="/ZeggVid1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
       </div>
     </section>

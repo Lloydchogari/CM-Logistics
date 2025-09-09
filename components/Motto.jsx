@@ -8,7 +8,7 @@ const Motto = () => {
       <div className="contentContainer">
         <div className="textContent">
           <h1>Our Motto & Values</h1>
-          <p className="motto">"To leave a customer with a smiling face"</p>
+          <p className="motto">"We always leave customers with smiling faces"</p>
           <ul className="customList">
             <li>To deliver goods safe</li>
             <li>Time conscious</li>

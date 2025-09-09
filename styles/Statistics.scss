@@ -7,6 +7,19 @@
   flex-wrap: wrap;
   gap: 4rem;
   margin-top: -120px;
+  position: relative;
+  overflow: hidden;
+
+  // Initial state - section starts invisible
+  opacity: 0;
+  transform: translateY(50px);
+  animation: sectionFadeIn 0.8s ease-out 0.3s forwards;
+
+  &.loaded {
+    .statBox {
+      animation-play-state: running;
+    }
+  }
 
   .statBox {
     background: rgba(255, 255, 255, 0.1);
@@ -17,21 +30,223 @@
     text-align: center;
     min-width: 160px;
     backdrop-filter: blur(8px);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    
+    // Initial hidden state
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8);
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+
+    // Slide-in from different directions
+    &.slide-in-0 {
+      animation: slideInFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    &.slide-in-1 {
+      animation: slideInFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    &.slide-in-2 {
+      animation: slideInFromBottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    &.slide-in-3 {
+      animation: slideInFromTop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    // Floating effect after slide-in
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.3), 
+        rgba(255, 255, 255, 0.1), 
+        rgba(255, 255, 255, 0.3)
+      );
+      border-radius: 12px;
+      z-index: -1;
+      opacity: 0;
+      animation: glowPulse 3s ease-in-out infinite;
+      animation-delay: 1s;
+    }
 
     h2 {
       font-size: 2.4rem;
       margin: 0;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      animation: numberGlow 2s ease-in-out infinite alternate;
+      animation-delay: 1.2s;
     }
 
     p {
       margin-top: 0.4rem;
       font-size: 1rem;
       opacity: 0.9;
+      font-weight: 500;
+      transform: translateY(10px);
+      animation: textSlideUp 0.6s ease-out forwards;
+      animation-delay: 0.8s;
     }
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.08) translateY(-5px);
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.2);
+      
+      &::before {
+        opacity: 1;
+        animation-duration: 1.5s;
+      }
+
+      h2 {
+        animation-duration: 1s;
+      }
+    }
+  }
+}
+
+// Section fade-in animation
+@keyframes sectionFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Slide-in animations from different directions
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px) scale(0.7) rotate(-10deg);
+  }
+  60% {
+    transform: translateX(10px) scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(120px) scale(0.7) rotate(10deg);
+  }
+  60% {
+    transform: translateX(-10px) scale(1.05) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.8) rotateX(90deg);
+  }
+  60% {
+    transform: translateY(-10px) scale(1.05) rotateX(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.8) rotateX(-90deg);
+  }
+  60% {
+    transform: translateY(10px) scale(1.05) rotateX(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+// Text slide-up animation
+@keyframes textSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Glow effects
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes numberGlow {
+  0% {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    text-shadow: 
+      0 2px 10px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(255, 255, 255, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.3);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .statsSection {
+    padding: 6rem 2rem;
+    gap: 2rem;
+
+    .statBox {
+      min-width: 140px;
+      padding: 1.2rem 1.5rem;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .statsSection {
+    padding: 4rem 1rem;
+    gap: 1.5rem;
+
+    .statBox {
+      min-width: 120px;
+      padding: 1rem 1.2rem;
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.85rem;
+      }
     }
   }
 }

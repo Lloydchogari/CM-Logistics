@@ -1,13 +1,12 @@
 .services-section {
   padding: 4rem 8%;
-  background-image:  linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)),  url('../public/Container\ Ship\ 🚢\ Coloring\ Page.jpg') ;
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), url('../public/Container\ Ship\ 🚢\ Coloring\ Page.jpg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
   margin-bottom: 5rem;
-  background-attachment: fixed; /* optional for parallax feel */
-
+  background-attachment: fixed;
 
   .heading-container {
     display: inline-block;
@@ -21,13 +20,21 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 
-
     h1 {
       font-size: 2.5rem;
       font-weight: 700;
       color: #000000;
       margin: 0;
     }
+  }
+
+  // Hide/show elements based on screen size
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
   }
 
   .services-grid {
@@ -37,10 +44,6 @@
 
     @media (max-width: 992px) {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 600px) {
-      grid-template-columns: 1fr;
     }
   }
 
@@ -54,7 +57,6 @@
     backdrop-filter: blur(4px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
     border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     text-decoration: none;
     color: #1a1a1a;
@@ -100,7 +102,6 @@
       }
     }
   }
-}
 
   .see-more-left-wrapper {
     text-align: left;
@@ -124,3 +125,194 @@
     }
   }
 
+  // Mobile Carousel Styles
+  @media (max-width: 600px) {
+    padding: 2rem 1rem;
+
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-only {
+      display: block;
+    }
+
+    .mobile-carousel {
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+
+      .carousel-container {
+        height: 100%;
+        position: relative;
+      }
+
+      .carousel-wrapper {
+        height: 100%;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .carousel-pair {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pair-container {
+        position: relative;
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: containerFloat 6s ease-in-out infinite;
+      }
+
+      .mobile-service-card {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 16px;
+        padding: 1.2rem;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+          transition: left 0.6s;
+        }
+
+        &:hover {
+          transform: scale(1.02);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+          &::before {
+            left: 100%;
+          }
+        }
+
+        .mobile-card-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 0.8rem;
+
+          .mobile-icon {
+            font-size: 1.8rem;
+            color: #ffffff;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 0.8rem;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            animation: iconPulse 3s ease-in-out infinite;
+          }
+
+          h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin: 0;
+          }
+        }
+
+        .mobile-card-body {
+          p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+            margin: 0;
+          }
+        }
+      }
+
+      .carousel-nav {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        padding: 0.6rem 1rem;
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        .nav-btn {
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          border: none;
+          color: white;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 0.9rem;
+
+          &:hover:not(.disabled) {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+          }
+
+          &.disabled {
+            background: rgba(255, 255, 255, 0.2);
+            cursor: not-allowed;
+            opacity: 0.5;
+          }
+        }
+
+        .page-indicator {
+          color: white;
+          font-size: 0.8rem;
+          font-weight: 500;
+          min-width: 40px;
+          text-align: center;
+        }
+      }
+    }
+
+    @keyframes containerFloat {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-5px) scale(1.01);
+      }
+    }
+
+    @keyframes iconPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+      }
+    }
+  }
+}
