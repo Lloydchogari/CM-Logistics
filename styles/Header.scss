@@ -35,6 +35,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  padding-top: 5px;
 
   img { width: 90px; height: 90px; object-fit: contain; }
 }
@@ -146,6 +147,8 @@ mobile
   /* Hide mobile toggle since we're using horizontal nav */
   .mobile-menu-toggle {
     display: none;
+    padding-right: 25px;
+    font-size: 1rem;
   }
 
 
@@ -157,13 +160,13 @@ mobile
   }
   
   .nav {
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1.5rem;
     gap: 0.5rem;
   }
   
   .logo img {
-    width: 45px;
-    height: 45px;
+    width: 75px;
+    height: 75px;
   }
   
   .nav-links.desktop-nav {
