@@ -369,11 +369,11 @@
 
 /* ==Scrolling strip== */
 .scrolling-strip {
-  width: 50%;
+  width: 39.9%;
   background: #155993;
   padding: 12px 10px;
   margin-top: 40px;
-  margin-left: 20rem;
+  margin-left: 31rem;
   border-radius: 3px;
   overflow: hidden;
   white-space: nowrap;
@@ -408,7 +408,7 @@
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), #ebebebe8;
   color: #000000;
   text-align: center;
-  margin-left: 320px;
+  margin-left: 31rem;
   margin-top: -40px;
   width: 656px;
   border-radius: 5px;
@@ -675,6 +675,8 @@
   color: red;
 }
 
+
+
 /* ===== FOOTER ===== */
 .footerSection {
   background-color: #ffffff;
@@ -686,8 +688,8 @@
 .footerInnerContainer {
   background-color: #155993;
   border-radius: 10px;
-  padding: 3rem;
-  width: 1310px;
+  padding: 5rem;
+  width: 1645px;
   margin-left: -13px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
@@ -742,7 +744,7 @@
   margin-left: 100px;
 
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: #000;
@@ -753,9 +755,9 @@
     padding: 0;
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
       color: #ffffff;
-      font-size: 1rem;
+      font-size: 1.2rem;
 
       &:hover {
         color: #fc8d8d;
@@ -772,7 +774,7 @@
   margin-left: 100px;
 
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: #000;
@@ -792,7 +794,7 @@
     transition: 0.3s;
 
     svg {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
 
     &:hover {
@@ -809,7 +811,7 @@
     height: 1px;
     background-color: #ccc;
     width: 80%;
-    margin: 0 auto 2rem auto;
+    margin: 4rem auto 2rem auto;
   }
 
   p {

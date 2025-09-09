@@ -81,37 +81,41 @@
       .glass-overlay {
         position: absolute;
         z-index: 8;
-        background: rgba(255,255,255,0.2);
+        background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,1.2)), rgba(48, 48, 48, 0.2);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         padding: 8rem 2rem;
         border-radius: 12px;
-        text-align: center;
-        color: #7e7c7c;
+        text-align: left;
+        color: #ffffff;
 
         h1 {
           font-size: 2rem;
-          margin-bottom: 1rem;
+          margin-bottom: 1.5rem;
         }
 
         p {
-          margin-bottom: 1.5rem;
+          margin-bottom: 2.5rem;
           font-size: 1.1rem;
         }
 
-        .btn {
-          display: inline-block;
-          padding: 0.75rem 1.5rem;
-          background: #ffffff;
-          color: #0f2e63;
-          border-radius: 6px;
-          font-weight: 600;
-          text-decoration: none;
+      .btn{
+      padding: 0.8rem 2rem;
+      background: #fff;
+      color: #0026ff;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 
-          &:hover {
-            background: #eaeaea;
-          }
-        }
+      &:hover {
+        background: #ffcccc;
+        color: #990000;
+      }
+    }
       }
     }
 
