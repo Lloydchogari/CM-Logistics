@@ -43,7 +43,7 @@ const settings = {
   dots: false,
   infinite: true,
   speed: 500,
-  slidesToShow: 2, // 2 cards at a time
+  slidesToShow: 1, // 1 cards at a time
   slidesToScroll: 1,
   arrows: true,
   responsive: [
