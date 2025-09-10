@@ -6,6 +6,13 @@
 /* Import Poppins from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* Import Santrio Sans Serif from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Santrio+Sans+Serif:wght@400;500;600;700;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+
+
 
 .hero {
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,1.2)), url('../public/many.jpg') no-repeat center center;
@@ -23,17 +30,20 @@
   
 
   .hero-title {
-    font-size: 3.6rem;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 5.6rem;
     font-weight: bold;
     margin-top: -120px;
-    margin-right: 18rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    letter-spacing: -2px;
     padding: 0;
     color: rgb(255, 255, 255);
-    text-align: left;
+    text-align: center;
     line-height: 1.6;
     
     @media (max-width: 768px) {
-      font-size: 3.5rem;
+      font-size: 4rem;
       margin-right: 0;
       margin-top: -80px;
       text-align: center;
@@ -43,21 +53,20 @@
     
     
     @media (max-width: 480px) {
-      font-size: 2.8rem;
+      font-size: 4rem;
     }
     
     @media (max-width: 360px) {
-      font-size: 2.4rem;
+      font-size: 4rem;
     }
   }
 
   .hero-subtitle {
     font-size: 1rem;
-    max-width: 700px;
+    width: 100%;
     margin: 0 0 2rem 0;
-    margin-right: 38rem;
-    padding: 0;
-    text-align: left;
+    padding-top: 5rem;
+    text-align: center;
     color: white;
     animation: dimColor 3s ease-in-out infinite;
     
@@ -101,7 +110,7 @@
   bottom: 2rem;
   right: 20rem;
   display: flex;
-  gap: 35rem;
+  gap: 33rem;
   z-index: 5;
 
   @media (max-width: 768px) {

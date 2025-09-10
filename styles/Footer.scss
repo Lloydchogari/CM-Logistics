@@ -108,8 +108,8 @@
 
   .tagline {
     margin: 1rem 0;
-    font-size: 0.9rem;
-    color: #333;
+    font-size: 1.1rem;
+    color: #ffffff;
     
     // Large tablets
     @media (max-width: 1024px) {
@@ -197,11 +197,22 @@
     flex: none;
   }
   
-  // Large phones
+  // Large phones (default stacked)
   @media (max-width: 480px) {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
+    flex-direction: row; /* ✅ Side by side */
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0; /* Remove gap so they stay on each side */
+    
+    > div {
+      flex: 1;
+      text-align: left; /* Platforms left */
+    }
+
+    > div:last-child {
+      text-align: right; /* About right */
+    }
   }
 
   h3 {
@@ -249,13 +260,6 @@
       }
     }
   }
-  
-  // Large phones - stack columns vertically
-  @media (max-width: 480px) {
-    > div {
-      text-align: center;
-    }
-  }
 }
 
 .footerRight {
@@ -277,7 +281,7 @@
   }
 
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     font-weight: 600;
     color: #000;
@@ -314,10 +318,6 @@
       max-width: 200px;
     }
 
-     body {
-    overflow-x: hidden; /* Hide horizontal overflow */
-  }
-    
     // Large phones
     @media (max-width: 480px) {
       padding: 0.6rem 1rem;
@@ -328,16 +328,16 @@
     // Small phones
     @media (max-width: 360px) {
       padding: 0.5rem 0.8rem;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       max-width: 160px;
     }
 
     svg {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       
       // Mobile phones
       @media (max-width: 480px) {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
       }
     }
 
@@ -386,18 +386,18 @@
     
     // Large tablets
     @media (max-width: 1024px) {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
     
     // Mobile phones
     @media (max-width: 480px) {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       padding: 0 1rem;
     }
     
     // Small phones
     @media (max-width: 360px) {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
     }
   }
 }
@@ -414,7 +414,6 @@
     padding-right: 1rem;
   }
 
-  // Also for really small phones
   body {
     overflow-x: hidden; // safety net to remove horizontal scroll
   }
@@ -423,5 +422,45 @@
 @media (max-width: 768px) {
   body {
     overflow-x: hidden; /* Hide horizontal overflow */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contactSection {
+    flex-direction: column;   /* Stack vertically */
+    padding: 20px;           
+  }
+
+  .contactText {
+    margin-bottom: 20px;     
+    text-align: center;    
+  }
+
+  .contactForm {
+    margin: 0;              
+    width: 100%;             /* Make it fill width */
+  }
+}
+
+// Mobile phones
+@media (max-width: 480px) {
+  .footerLinks {
+    flex-direction: row; /* ✅ Side by side */
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+
+    padding: 0 4rem; /* ✅ Add margin from left & right */
+
+    > div {
+      flex: 1;
+      text-align: left; /* Platforms left */
+    }
+
+    > div:last-child {
+      text-align: right; /* About right */
+    }
   }
 }

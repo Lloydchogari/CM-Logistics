@@ -8,6 +8,11 @@
   
 }
 
+* {
+  font-family: 'Santrio Sans Serif', sans-serif;
+}
+
+
 /* Root variables */
 :root {
   --background: #ffffff;
