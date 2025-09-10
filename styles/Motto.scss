@@ -91,3 +91,31 @@
     overflow-x: hidden; /* Hide horizontal overflow */
   }
 }
+
+@media (max-width: 768px) {
+  .imageContainer {
+    position: absolute;          /* take it out of the flex container */
+    top: 43rem;                  /* adjust up */
+    left: 50%;                   /* center horizontally */
+    transform: translateX(-50%);
+    width: 80%;                  /* make image bigger */
+    aspect-ratio: auto;
+    min-height: auto;
+    z-index: 10;                 /* sit above .contentContainer */
+  }
+
+  .imageContainer .mottoImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;         /* don’t crop the image */
+  }
+
+  .contentContainer {
+    padding-top: 8rem; /* leave vertical space so text isn't hidden under image */
+  }
+
+  .description{
+    padding-bottom: 6rem;
+  }
+}
+
