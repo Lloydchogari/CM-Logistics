@@ -98,6 +98,11 @@
           margin-bottom: 2.5rem;
           font-size: 1.1rem;
         }
+       
+       @media (max-width: 768px){
+        margin-top: 25rem;
+       }
+
 
       .btn{
       padding: 0.8rem 2rem;
@@ -166,18 +171,17 @@
         margin-top: 0;
         padding: 2rem 0;
         background: rgba(255, 255, 255, 0.95);
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
-        margin-top: 2rem;
+        margin-top: 12rem;
 
         .animated-text {
           font-size: 1.6rem;
           color: #dc2626;
           text-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
           padding: 1rem 2rem;
+          margin-top: 12rem;
 
           .cursor {
-            background: #dc2626;
+            background: #ffffff;
           }
         }
       }

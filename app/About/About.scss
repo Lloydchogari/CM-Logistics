@@ -2052,13 +2052,13 @@
       max-width: 100%;
       margin-bottom: 1rem;
       padding: 1.5rem; /* Slightly reduced padding */
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8);
 
       h3 {
-        font-size: 1.4rem; /* Reduced from 1.6rem */
+        font-size: 1.2rem; /* Reduced from 1.6rem */
         font-weight: 600;
         margin-bottom: 0.5rem;
-        color: #1a1a1a;
+        color: #363636;
       }
 
       .divider {
@@ -2129,7 +2129,7 @@
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     margin-top: 20px;
-    margin-bottom: 2rem;
+    margin-bottom: 8rem;
     border-radius: 0;
     
     h3 {
@@ -2159,10 +2159,21 @@
     .logotext {
       padding: 15px;
       margin: 1rem auto;
+      backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    background: #ebebebbe;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 
       p{
        text-align: left;
       }
+    }
+
+    .companyGlassBox{
+       backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    background: #ebebeb9d;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
   }
 }
