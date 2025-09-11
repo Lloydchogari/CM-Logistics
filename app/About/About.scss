@@ -2002,37 +2002,40 @@
   /* Hero text overlay - better positioning and visibility */
   .heroTextOverlay {
     position: absolute;
-    top: 70%; /* Better vertical centering */
+    top: 50%; /* Better vertical centering */
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(65, 63, 63, 0.75); /* Increased opacity for better visibility */
+    background: rgba(41, 40, 40, 0.55);
     padding: 2.2rem 1rem; 
     padding-top: 9rem;
     border-radius: 12px;
-    backdrop-filter: blur(4px); /* Increased blur for better effect */
+    backdrop-filter: blur(1px); /* Increased blur for better effect */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
-    width: 90%; /* Responsive width */
-    max-width: 350px; 
+    width: 70%; /* Responsive width */
+    max-width: 300px; 
     z-index: 100;
 
     h1 {
-      font-size: 1.8rem; /* Slightly reduced for mobile */
-      margin-bottom: 0.8rem;
-      color: #ffffff; /* Better contrast on dark overlay */
+      font-size: 1.8rem; 
+      margin-bottom: 1rem;
+      color: #ffffff; 
       line-height: 1.2;
+      padding-top: 30px;
 
       span {
-        color: #ff4444; /* Slightly softer red for better visibility */
+        color: #ff4444;
       }
     }
 
     p {
-      font-size: 0.9rem; /* Adjusted for mobile */
+      font-size: 1; 
       line-height: 1.5;
-      color: #f0f0f0; /* Better contrast */
-      text-align: center; /* Center align for mobile */
+      color: #f0f0f0; 
+      text-align: center; 
       margin: 0;
+      padding: 0 10px 20px;
+
     }
   }
 
@@ -2235,3 +2238,4 @@
     }
   }
 }
+
