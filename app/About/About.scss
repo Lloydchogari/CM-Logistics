@@ -21,13 +21,13 @@
 .imageContainer {
   position: relative;
   overflow: hidden;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
 .heroImage {
   width: 100%;
-  height: 500px;
+  height: 700px;
   object-fit: cover;
   border-radius: 40px 40px 0 0;
 }
@@ -248,9 +248,9 @@
     -webkit-backdrop-filter: blur(15px);
     background: #ebebebe5;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    width: 1200px;
+    width: 1210px;
     margin-top: 5.2rem;
-    margin-left: -39rem;
+    margin-left: -38rem;
     z-index: 1000;
   }
 
@@ -690,6 +690,7 @@
   color: #ffffff;
   text-align: center;
   margin-top: 50px;
+  padding-top: 2.5rem;
 }
 
 .small-text {
@@ -1961,3 +1962,269 @@
 }
 
 
+
+/* Mobile Styles - Updated Hero Section and Intro Cards */
+@media (max-width: 768px) {
+  
+  /* Fix screen fit - Remove all outer padding */
+  .aboutWrapper {
+    padding: 0;
+  }
+  
+  /* HERO SECTION - Improved mobile layout */
+  .aboutHeroSection {
+    border-radius: 0;
+    margin: 0;
+    padding: 0 5px; /* Small padding from edges */
+    background-position: center top;
+    
+    &::before {
+      border-radius: 0;
+    }
+  }
+
+  .imageContainer {
+    margin: 0 auto;
+    padding: 5px 5px; /* Small space from edges */
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .heroImage {
+    height: 300px;
+    border-radius: 16px; /* Matches container */
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Hero text overlay - better positioning and visibility */
+  .heroTextOverlay {
+    position: absolute;
+    top: 50%; /* Better vertical centering */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(65, 63, 63, 0.75); /* Increased opacity for better visibility */
+    padding: 2.2rem 1rem; 
+    padding-top: 9rem;
+    border-radius: 12px;
+    backdrop-filter: blur(4px); /* Increased blur for better effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%; /* Responsive width */
+    max-width: 350px; 
+    z-index: 100;
+
+    h1 {
+      font-size: 1.8rem; /* Slightly reduced for mobile */
+      margin-bottom: 0.8rem;
+      color: #ffffff; /* Better contrast on dark overlay */
+      line-height: 1.2;
+
+      span {
+        color: #ff4444; /* Slightly softer red for better visibility */
+      }
+    }
+
+    p {
+      font-size: 0.9rem; /* Adjusted for mobile */
+      line-height: 1.5;
+      color: #f0f0f0; /* Better contrast */
+      text-align: center; /* Center align for mobile */
+      margin: 0;
+    }
+  }
+
+  /* INTRO WRAPPER - Reduced text sizes while preserving design */
+  .aboutIntroSection {
+    padding: 2rem 0;
+
+    .introWrapper {
+      padding: 0 1rem; /* Add some padding */
+    }
+
+    .introGroup {
+      flex: 1 1 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      padding: 1.5rem; /* Slightly reduced padding */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+      h3 {
+        font-size: 1.4rem; /* Reduced from 1.6rem */
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+      }
+
+      .divider {
+        width: 45px; /* Slightly smaller divider */
+        height: 3px;
+        background-color: #ff0000;
+        margin: 0 auto 1rem auto;
+        border-radius: 2px;
+      }
+
+      p {
+        font-size: 0.9rem; /* Reduced from 1rem */
+        color: #444;
+        line-height: 1.5; /* Slightly tighter line height */
+        text-align: left;
+      }
+    }
+  }
+
+  /* Rest of existing mobile styles... */
+  .headder {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .nav-links.desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+    padding-right: 20px;
+    li {
+      a, button.close-menu {
+        color: #000;
+        
+        &:hover { color: #ff0000; }
+      }
+      button.close-menu {
+        font-size: 1.1rem;
+        margin-top: 1em;
+        color: #555;
+        text-align: right;
+        &:hover { color: #ff0000; }
+      }
+    }
+  }
+
+  .story h2 {
+    font-size: 1.8rem;
+    padding-bottom: 20px;
+  }
+
+  /* MOTTO SECTION - Remove all margins on sides */
+  .motto {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: 20px;
+    margin-bottom: 2rem;
+    border-radius: 0;
+    
+    h3 {
+      font-size: 1rem;
+      padding: 15px 20px;
+    }
+    
+    p {
+      padding: 15px 20px;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Continue with rest of existing mobile styles... */
+  .companyInfoSection {
+    padding: 2rem 1rem;
+
+    .companyInfoContent {
+      gap: 2rem;
+    }
+
+    .textContent h2 {
+      font-size: 2rem;
+      margin-top: -25rem;
+    }
+
+    .logotext {
+      padding: 15px;
+      margin: 1rem auto;
+
+      p{
+       text-align: left;
+      }
+    }
+  }
+}
+
+/* Extra Small Mobile - Further refinements */
+@media (max-width: 480px) {
+  .heroImage {
+    height: 280px; /* Slightly taller for better proportion */
+  }
+
+  .heroTextOverlay {
+    padding: 1rem 0.8rem;
+    width: 95%; /* Use more width on small screens */
+    max-width: 320px;
+    
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+    
+    p {
+      font-size: 0.85rem;
+    }
+  }
+
+  .aboutIntroSection .introGroup {
+    padding: 1.2rem;
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+/* Ultra-small phones */
+@media (max-width: 380px) {
+  .heroTextOverlay {
+    width: 98%;
+    max-width: 280px;
+    padding: 0.8rem;
+    
+    h1 {
+      font-size: 1.4rem;
+    }
+    
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .aboutIntroSection .introGroup {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .divider {
+      width: 40px;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
