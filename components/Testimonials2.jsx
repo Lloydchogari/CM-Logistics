@@ -27,7 +27,7 @@ const testimonials = [
   },
   {
     name: "Tonderai Rudyi",
-    position: "Tatu Capital",
+    position: "Motor Mechanics",
     text: "Switched to CM Logistics after repeated delays with another carrier. Since then, my online shop’s orders have been reaching customers faster and in better condition.",
     rating: 5,
   },
