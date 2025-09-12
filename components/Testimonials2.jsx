@@ -9,13 +9,13 @@ import "slick-carousel/slick/slick-theme.css";
 const testimonials = [
   {
     name: "Edwin Moyo",
-    position: "MyCash",
+    position: "Furniture",
     text: "These guys transformed my brand presence with their innovative approach and attention to detail. Packages always arrive on time and in perfect condition.",
     rating: 5,
   },
   {
     name: "Feng Wei",
-    position: "Leengate",
+    position: "Kitchen utensils",
     text: "Their approach transforms ideas into impactful brand experiences, positioning them as trusted partners and true architects of meaningful marketing and storytelling excellence.",
     rating: 4,
   },
