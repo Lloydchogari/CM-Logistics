@@ -9,7 +9,7 @@ import heroImage from '../public/shiplink-logo2.png'; // Replace with your backg
 
 const animatedTexts = [
   "CHINA TO ZIMBABWE",
-  "CHINA TO SOUTH AFRICE",
+  "CHINA TO SOUTH AFRICA",
   "GLOBAL PARTNERS AT YOUR SERVICE",
   "LET'S WORK TOGETHER",
 

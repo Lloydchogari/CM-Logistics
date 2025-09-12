@@ -4,8 +4,8 @@ import '../styles/Contact.scss';
 
 const Contact = () => {
   const texts = [
-    "We'd love to hear from you! Whether it's a question, feedback, or just a hello — reach out anytime.",
-    "Our team is always here to help you get the best support — don’t hesitate to connect with us!",
+    "We'd love to hear from you! Whether it's a question, feedback, or just a hello, reach out anytime.",
+    "Our team is always here to help you get the best support, don’t hesitate to connect with us!",
   ];
 
   const [currentTextIndex, setCurrentTextIndex] = useState(0);

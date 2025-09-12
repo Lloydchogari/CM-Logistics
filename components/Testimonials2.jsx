@@ -10,7 +10,7 @@ const testimonials = [
   {
     name: "Edwin Moyo",
     position: "MyCash",
-    text: "Creative Journey transformed our brand presence with their innovative approach and attention to detail. Their team is professional, creative, and truly invested in our success from start to finish.",
+    text: "These guys transformed my brand presence with their innovative approach and attention to detail. Packages always arrive on time and in perfect condition.",
     rating: 5,
   },
   {
@@ -22,20 +22,20 @@ const testimonials = [
   {
     name: "Grace Ncube",
     position: "Karan Investiments",
-    text: "Creative Journey delivered stunning signage that turned heads and boosted our visibility bold, professional, and perfectly on brand.",
-    rating: 5,
+    text: "Very affordable rates and clear tracking updates. I’m impressed.",
+    rating: 3,
   },
   {
     name: "Tonderai Rudyi",
     position: "Tatu Capital",
-    text: "The visuals from Creative Journey captured our event’s energy perfectly crisp photography and cinematic videography that truly impressed.",
+    text: "Switched to CM Logistics after repeated delays with another carrier. Since then, my online shop’s orders have been reaching customers faster and in better condition.",
     rating: 5,
   },
   {
     name: "Huang Min",
-    position: "Nbs Bank",
-    text: "Creative Journey delivered powerful visuals for NBS sharp, professional shots that brought our brand story to life beautifully.",
-    rating: 3,
+    position: "Clothing Owner",
+    text: "Was my first time working with them and the care they gave me was like we have decades working together, and up to now they’re my only shipping support.",
+    rating: 5,
   },
 ];
 

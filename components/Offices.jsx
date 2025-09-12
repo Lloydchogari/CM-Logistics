@@ -23,8 +23,8 @@ const Offices = () => {
               <div className="flipCardFront officeCard">
                 <h3>China</h3>
                 <p><FaMapMarkerAlt className="icon" /> 88 NanJing Road, Shanghai</p>
-                <p><FaPhoneAlt className="icon" /> +86 21 1234 5678</p>
-                <p><FaEnvelope className="icon" /> china@shiplink.com</p>
+                <p><FaPhoneAlt className="icon" /> +86 18 6579 02702</p>
+                <p><FaEnvelope className="icon" /> isaacmuponya@gmail.com</p>
               </div>
               {/* Back side - Zimbabwe */}
               <div className="flipCardBack officeCard">
