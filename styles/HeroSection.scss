@@ -60,7 +60,7 @@
     display: flex;
     max-width: 1200px;
     height: 300px;
-    margin: 4rem auto 8rem;
+    margin: 8rem auto 8rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     border-radius: 15px;
     overflow: hidden;
@@ -156,11 +156,12 @@
     @media (max-width: 768px) {
       flex-direction: column;
       height: auto;
-      margin: 2rem 1rem 4rem;
+      margin: 10rem 1rem 10rem;
 
       .left-side {
         .glass-overlay {
           padding: 2rem 1.5rem;
+          backdrop-filter: blur(1px);
           background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), rgba(48, 48, 48, 0.4);
         }
       }
@@ -176,7 +177,6 @@
         .animated-text {
           font-size: 1.6rem;
           color: #dc2626;
-          text-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
           padding: 1rem 2rem;
           margin-top: 12rem;
 

@@ -4,28 +4,30 @@
   display: flex;
   justify-content: center;
 
-.contentContainer {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 2rem;
-  background: linear-gradient(to bottom, #cfcfcf 0%, #e8e8e8 100%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 2rem;
-  max-width: 1100px;
-  width: 80%;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-  margin-top: -10px;
+  .contentContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 2rem;
+    background: linear-gradient(to bottom, #cfcfcf 0%, #e8e8e8 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 2rem;
+    max-width: 1100px;
+    width: 80%;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin-top: -10px;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      /* Add minimum height to prevent layout shift */
+      min-height: 600px;
+    }
   }
-}
 }
 
 .imageContainer {
@@ -33,6 +35,8 @@
   width: 40%;
   aspect-ratio: 4 / 3;
   min-height: 250px;
+  /* Ensure container maintains size during image load */
+  flex-shrink: 0;
 
   .mottoImage {
     object-fit: cover;
@@ -88,34 +92,36 @@
 
 @media (max-width: 768px) {
   body {
-    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-x: hidden;
   }
-}
 
-@media (max-width: 768px) {
   .imageContainer {
-    position: absolute;          /* take it out of the flex container */
-    top: 43rem;                  /* adjust up */
-    left: 50%;                   /* center horizontally */
+    position: absolute;
+    top: 43rem;
+    left: 50%;
     transform: translateX(-50%);
-    width: 80%;                  /* make image bigger */
+    width: 80%;
+    /* Fixed height to prevent layout shift */
+    height: 200px;
     aspect-ratio: auto;
-    min-height: auto;
-    z-index: 10;                 /* sit above .contentContainer */
+    z-index: 10;
+    /* Add background color as fallback during image load */
+    background-color: #f0f0f0;
   }
 
   .imageContainer .mottoImage {
     width: 100%;
-    height: auto;
-    object-fit: contain;         /* don’t crop the image */
+    height: 100%;
+    object-fit: contain;
   }
 
   .contentContainer {
-    padding-top: 8rem; /* leave vertical space so text isn't hidden under image */
+    padding-top: 8rem;
+    /* Ensure consistent height */
+    min-height: 700px;
   }
 
-  .description{
+  .description {
     padding-bottom: 6rem;
   }
 }
-
