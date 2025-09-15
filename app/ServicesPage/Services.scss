@@ -70,8 +70,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: min(850px, 95vw);
-  /* Prevent layout shifts */
-  contain: layout;
+
 }
 
 .nav {
@@ -89,9 +88,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  /* Performance optimizations */
-  will-change: transform;
-  contain: layout style;
+  position: fixed;
 }
 
 .logo {
