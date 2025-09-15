@@ -1,21 +1,28 @@
-/* Global font family for entire page */
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Prevent layout shifts with CSS containment */
+.mainHero {
+  contain: layout style;
+}
+
+/* Prevent font loading layout shifts */
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   box-sizing: border-box;
 }
 
-/* Import Poppins from Google Fonts */
+/* Preload critical fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* ===== 1) HERO SECTION ===== */
-
-.mainHero{
-  padding: 1rem;
-  background-color: white;
+/* Reduce paint complexity */
+* {
+  transform-style: preserve-3d;
+  will-change: auto;
 }
 
+/* Critical styles first - Hero Section */
 .servicesHero {
-  background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)),  url('/tables.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url('/tables.jpg') center/cover no-repeat;
   min-height: 80vh;
   display: flex;
   align-items: center;
@@ -24,62 +31,82 @@
   color: #fff;
   padding: 4rem 2rem;
   border-radius: 40px 40px 0 0;
-  background-attachment: fixed;
-
-  .servicesHeroContent {
-    max-width: 700px;
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-  }
+  background-attachment: scroll; /* Changed from fixed for better performance */
+  /* Prevent layout shifts */
+  contain: layout;
 }
 
-/* My existing navbar styles */
+.servicesHero .servicesHeroContent {
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Prevent layout shifts */
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.servicesHero .servicesHeroContent h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.servicesHero .servicesHeroContent p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR OPTIMIZATIONS ===== */
 .headder {
   position: fixed;
   z-index: 1000;
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 850px;
+  width: min(850px, 95vw);
+  /* Prevent layout shifts */
+  contain: layout;
 }
 
 .nav {
   pointer-events: auto;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(235, 235, 235, 0.9);
   border-radius: 58px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  background: #ebebebe5;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgb(179, 179, 179);
   padding: 1rem 2rem;
   width: 100%;
-  max-width: 1200px;
   height: 61px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 100px;
+  gap: 2rem;
+  /* Performance optimizations */
+  will-change: transform;
+  contain: layout style;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
+  /* Prevent layout shifts */
+  min-width: 90px;
+  min-height: 90px;
+}
 
-  img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-  }
+.logo img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -87,22 +114,23 @@
   list-style: none;
   gap: 2rem;
   padding: 1rem 2rem;
+  margin: 0;
   margin-right: 10px;
   font-size: 18px;
   font-weight: 700;
-
-  li a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    transition: 0.3s ease;
-
-    &:hover {
-      color: #ff0000;
-    }
-  }
 }
 
-/* Mobile Menu Toggle Button */
+.nav-links li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ff0000;
+}
+
+/* Mobile Menu Optimizations */
 .mobile-menu-toggle {
   display: none;
   background: none;
@@ -112,282 +140,493 @@
   cursor: pointer;
   z-index: 1001;
   padding: 0.5rem;
-  
-  &:hover {
-    color: #ff0000;
-  }
 }
 
-/* Mobile Navigation */
-.mobile-nav {
+.mobile-menu-toggle:hover {
+  color: #ff0000;
+}
+
+.mobile-nav-blur {
   position: fixed;
-  top: 0;
+  top: 0; 
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.95);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  z-index: 999;
+  z-index: 1200;
+  background: rgba(235, 235, 235, 0.9);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  &.mobile-nav-open {
-    transform: translateX(0);
-  }
+  /* Performance optimization */
+  contain: strict;
+}
+
+.mobile-nav-blur.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.mobile-nav-content {
+  display: flex;
+  width: 90vw;
+  max-width: 850px;
+  border-radius: 38px;
+  background: transparent;
+  box-shadow: 0 6px 38px rgba(0,0,0,0.10);
+  overflow: hidden;
+  /* Prevent layout shifts */
+  min-height: 200px;
+}
+
+.mobile-logo-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid #d5d5d5ad;
+  background: transparent;
+}
+
+.mobile-logo-side img {
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
 }
 
 .mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  padding-right: 20px;
   list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  
-  li {
-    margin: 2rem 0;
-    
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-      transition: color 0.3s ease;
-      
-      &:hover {
-        color: #ff0000;
-      }
-    }
-  }
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-/* ===== 2) INTRO SECTION ===== */
+.mobile-nav-links li a, 
+.mobile-nav-links li button.close-menu {
+  color: #000;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.8rem 0;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-links li a:hover, 
+.mobile-nav-links li button.close-menu:hover {
+  color: #ff0000;
+}
+
+.mobile-nav-links li button.close-menu {
+  font-size: 0.8rem;
+  margin-top: 0.9rem;
+  color: #555;
+  text-align: right;
+}
+
+/* ===== INTRO SECTION OPTIMIZATIONS ===== */
+.mainHero {
+  padding: 1rem;
+  background-color: white;
+  /* Prevent layout shifts */
+  contain: layout;
+}
+
 .introSection {
   display: flex;
   justify-content: center;
   padding: 60px 20px;
   background: #f7f7f7;
-
-  .introBox {
-    display: flex;
-    width: 90%;
-    max-width: 1200px;
-    background: #fff;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    overflow: hidden;
-
-    .introImage {
-      flex: 1;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      background: #fff;
-      overflow: hidden;
-      min-height: 420px;
-
-      .flipImage {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        width: auto;
-        height: auto;
-        max-width: calc(100% - 50px);
-        max-height: calc(100% - 50px);
-        object-fit: cover;
-        border-radius: 12px;
-        opacity: 0;
-        z-index: 0;
-        transition: opacity 1s ease-in-out;
-      }
-
-      .flipImage.active {
-        opacity: 1;
-        z-index: 1;
-      }
-    }
-
-    .introText {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      min-height: 420px;
-
-      &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: url('../../public/shiplink-logo2.png') center/cover no-repeat;
-        transform: scale(1.05);
-        z-index: 0;
-      }
-
-      .textOverlay {
-        position: relative;
-        z-index: 1;
-        height: 100%;
-        padding: 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        background: #ebebebe5;
-
-        h2 {
-          font-size: 2rem;
-          color: #000000;
-          margin-bottom: 15px;
-        }
-
-        p {
-          font-size: 1.1rem;
-          color: #000000;
-          max-width: 460px;
-          line-height: 1.6;
-        }
-      }
-    }
-  }
+  /* Performance optimization */
+  contain: layout;
 }
 
-/* ===== 3) SERVICES CONTAINERS (NEW DESIGN) ===== */
+.introBox {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  /* Prevent layout shifts */
+  min-height: 420px;
+}
+
+.introImage {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  overflow: hidden;
+  min-height: 420px;
+  /* Performance optimization */
+  contain: layout;
+}
+
+.flipImageContainer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Performance optimization */
+  will-change: opacity;
+}
+
+.flipImageContainer.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.introText {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  background: url('/shiplink-logo2.png') center/cover no-repeat;
+}
+
+.introText::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+.textOverlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgba(235, 235, 235, 0.9);
+}
+
+.textOverlay h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.textOverlay p {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #000000;
+  max-width: 460px;
+  line-height: 1.6;
+}
+
+/* ===== SERVICES SECTION OPTIMIZATIONS ===== */
 .servicesSection {
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   background: #f7f7f7;
-
-  .headtag h1{
-    color: #000;
-    font-size: 2.5rem;
-    font-weight: 600;
-    text-align: center;
-  }
-
-  .servicesContainer {
-    display: flex;
-    justify-content: flex-start;
-    background: #fff;
-    box-shadow: #3b3b3b 0px 0px 10px 0px;
-    border-radius: 30px;
-    padding: 2rem;
-    gap: 2rem;
-    flex-wrap: wrap;
-    max-width: calc(100% - 60px);
-
-    &.topContainer {
-      margin-left: auto;
-      margin-right: 30px;
-    }
-
-    &.bottomContainer {
-      margin-left: 30px;
-      margin-right: auto;
-    }
-
-    .serviceCard {
-      flex: 1;
-      min-width: 220px;
-      max-width: 250px;
-      text-align: left;
-      background: transparent;
-      box-shadow: none;
-      padding: 0;
-
-      .serviceIcon {
-        margin-bottom: 15px;
-      }
-
-      h3 {
-        font-size: 1.4rem;
-        color: #222;
-        margin-bottom: 0.5rem;
-      }
-
-      p {
-        font-size: 1rem;
-        color: #555;
-        line-height: 1.5;
-      }
-    }
-  }
+  /* Performance optimization */
+  contain: layout;
 }
 
-/* ===== 4) SERVICE OVERVIEW SECTION (NEW DESIGN) ===== */
+.headtag h1 {
+  color: #000;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 2rem 0;
+}
+
+.servicesContainer {
+  display: flex;
+  justify-content: flex-start;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(59, 59, 59, 0.1);
+  border-radius: 30px;
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: calc(100% - 60px);
+  /* Prevent layout shifts */
+  min-height: 200px;
+}
+
+.servicesContainer.topContainer {
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.servicesContainer.bottomContainer {
+  margin-left: 30px;
+  margin-right: auto;
+}
+
+.serviceCard {
+  flex: 1;
+  min-width: 220px;
+  max-width: 250px;
+  text-align: left;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  /* Prevent layout shifts */
+  min-height: 180px;
+}
+
+.serviceIcon {
+  margin-bottom: 15px;
+  /* Prevent layout shifts */
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.serviceCard h3 {
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.serviceCard p {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ===== CAROUSEL OPTIMIZATIONS ===== */
+.our-works {
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("/logo.png") center/contain no-repeat;
+  background-attachment: scroll; /* Changed from fixed for better performance */
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  /* Performance optimization */
+  contain: layout;
+}
+
+.our-works h2 {
+  font-size: clamp(2.5rem, 8vw, 50px);
+  color: red;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.our-works p {
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 2rem;
+}
+
+.our-works h3 {
+  color: #ffffff;
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+}
+
+.carousel {
+  position: relative;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  perspective: 1000px;
+  /* Performance optimization */
+  contain: layout;
+}
+
+.carousel .card {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 280px;
+  border-radius: 12px;
+  transition: all 0.9s ease;
+  filter: blur(3px);
+  opacity: 0.4;
+  z-index: 1;
+  overflow: hidden;
+  /* Performance optimization */
+  will-change: transform, filter, opacity;
+}
+
+.carousel .active {
+  width: 320px;
+  height: 400px;
+  transform: translateY(-50%) scale(1);
+  filter: blur(0);
+  opacity: 1;
+  z-index: 3;
+}
+
+.carousel .left1 {
+  left: 15%;
+  transform: translateY(-50%) scale(0.8);
+}
+
+.carousel .left2 {
+  left: 5%;
+  transform: translateY(-50%) scale(0.6);
+}
+
+.carousel .right1 {
+  right: 15%;
+  transform: translateY(-50%) scale(0.8);
+}
+
+.carousel .right2 {
+  right: 5%;
+  transform: translateY(-50%) scale(0.6);
+}
+
+.caption {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.caption h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.caption p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.controls button {
+  background: #ff9500;
+  color: white;
+  border: none;
+  font-size: clamp(16px, 4vw, 20px);
+  padding: clamp(12px, 3vw, 15px) clamp(15px, 4vw, 18px);
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 20px;
+  transition: background 0.3s ease;
+  /* Prevent layout shifts */
+  min-width: 50px;
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls button:hover {
+  background: #ffd08a;
+}
+
+/* ===== SERVICE OVERVIEW SECTION ===== */
 .serviceOverviewSection {
   width: 100%;
-  background-color: #ebebebe5;
+  background-color: rgba(235, 235, 235, 0.9);
   padding: 80px 20px;
   text-align: center;
   position: relative;
   margin-bottom: 8rem;
-
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: #222;
-  }
-
-  .overviewText {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px;
-    background: url('../../public/Container\ Ship\ 🚢\ Coloring\ Page.jpg') center center no-repeat;
-    background-size: cover;
-    border-radius: 12px;
-    text-align: center;
-    position: relative;
-    color: #222;
-
-    .textOverlay {
-      background: #ebebebe5;
-      backdrop-filter: blur(1px);
-      padding: 30px;
-      width: 900px;
-      margin-left: -40px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin-bottom: 1.8rem;
-      text-align: start;
-      color: #000;
-    }
-
-    .companyName {
-      color: #ff0000;
-      font-weight: bold;
-    }
-  }
+  /* Performance optimization */
+  contain: layout;
 }
 
-/* ==Scrolling strip== */
+.serviceOverviewSection h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.overviewText {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: url('/Container Ship 🚢 Coloring Page.jpg') center center no-repeat;
+  background-size: cover;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  color: #222;
+  /* Prevent layout shifts */
+  min-height: 400px;
+}
+
+.overviewText .textOverlay {
+  background: rgba(235, 235, 235, 0.9);
+  backdrop-filter: blur(1px);
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.overviewText .textOverlay p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+  text-align: left;
+  color: #000;
+}
+
+.companyName {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+/* ===== SCROLLING STRIP OPTIMIZATIONS ===== */
+.pricingline {
+  height: 1.5px;
+  background-color: #000000;
+  width: 80%;
+  margin: 0 auto 1rem auto;
+}
+
 .scrolling-strip {
-  width: 39.9%;
+  width: min(60%, 500px);
   background: #155993;
   padding: 12px 10px;
-  margin-top: 40px;
-  margin-left: 31rem;
+  margin: 40px auto 0;
   border-radius: 3px;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
   margin-bottom: -20px;
+  /* Performance optimization */
+  contain: layout;
 }
 
 .scrolling-text {
   display: inline-block;
   animation: scroll-left 60s linear infinite;
+  /* Performance optimization */
+  will-change: transform;
 }
 
 .scrolling-text span {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: bold;
   margin-right: 50px;
   color: white;
@@ -402,202 +641,83 @@
   }
 }
 
-/* ===== CTA ===== */
+/* ===== CTA SECTION ===== */
 .ctaSection {
   padding: 3rem 2rem;
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), #ebebebe8;
+  background: rgba(235, 235, 235, 0.9);
   color: #000000;
   text-align: center;
-  margin-left: 31rem;
+  margin: 0 auto;
   margin-top: -40px;
-  width: 656px;
+  width: min(90%, 656px);
   border-radius: 5px;
-
-  .ctaContent {
-    max-width: 600px;
-    margin: 0 auto;
-
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      color: #000;
-    }
-
-    button {
-      padding: 0.8rem 2rem;
-      background: #fff;
-      color: #ff0000;
-      font-size: 1rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-
-      &:hover {
-        background: #ffcccc;
-        color: #990000;
-      }
-    }
-  }
+  /* Performance optimization */
+  contain: layout;
 }
 
-/*OUR WORKS */
-.our-works {
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0.1)), url("../../public/logo.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 100%;
-  padding: 60px 20px;
-  text-align: center;
-  background-attachment: fixed;
-  padding: 40px;
-
-  p{
-    color: #ffffff;
-  }
-
-  h3{
-    color: #ffffff;
-  }
-
-  h2{
-    font-size: 50px;
-    color: red;
-    font-weight: 600;
-  }
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.carousel {
-  position: relative;
-  height: 450px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem auto;
-  perspective: 1000px;
-
-  .card {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 200px;
-    height: 280px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    transition: all 0.9s ease;
-    filter: blur(3px);
-    opacity: 0.4;
-    z-index: 1;
-  }
-
-  .active {
-    width: 320px;
-    height: 400px;
-    transform: translateY(-50%) scale(1);
-    filter: blur(0);
-    opacity: 1;
-    z-index: 3;
-  }
-
-  .left1 {
-    left: 15%;
-    transform: translateY(-50%) scale(0.8);
-  }
-
-  .left2 {
-    left: 5%;
-    transform: translateY(-50%) scale(0.6);
-  }
-
-  .right1 {
-    right: 15%;
-    transform: translateY(-50%) scale(0.8);
-  }
-
-  .right2 {
-    right: 5%;
-    transform: translateY(-50%) scale(0.6);
-  }
-
-  .controls {
-    margin-top: 20px;
-    text-align: center;
-
-    button {
-      background: #ff0000;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-      font-size: 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-
-      &:hover {
-        background: #cc0000;
-      }
-    }
-  }
+.ctaContent h2 {
+  font-size: clamp(1.3rem, 4vw, 1.5rem);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 10px;
 }
 
-.controls button {
-  background: orange;
-  color: white;
+.ctaContent p {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.ctaContent button {
+  padding: 0.8rem 2rem;
+  background: #fff;
+  color: #ff0000;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-weight: bold;
   border: none;
-  font-size: 20px;
-  padding: 15px 18px;
-  border-radius: 50%;
+  border-radius: 6px;
   cursor: pointer;
-  margin: 0 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Prevent layout shifts */
+  min-width: 140px;
+  min-height: 45px;
 }
-.controls button:hover {
-  background: #ffd08a;
+
+.ctaContent button:hover {
+  background: #ffcccc;
+  color: #990000;
+  transform: translateY(-2px);
 }
 
-
-
-/*===== PRICING SECTION ===*/
+/* ===== PRICING SECTION ===== */
 .pricing {
   text-align: center;
   padding: 60px 20px;
+  /* Performance optimization */
+  contain: layout;
 }
 
-.pricingline{
-  color: #000;
+.pricingline2 {
   height: 1.5px;
   background-color: #000000;
   width: 80%;
-  margin: 0 auto 1rem auto;
-}
-
-.pricingline2{
-  color: #000;
-  height: 1.5px;
-  background-color: #000000;
-  width: 80%;
-  margin: 0 auto 1rem auto;
-  margin-bottom: 8rem;
+  margin: 0 auto 8rem auto;
 }
 
 .pricing h5 {
   color: #1c1fff;
   font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
 .pricing h2 {
-  font-size: 28px;
+  font-size: clamp(1.5rem, 5vw, 28px);
   margin: 10px 0;
   color: #000;
   font-weight: 600;
@@ -607,6 +727,7 @@
   color: #222222;
   max-width: 600px;
   margin: 0 auto 30px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
 .pricing-cards {
@@ -614,39 +735,54 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  /* Performance optimization */
+  contain: layout;
 }
 
 .pricing-card {
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), #ebebebe8;
-  color: #fff;
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), rgba(235, 235, 235, 0.9);
+  color: #000;
   padding: 30px 20px;
   border-radius: 16px;
-  width: 300px;
+  width: min(300px, 90%);
   text-align: left;
+  transition: transform 0.3s ease;
+  /* Prevent layout shifts */
+  min-height: 400px;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
 }
 
 .pricing-card.highlight-card {
-  background: linear-gradient(rgba(96, 248, 177, 0), rgb(30, 1, 197)), #a8e6eee8 ;
+  background: linear-gradient(rgba(96, 248, 177, 0), rgb(30, 1, 197)), rgba(168, 230, 238, 0.9);
   color: #000;
 }
 
 .pricing-card h4 {
-  font-size: 22px;
+  font-size: clamp(1.2rem, 3vw, 22px);
+  margin-bottom: 1rem;
 }
 
 .pricing-card h2 {
-  font-size: 36px;
+  font-size: clamp(1.8rem, 5vw, 36px);
   margin: 10px 0;
 }
 
 .pricing-card span {
-  font-size: 16px;
+  font-size: clamp(0.8rem, 2.5vw, 16px);
 }
 
 .pricing-card ul {
   list-style: none;
   padding: 0;
   margin: 15px 0;
+}
+
+.pricing-card ul li {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  margin-bottom: 0.8rem;
 }
 
 .pricing-card ul li::before {
@@ -664,33 +800,34 @@
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  min-height: 45px;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 
-.pricing-card button:hover{
+.pricing-card button:hover {
   background-color: #00ff62;
+  transform: translateY(-2px);
 }
 
-.daes{
-  margin-top: 40px;
-  color: red;
-}
-
-
-
-/* ===== FOOTER ===== */
+/* ===== FOOTER OPTIMIZATIONS ===== */
 .footerSection {
   background-color: #ffffff;
   color: #000000;
-  padding: 0.8rem 0.8rem;
+  padding: 0.8rem;
   margin-top: 50px;
+  /* Performance optimization */
+  contain: layout;
 }
 
 .footerInnerContainer {
   background-color: #155993;
   border-radius: 10px;
-  padding: 5rem;
-  width: 1645px;
-  margin-left: -13px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
@@ -699,242 +836,223 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footerLeft {
   flex: 1;
   min-width: 220px;
+}
 
-  .logoImage {
-    width: 140px;
-    height: auto;
-    margin-bottom: 1rem;
-  }
+.logoImage {
+  width: 140px;
+  height: auto;
+  margin-bottom: 1rem;
+}
 
-  .tagline {
-    margin: 1rem 0;
-    font-size: 0.9rem;
-    color: #ffffff;
-  }
+.tagline {
+  margin: 1rem 0;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  color: #ffffff;
+}
 
-  .socialIcons {
-    display: flex;
-    gap: 1rem;
-    font-size: 1.2rem;
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
 
-    svg {
-      cursor: pointer;
-      color: #ffffff;
-      transition: 0.3s;
-      font-size: 1.2rem;
+.socialIcons svg {
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
 
-      &:hover {
-        color: #007bff;
-        font-size: 1.8rem;
-      }
-    }
-  }
+.socialIcons svg:hover {
+  color: #007bff;
+  font-size: 1.4rem;
+  transform: translateY(-2px);
 }
 
 .footerLinks {
   flex: 1;
   display: flex;
-  gap: 8rem;
+  gap: 4rem;
   min-width: 220px;
-  margin-left: 100px;
+}
 
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #000;
-  }
+.footerLinks h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000;
+}
 
-  ul {
-    list-style: none;
-    padding: 0;
+.footerLinks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    li {
-      margin-bottom: 1.2rem;
-      color: #ffffff;
-      font-size: 1.2rem;
+.footerLinks ul li {
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-      &:hover {
-        color: #fc8d8d;
-        text-decoration: underline;
-        cursor: pointer;
-      }
-    }
-  }
+.footerLinks ul li:hover {
+  color: #fc8d8d;
+  text-decoration: underline;
+  transform: translateX(5px);
 }
 
 .footerRight {
   flex: 1;
   min-width: 220px;
-  margin-left: 100px;
+}
 
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #000;
-  }
+.footerRight h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000;
+}
 
-  .whatsappBtn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #25d366;
-    color: #fff;
-    border: none;
-    padding: 0.7rem 1.2rem;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+.whatsappBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  min-width: 150px;
+  min-height: 45px;
+  justify-content: center;
+}
 
-    svg {
-      font-size: 1.3rem;
-    }
+.whatsappBtn svg {
+  font-size: 1.3rem;
+}
 
-    &:hover {
-      background: #77c998;
-    }
-  }
+.whatsappBtn:hover {
+  background: #77c998;
+  transform: translateY(-2px);
 }
 
 .footerCopyright {
   text-align: center;
-  margin-top: 1rem;
-
-  .footerLine {
-    height: 1px;
-    background-color: #ccc;
-    width: 80%;
-    margin: 4rem auto 2rem auto;
-  }
-
-  p {
-    font-size: 0.9rem;
-    color: #9bdefd;
-    margin: 0;
-  }
+  margin-top: 2rem;
 }
 
-
-
-
-/* =====================================
-   RESPONSIVE DESIGN - MOBILE FIRST
-===================================== */
-
-
-
-
-
-@media (max-width: 768px) {
-  .servicestHero {
-    min-height: 100vh; /* Make it fill full viewport height */
-    border-radius: 0;   /* Remove top rounded corners */
-    margin: 0;          /* Remove any margins */
-    padding: 0;         /* Remove padding so bg fits */
-    background-position: center top; /* Keep image aligned nicely */
-    
-   
-  }
-
-  /* Optional: remove header top spacing */
-  .headder {
-    top: 0;
-    left: 8.5px;
-    transform: none;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 0;
-  }
+.footerLine {
+  height: 1px;
+  background-color: #ccc;
+  width: 80%;
+  margin: 2rem auto;
 }
 
-  
-  /* Hide mobile toggle since we're using horizontal nav */
-  .mobile-menu-toggle {
-    display: none;
+.footerCopyright p {
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  color: #9bdefd;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE DESIGN OPTIMIZATIONS ===== */
+
+/* Hide desktop nav on mobile */
+@media (max-width: 768px) {
+  .nav-links.desktop-nav {
+    display: none !important;
   }
 
-
-
-/* Mobile phones (up to 768px) */
-@media (max-width: 768px) {
-  
-  
   .mobile-menu-toggle {
     display: block !important;
   }
 
-  /* HERO SECTION */
+  /* Hero section mobile */
   .servicesHero {
-    min-height: 70vh; 
+    min-height: 70vh;
     border-radius: 24px 24px 0 0;
-    
-    &::before { 
-      border-radius: 24px 24px 0 0; 
-    }
-
-    .servicesHeroContent {
-      h1 {
-        font-size: clamp(1.8rem, 6vw, 2.5rem);
-        line-height: 1.2;
-      }
-
-      p {
-        font-size: clamp(1rem, 3vw, 1.1rem);
-        padding: 0 1rem;
-      }
-    }
+    padding: 2rem 1rem;
   }
 
-  
-  /* INTRO SECTION */
+  .servicesHero .servicesHeroContent {
+    padding: 1.5rem;
+    min-height: 150px;
+  }
+
+  /* Header mobile */
+  .headder {
+    top: 15px;
+    left: 2%;
+    width: 96%;
+    transform: none;
+  }
+
+  .nav {
+    padding: 0.8rem 1rem;
+    gap: 1rem;
+  }
+
+  .logo {
+    min-width: 50px;
+    min-height: 50px;
+  }
+
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Mobile nav content */
+  .mobile-logo-side img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .mobile-nav-links {
+    margin-left: 10px;
+    padding-right: 15px;
+  }
+
+  /* Intro section mobile */
   .introSection {
-    padding: 40px 15px;
+    padding: 30px 15px;
   }
 
   .introBox {
     flex-direction: column;
     width: 95%;
-    margin: 0 auto;
   }
 
   .introImage, .introText {
     min-height: 250px;
   }
 
-  .introText .textOverlay {
+  .textOverlay {
     padding: 25px;
     text-align: center;
     align-items: center;
-
-    h2 {
-      font-size: clamp(1.5rem, 5vw, 1.8rem);
-    }
-
-    p {
-      font-size: clamp(0.9rem, 3vw, 1rem);
-      max-width: 100%;
-    }
   }
 
-  /* SERVICES SECTION */
+  /* Services section mobile */
   .servicesSection {
     padding: 2rem 1rem;
-
-    .headtag h1 {
-      font-size: clamp(1.8rem, 6vw, 2.2rem);
-    }
   }
 
   .servicesContainer {
     flex-direction: column;
-    margin: 0 !important;
+    margin: 0 auto !important;
     max-width: 100% !important;
     padding: 1.5rem;
     align-items: center;
@@ -944,127 +1062,62 @@
     max-width: 100%;
     text-align: center;
     margin-bottom: 1.5rem;
-
-    h3 {
-      font-size: clamp(1.2rem, 4vw, 1.3rem);
-    }
-
-    p {
-      font-size: clamp(0.9rem, 3vw, 1rem);
-    }
+    min-height: 150px;
   }
 
-  /* SERVICE OVERVIEW */
+  /* Service overview mobile */
   .serviceOverviewSection {
     padding: 40px 15px;
     margin-bottom: 4rem;
-
-    h1 {
-      font-size: clamp(1.8rem, 6vw, 2.5rem);
-    }
-
-    .overviewText {
-      padding: 20px;
-      max-width: 95%;
-
-      .textOverlay {
-        width: 100%;
-        margin: 0;
-        padding: 20px;
-
-        p {
-          font-size: clamp(0.9rem, 3vw, 1rem);
-          text-align: left;
-        }
-      }
-    }
   }
 
-  /* SCROLLING STRIP */
+  .overviewText {
+    padding: 20px;
+    max-width: 95%;
+    min-height: 300px;
+  }
+
+  .overviewText .textOverlay {
+    padding: 20px;
+  }
+
+  /* Scrolling strip mobile */
   .scrolling-strip {
     width: 90%;
     margin: 20px auto;
-
-    .scrolling-text span {
-      font-size: clamp(1rem, 3vw, 1.1rem);
-    }
   }
 
-  /* CTA SECTION */
+  /* CTA mobile */
   .ctaSection {
     margin: 20px auto 0;
     width: 95%;
     padding: 2rem 1rem;
-
-    .ctaContent {
-      h2 {
-        font-size: clamp(1.2rem, 4vw, 1.4rem);
-      }
-
-      p {
-        font-size: clamp(0.9rem, 3vw, 1rem);
-      }
-
-      button {
-        font-size: clamp(0.9rem, 3vw, 1rem);
-        padding: 0.7rem 1.5rem;
-      }
-    }
   }
 
-  /* CAROUSEL */
+  /* Carousel mobile */
   .carousel {
     height: 300px;
     margin: 1rem auto;
-
-    .card {
-      width: clamp(120px, 25vw, 150px);
-      height: clamp(180px, 35vw, 220px);
-    }
-
-    .active {
-      width: clamp(200px, 40vw, 250px);
-      height: clamp(280px, 50vw, 320px);
-    }
-
-    .left2, .right2 {
-      display: none;
-    }
-
-    .controls button {
-      font-size: clamp(14px, 3vw, 16px);
-      padding: clamp(8px, 2vw, 10px) clamp(15px, 4vw, 18px);
-    }
   }
 
-  /* OUR WORKS */
-  .our-works {
-    padding: 30px 15px;
-
-    h2 {
-      font-size: clamp(2rem, 8vw, 3rem);
-    }
-
-    h3 {
-      font-size: clamp(1.1rem, 4vw, 1.3rem);
-    }
-
-    p {
-      font-size: clamp(0.9rem, 3vw, 1rem);
-    }
+  .carousel .card {
+    width: 120px;
+    height: 180px;
   }
 
-  /* PRICING */
+  .carousel .active {
+    width: 200px;
+    height: 280px;
+  }
+
+  .carousel .left2, 
+  .carousel .right2 {
+    display: none;
+  }
+
+  /* Pricing mobile */
   .pricing {
     padding: 40px 15px;
-
-    h2 {
-      font-size: clamp(1.5rem, 5vw, 2rem);
-    }
-
-    p {
-      font-size: clamp(0.9rem, 3vw, 1rem);
-    }
   }
 
   .pricing-cards {
@@ -1076,174 +1129,66 @@
   .pricing-card {
     width: 95%;
     max-width: 350px;
-    padding: 25px 20px;
-
-    h4 {
-      font-size: clamp(1.1rem, 4vw, 1.3rem);
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 6vw, 2.2rem);
-    }
-
-    span {
-      font-size: clamp(0.8rem, 3vw, 0.9rem);
-    }
-
-    ul li {
-      font-size: clamp(0.8rem, 3vw, 0.9rem);
-    }
-
-    button {
-      font-size: clamp(0.8rem, 3vw, 0.9rem);
-      width: 100%;
-      padding: 10px;
-    }
+    min-height: 350px;
   }
 
-  
-
-  /* FOOTER - Center logo and increase gaps */
-
-  .footerInnerContainer { 
-    width: 100%; 
-    margin: 0 auto; 
-    padding: 2rem 1.5rem; 
-    border-radius: 10px; 
+  /* Footer mobile */
+  .footerInnerContainer {
+    width: 100%;
+    padding: 2rem 1.5rem;
   }
-  
-  .footerContainer { 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 2.5rem; /* Increased gap */
-    text-align: center; 
+
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
   }
-  
+
   .footerLeft {
-    /* Center the logo */
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    .logoImage { 
-      width: 120px; 
-    }
-    
-    .socialIcons { 
-      justify-content: center; 
-      gap: 1.5rem; /* Increased gap between social icons */
-    }
   }
-  
-  .footerLinks { 
-    gap: 3rem; /* Increased gap between link groups */
+
+  .logoImage {
+    width: 120px;
+  }
+
+  .socialIcons {
     justify-content: center;
-    
-    h3 { 
-      font-size: 1.2rem; 
-    } 
-    
-    ul {
-      li { 
-        font-size: 1rem;
-        margin-bottom: 0.8rem; /* Increased gap between links */
-      }
-    }
-  }
-  
-  .footerRight { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    
-    h3 { 
-      font-size: 1.2rem; 
-    } 
-    
-    .whatsappBtn { 
-      width: 100%; 
-      max-width: 250px; 
-      justify-content: center; 
-      margin-top: 1rem;
-    } 
-  }
-  
-  .footerCopyright {
-    margin-top: 2.5rem; /* Increased gap */
-    
-    .footerLine { 
-      width: 100%; 
-      margin-bottom: 1.5rem; /* Increased gap */
-    } 
-    
-    p { 
-      font-size: 0.9rem; 
-    }
-  }
-}
-
-
-
-
-
-/* Ultra-small phones */
-@media (max-width: 480px) {
-  .headder {
-    width: 95%;
-    top: 15px;
-  }
-  
-  .nav {
-    padding: 0.6rem 1rem;
-    gap: 0.5rem;
-  }
-  
-  .logo img {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .nav-links.desktop-nav {
-    gap: 0.5rem;
-    font-size: 12px;
-    
-    li a {
-      padding: 0.4rem 0.6rem;
-    }
+    gap: 1.5rem;
   }
 
   .footerLinks {
-    left: 0;
-    gap: 5rem;
+    gap: 2rem;
+    justify-content: center;
     text-align: left;
+  }
 
-    h3 { 
-      font-size: 1.1rem; 
-      left: 0;
-    } 
-    
-    ul li { 
-      font-size: 0.9rem; 
-    }
+  .footerRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .whatsappBtn {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 1rem;
+  }
+
+  .footerCopyright {
+    margin-top: 2.5rem;
+  }
+
+  .footerLine {
+    width: 100%;
+    margin: 1.5rem auto;
   }
 }
 
-
-
-
-/* Hide desktop nav-links on mobile only */
-@media (max-width: 768px) {
-  .nav-links.desktop-nav {
-    display: none !important;
-  }
-
-  /* Show mobile menu button only on mobile */
-  .mobile-menu-toggle {
-    display: block;
-  }
-}
-
-/* Desktop: show nav-links, hide mobile menu button */
+/* Desktop: show nav-links, hide mobile menu */
 @media (min-width: 769px) {
   .nav-links.desktop-nav {
     display: flex !important;
@@ -1254,698 +1199,115 @@
   }
 }
 
-
-/* Overlay: glass, covers all, transitions, disables scroll */
-.mobile-nav-blur {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  z-index: 1200;
-  background: #ebebebe5;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mobile-nav-blur.open {
-  pointer-events: auto;
-  opacity: 1;
-}
-
-.mobile-nav-content {
-  display: flex;
-  width: 90vw;
-  max-width: 850px;
-  border-radius: 38px;
-  background: transparent;
-  box-shadow: 0 6px 38px rgba(0,0,0,0.10);
-  overflow: hidden;
-}
-
-/* Logo on left: big and centered */
-.mobile-logo-side {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-right: 2px solid #d5d5d5ad;
-  background: transparent;
-  img {
-    width: 132px;
-    height: 132px;
-    object-fit: contain;
-  }
-}
-@media (max-width: 600px) {
-  .mobile-logo-side img {
-    width: 85px;
-    height: 85px;
-  }
-}
-
-/* Nav links on the right, stacked, right-aligned */
-.mobile-nav-links {
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 15px;
-  padding-right: 20px;
-  li {
-    a, button.close-menu {
-      color: #000;
-      
-      &:hover { color: #ff0000; }
-    }
-    button.close-menu {
-      font-size: 0.8rem;
-      margin-top: 0.9em;
-      color: #555;
-      text-align: right;
-      &:hover { color: #ff0000; }
-    }
-  }
-}
-
-/* Optional: Responsive logo size inside nav */
+/* Ultra-small phones optimization */
 @media (max-width: 480px) {
-  .mobile-nav-content { width: 98vw; }
-  .mobile-nav-links {
-    margin-right: 1em;
-    padding-top: 90px;
-    gap: 1px;
-    li a, li button.close-menu { font-size: 1em; }
-  }
-}
-
-
-
-
-
-
-/* 1. GLASSMORPHISM CONTAINER FOR HERO TEXT */
-.servicesHero .servicesHeroContent {
-  /* Add glassmorphism background to the text content */
-  
-  border-radius: 20px;
-  padding: 1rem;
-  background: rgba(41, 40, 40, 0.35);
-  border-radius: 20px;
-  backdrop-filter: blur(1px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: left;
-
-  h1{
-    text-align: center;
-  }
-}
-
-/* 2. FOOTER LINKS ALIGNMENT FIX */
-@media (max-width: 768px) {
-  .footerLinks {
-    margin-left: 0 !important; /* Remove the left margin causing misalignment */
-    gap: 2rem;
-    width: 100%;
-    justify-content: flex-start; /* Align to left instead of center */
-    text-align: left;
-  }
-  
-  .footerRight {
-    margin-left: 0 !important; /* Remove left margin from footer right too */
-  }
-}
-
-/* 3. TABLET RESPONSIVENESS (820px - 1220px) */
-@media (min-width: 821px) and (max-width: 1220px) {
-  
-  /* Header adjustments */
-  .headder {
-    width: 95%;
-    max-width: 1000px;
-  }
-  
-  .nav {
-    gap: 2rem;
-    padding: 1rem 1.5rem;
-  }
-  
-  .nav-links {
-    gap: 1.5rem;
-    font-size: 16px;
-  }
-  
-  /* Hero section */
-  .servicesHero {
-    min-height: 75vh;
-    padding: 3rem 1.5rem;
-    
-    .servicesHeroContent {
-      max-width: 80%;
-      
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      p {
-        font-size: 1.1rem;
-      }
-    }
-  }
-  
-  /* Intro section */
-  .introSection {
-    padding: 50px 20px;
-  }
-  
-  .introBox {
-    width: 95%;
-    max-width: 1000px;
-  }
-  
-  .introText .textOverlay {
-    padding: 35px;
-    
-    h2 {
-      font-size: 1.8rem;
-    }
-    
-    p {
-      font-size: 1rem;
-      max-width: 400px;
-    }
-  }
-  
-  /* Services section */
-  .servicesSection {
-    padding: 3.5rem 1.5rem;
-    
-    .headtag h1 {
-      font-size: 2.2rem;
-    }
-  }
-  
-  .servicesContainer {
-    max-width: calc(100% - 40px);
-    padding: 1.8rem;
-    
-    &.topContainer {
-      margin-right: 20px;
-    }
-    
-    &.bottomContainer {
-      margin-left: 20px;
-    }
-  }
-  
-  .serviceCard {
-    min-width: 200px;
-    max-width: 230px;
-    
-    h3 {
-      font-size: 1.3rem;
-    }
-    
-    p {
-      font-size: 0.95rem;
-    }
-  }
-  
-  /* Service overview */
-  .serviceOverviewSection {
-    padding: 70px 20px;
-    margin-bottom: 6rem;
-    
-    h1 {
-      font-size: 2.5rem;
-    }
-    
-    .overviewText {
-      max-width: 800px;
-      padding: 35px;
-      
-      .textOverlay {
-        width: 800px;
-        margin-left: -35px;
-        padding: 25px;
-        
-        p {
-          font-size: 1.1rem;
-        }
-      }
-    }
-  }
-  
-  /* Scrolling strip */
-  .scrolling-strip {
-    width: 60%;
-    margin-left: 15rem;
-    
-    .scrolling-text span {
-      font-size: 1.1rem;
-    }
-  }
-  
-  /* CTA section */
-  .ctaSection {
-    width: 500px;
-    margin-left: 250px;
-    
-    .ctaContent {
-      h2 {
-        font-size: 1.4rem;
-      }
-      
-      p {
-        font-size: 0.95rem;
-      }
-    }
-  }
-  
-  /* Carousel */
-  .carousel {
-    height: 420px;
-    
-    .card {
-      width: 180px;
-      height: 260px;
-    }
-    
-    .active {
-      width: 300px;
-      height: 380px;
-    }
-    
-    .left1, .right1 {
-      transform: translateY(-50%) scale(0.85);
-    }
-    
-    .left2, .right2 {
-      transform: translateY(-50%) scale(0.65);
-    }
-  }
-  
-  /* Pricing */
-  .pricing {
-    padding: 50px 20px;
-  }
-  
-  .pricing-cards {
-    gap: 15px;
-    justify-content: center;
-  }
-  
-  .pricing-card {
-    width: 280px;
-    padding: 28px 18px;
-  }
-  
-  /* Footer */
-  .footerInnerContainer {
-    width: calc(100% + 26px);
-    margin-left: -13px;
-    padding: 2.5rem;
-  }
-  
-  .footerContainer {
-    gap: 1.5rem;
-  }
-  
-  .footerLinks {
-    gap: 4rem;
-    margin-left: 50px;
-  }
-  
-  .footerRight {
-    margin-left: 50px;
-  }
-}
-
-/* Fine-tune for smaller tablets (821px - 950px) */
-@media (min-width: 821px) and (max-width: 950px) {
-  .servicesContainer {
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto !important;
-    max-width: 90% !important;
-  }
-  
-  .serviceCard {
-    max-width: 100%;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .footerLinks {
-    gap: 2rem;
-    margin-left: 20px;
-  }
-  
-  .footerRight {
-    margin-left: 20px;
-  }
-}
-
-
-
-
-/* 1. GLASSMORPHISM CONTAINER FOR HERO TEXT */
-.servicesHero .servicesHeroContent {
-  /* Add glassmorphism background to the text content */
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* 2. FOOTER LINKS ALIGNMENT FIX */
-@media (max-width: 768px) {
-  .footerLinks {
-    margin-left: 0 !important; /* Remove the left margin causing misalignment */
-    gap: 2rem;
-    width: 100%;
-    justify-content: flex-start; /* Align to left instead of center */
-    text-align: left;
-  }
-  
-  .footerRight {
-    margin-left: 0 !important; /* Remove left margin from footer right too */
-  }
-}
-
-/* 3. TABLET RESPONSIVENESS (820px - 1220px) */
-@media (min-width: 821px) and (max-width: 1220px) {
-  
-  /* Header adjustments */
-  .headder {
-    width: 95%;
-    max-width: 1000px;
-  }
-  
-  .nav {
-    gap: 2rem;
-    padding: 1rem 1.5rem;
-  }
-  
-  .nav-links {
-    gap: 1.5rem;
-    font-size: 16px;
-  }
-  
-  /* Hero section */
-  .servicesHero {
-    min-height: 75vh;
-    padding: 3rem 1.5rem;
-    
-    .servicesHeroContent {
-      max-width: 80%;
-      
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      p {
-        font-size: 1.1rem;
-      }
-    }
-  }
-  
-  /* Intro section */
-  .introSection {
-    padding: 50px 20px;
-  }
-  
-  .introBox {
-    width: 95%;
-    max-width: 1000px;
-  }
-  
-  .introText .textOverlay {
-    padding: 35px;
-    
-    h2 {
-      font-size: 1.8rem;
-    }
-    
-    p {
-      font-size: 1rem;
-      max-width: 400px;
-    }
-  }
-  
-  /* Services section */
-  .servicesSection {
-    padding: 3.5rem 1.5rem;
-    
-    .headtag h1 {
-      font-size: 2.2rem;
-    }
-  }
-  
-  .servicesContainer {
-    max-width: calc(100% - 40px);
-    padding: 1.8rem;
-    
-    &.topContainer {
-      margin-right: 20px;
-    }
-    
-    &.bottomContainer {
-      margin-left: 20px;
-    }
-  }
-  
-  .serviceCard {
-    min-width: 200px;
-    max-width: 230px;
-    
-    h3 {
-      font-size: 1.3rem;
-    }
-    
-    p {
-      font-size: 0.95rem;
-    }
-  }
-  
-  /* Service overview */
-  .serviceOverviewSection {
-    padding: 70px 20px;
-    margin-bottom: 6rem;
-    
-    h1 {
-      font-size: 2.5rem;
-    }
-    
-    .overviewText {
-      max-width: 800px;
-      padding: 35px;
-      
-      .textOverlay {
-        width: 800px;
-        margin-left: -35px;
-        padding: 25px;
-        
-        p {
-          font-size: 1.1rem;
-        }
-      }
-    }
-  }
-  
-  /* Scrolling strip */
-  .scrolling-strip {
-    width: 60%;
-    margin-left: 15rem;
-    
-    .scrolling-text span {
-      font-size: 1.1rem;
-    }
-  }
-  
-  /* CTA section */
-  .ctaSection {
-    width: 500px;
-    margin-left: 250px;
-    
-    .ctaContent {
-      h2 {
-        font-size: 1.4rem;
-      }
-      
-      p {
-        font-size: 0.95rem;
-      }
-    }
-  }
-  
-  /* Carousel */
-  .carousel {
-    height: 420px;
-    
-    .card {
-      width: 180px;
-      height: 260px;
-    }
-    
-    .active {
-      width: 300px;
-      height: 380px;
-    }
-    
-    .left1, .right1 {
-      transform: translateY(-50%) scale(0.85);
-    }
-    
-    .left2, .right2 {
-      transform: translateY(-50%) scale(0.65);
-    }
-  }
-  
-  /* Pricing */
-  .pricing {
-    padding: 50px 20px;
-  }
-  
-  .pricing-cards {
-    gap: 15px;
-    justify-content: center;
-  }
-  
-  .pricing-card {
-    width: 280px;
-    padding: 28px 18px;
-  }
-  
-  /* Footer */
-  .footerInnerContainer {
-    width: calc(100% + 26px);
-    margin-left: -13px;
-    padding: 2.5rem;
-  }
-  
-  .footerContainer {
-    gap: 1.5rem;
-  }
-  
-  .footerLinks {
-    gap: 4rem;
-    margin-left: 50px;
-  }
-  
-  .footerRight {
-    margin-left: 50px;
-  }
-}
-
-
-
-/* Ultra-small phones - Fixed viewport */
-@media (max-width: 380px) {
   html {
-    font-size: 14px; /* Base font size adjustment */
+    font-size: 14px;
   }
-  
+
   .headder {
     width: 98%;
     top: 10px;
     left: 1%;
-    transform: none;
   }
-  
+
   .nav {
     padding: 0.5rem 0.8rem;
     height: auto;
     min-height: 50px;
   }
-  
+
+  .logo {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
   .logo img {
     width: 40px;
     height: 40px;
   }
-  
+
   .servicesHero {
     min-height: 60vh;
-    padding: 2rem 1rem;
+    padding: 1.5rem 0.8rem;
   }
-  
+
   .servicesHero .servicesHeroContent {
-    padding: 1.5rem;
-    width: 100%;
-    
-    h1 {
-      font-size: 1.5rem;
-    }
-    
-    p {
-      font-size: 0.9rem;
-    }
+    padding: 1.2rem;
+    min-height: 120px;
+  }
+
+  .mobile-nav-content {
+    width: 98vw;
+  }
+
+  .mobile-logo-side img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .footerLinks {
+    gap: 1.5rem;
   }
 }
 
-/* Small phones - Fixed viewport */
-@media (min-width: 381px) and (max-width: 480px) {
-  html {
-    font-size: 15px;
-  }
-  
+/* Tablet optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
   .headder {
-    width: 96%;
-    top: 12px;
-    left: 2%;
-    transform: none;
-  }
-  
-  .servicesHero .servicesHeroContent {
-    width: 100%;
-    padding: 1.8rem;
-  }
-}
-
-/* Medium phones - Fixed viewport */
-@media (min-width: 481px) and (max-width: 768px) {
-  html {
-    font-size: 16px; /* Default size */
-  }
-  
-  .headder {
-    width: 94%;
-    top: 15px;
-    left: 3%;
-    transform: none;
-  }
-  
-  .servicesHero .servicesHeroContent {
     width: 95%;
-    padding: 2rem;
+    max-width: 900px;
   }
-}
 
-@media (min-width: 821px) and (max-width: 950px) {
-  .servicesContainer {
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto !important;
-    max-width: 90% !important;
+  .nav {
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
   }
-  
-  .serviceCard {
-    max-width: 100%;
-    text-align: center;
-    margin-bottom: 1rem;
+
+  .nav-links {
+    gap: 1.5rem;
+    font-size: 16px;
   }
-  
+
+  .servicesContainer.topContainer {
+    margin-right: 20px;
+  }
+
+  .servicesContainer.bottomContainer {
+    margin-left: 20px;
+  }
+
+  .scrolling-strip {
+    width: 70%;
+  }
+
+  .ctaSection {
+    width: 80%;
+  }
+
+  .footerInnerContainer {
+    padding: 2.5rem;
+  }
+
   .footerLinks {
     gap: 2rem;
-    margin-left: 20px;
   }
-  
-  .footerRight {
-    margin-left: 20px;
+}
+
+/* Large screens optimization */
+@media (min-width: 1400px) {
+  .servicesContainer {
+    max-width: calc(100% - 100px);
+  }
+
+  .servicesContainer.topContainer {
+    margin-right: 50px;
+  }
+
+  .servicesContainer.bottomContainer {
+    margin-left: 50px;
+  }
+
+  .footerInnerContainer {
+    padding: 4rem;
   }
 }
