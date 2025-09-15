@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import './Services.scss';
@@ -11,17 +11,21 @@ export default function Services() {
   // Mobile responsive nav-bar
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Detect mobile screen - Use window check to prevent SSR issues
-  useEffect(() => {
+  // Use useLayoutEffect for immediate DOM updates to prevent layout shifts
+  useLayoutEffect(() => {
     const handleResize = () => {
       if (typeof window !== 'undefined') {
         setIsMobile(window.innerWidth <= 768);
       }
     };
     
-    // Set initial state
+    // Set initial state immediately
     handleResize();
+    
+    // Mark as loaded after initial layout
+    setIsLoading(false);
     
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
@@ -32,10 +36,24 @@ export default function Services() {
   // Prevent scroll when menu is open
   useEffect(() => {
     if (typeof document !== 'undefined') {
-      document.body.style.overflow = menuOpen ? 'hidden' : '';
-      return () => { 
+      if (menuOpen) {
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.classList.add('menu-open');
+      } else {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.classList.remove('menu-open');
+      }
+      
+      return () => {
         if (typeof document !== 'undefined') {
-          document.body.style.overflow = ''; 
+          document.body.style.overflow = '';
+          document.body.style.position = '';
+          document.body.style.width = '';
+          document.body.classList.remove('menu-open');
         }
       };
     }
@@ -117,6 +135,33 @@ export default function Services() {
     return () => clearInterval(interval);
   }, [flipImages.length]);
 
+  // Show loading skeleton to prevent layout shifts
+  if (isLoading) {
+    return (
+      <div className="mainHero" style={{ minHeight: '100vh' }}>
+        <section className="servicesHero" style={{ 
+          background: '#f0f0f0', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          minHeight: '80vh' 
+        }}>
+          <div style={{ 
+            width: '700px', 
+            height: '200px', 
+            background: 'rgba(255,255,255,0.15)', 
+            borderRadius: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            Loading...
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="mainHero">
       <section className="servicesHero">
@@ -126,10 +171,14 @@ export default function Services() {
               <Image
                 src="/shiplink-logo2.png"
                 alt="ShipLink Logo"
-                width={80}
-                height={80}
+                width={isMobile ? (window?.innerWidth <= 480 ? 40 : 50) : 80}
+                height={isMobile ? (window?.innerWidth <= 480 ? 40 : 50) : 80}
                 quality={85}
                 priority
+                style={{ 
+                  width: isMobile ? (typeof window !== 'undefined' && window.innerWidth <= 480 ? '40px' : '50px') : '80px',
+                  height: isMobile ? (typeof window !== 'undefined' && window.innerWidth <= 480 ? '40px' : '50px') : '80px'
+                }}
               />
             </div>
 
@@ -139,6 +188,13 @@ export default function Services() {
                 className="mobile-menu-toggle"
                 aria-label="Open navigation menu"
                 onClick={() => setMenuOpen(true)}
+                style={{ 
+                  minWidth: '60px',
+                  minHeight: '40px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
               >
                 Menu
               </button>
@@ -163,10 +219,14 @@ export default function Services() {
                   <Image
                     src="/shiplink-logo2.png"
                     alt="ShipLink Logo"
-                    width={130}
-                    height={130}
+                    width={typeof window !== 'undefined' && window.innerWidth <= 480 ? 80 : 130}
+                    height={typeof window !== 'undefined' && window.innerWidth <= 480 ? 80 : 130}
                     quality={85}
                     priority
+                    style={{ 
+                      width: typeof window !== 'undefined' && window.innerWidth <= 480 ? '80px' : '130px',
+                      height: typeof window !== 'undefined' && window.innerWidth <= 480 ? '80px' : '130px'
+                    }}
                   />
                 </div>
                 <ul className="mobile-nav-links">
