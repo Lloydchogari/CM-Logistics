@@ -385,7 +385,7 @@
   border-radius: 10px;
   padding: 3rem;
   width: 100%;
-  max-width: 1310px;
+  max-width: 1550px;
   margin: 0 auto;
   box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
@@ -403,7 +403,7 @@
 
 .footerLeft { 
   .logoImage { width: 140px; height: auto; margin-bottom: 1rem; }
-  .tagline { margin: 1rem 0; font-size: 0.9rem; color: #fff; }
+  .tagline { margin: 1rem 0; margin-bottom: 2rem; font-size: 0.9rem; color: #fff; }
   .socialIcons { display: flex; gap: 1rem; font-size: 1.2rem; justify-content: flex-start;
     svg { cursor: pointer; color: #fff; transition: 0.3s; font-size: 1.2rem;
       &:hover { color: #007bff; font-size: 1.8rem; }
@@ -415,9 +415,9 @@
   display: flex;
   gap: 8rem;
 
-  h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; }
+  h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 2rem; color: #000; }
   ul { list-style: none; padding: 0;
-    li { margin-bottom: 0.5rem; color: #fff; font-size: 1rem;
+    li { margin-bottom: 1rem; color: #fff; font-size: 1rem;
       &:hover { color: #fc8d8d; text-decoration: underline; cursor: pointer; }
     }
   }
@@ -438,7 +438,7 @@
   text-align: center;
   margin-top: 2rem;
   .footerLine { height: 1px; background-color: #ccc; width: 80%; margin: 0 auto 1rem; }
-  p { font-size: 0.9rem; color: #9bdefd; margin: 0; }
+  p { font-size: 0.9rem; color: #9bdefd; margin-bottom: 1rem; margin: 0; }
 }
 
 

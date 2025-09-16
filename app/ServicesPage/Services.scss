@@ -31,7 +31,7 @@
   color: #fff;
   padding: 4rem 2rem;
   border-radius: 40px 40px 0 0;
-  background-attachment: scroll; /* Changed from fixed for better performance */
+  background-attachment: scroll;
   /* Prevent layout shifts */
   contain: layout;
 }
@@ -69,63 +69,56 @@
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(850px, 95vw);
-
+  width: 850px;
 }
 
 .nav {
   pointer-events: auto;
-  background: rgba(235, 235, 235, 0.9);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 58px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  background: #ebebebe5;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgb(179, 179, 179);
   padding: 1rem 2rem;
   width: 100%;
+  max-width: 1200px;
   height: 61px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  position: fixed;
+  gap: 100px;
+  position: relative;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  /* Prevent layout shifts */
-  min-width: 90px;
-  min-height: 90px;
+
+  img { width: 90px; height: 90px; object-fit: contain; }
 }
 
-.logo img {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-}
-
-.nav-links {
+/* Desktop Navigation */
+.nav-links.desktop-nav {
   display: flex;
   list-style: none;
   gap: 2rem;
   padding: 1rem 2rem;
-  margin: 0;
-  margin-right: 10px;
+  margin-left: 10px;
   font-size: 18px;
   font-weight: 700;
+
+  li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: 0.3s ease;
+
+    &:hover { color: #ff0000; }
+  }
 }
 
-.nav-links li a {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: #ff0000;
-}
 
 /* Mobile Menu Optimizations */
 .mobile-menu-toggle {
@@ -253,7 +246,7 @@
   width: 90%;
   max-width: 1200px;
   background: #fff;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 1.9);
   border-radius: 15px;
   overflow: hidden;
   /* Prevent layout shifts */
@@ -359,7 +352,7 @@
   display: flex;
   justify-content: flex-start;
   background: #fff;
-  box-shadow: 0 0 10px rgba(59, 59, 59, 0.1);
+  box-shadow: 0 0 10px rgba(59, 59, 59, 0.8);
   border-radius: 30px;
   padding: 2rem;
   gap: 2rem;
@@ -401,6 +394,7 @@
 
 .serviceCard h3 {
   font-size: clamp(1.2rem, 3vw, 1.4rem);
+  font-weight: 600;
   color: #222;
   margin-bottom: 0.5rem;
 }
@@ -413,8 +407,8 @@
 
 /* ===== CAROUSEL OPTIMIZATIONS ===== */
 .our-works {
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("/logo.png") center/contain no-repeat;
-  background-attachment: scroll; /* Changed from fixed for better performance */
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("/logo.png") center/contain no-repeat;
+  background-attachment: fixed; 
   width: 100%;
   padding: 60px 20px;
   text-align: center;
@@ -541,8 +535,9 @@
 /* ===== SERVICE OVERVIEW SECTION ===== */
 .serviceOverviewSection {
   width: 100%;
-  background-color: rgba(235, 235, 235, 0.9);
-  padding: 80px 20px;
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("/logo.png") center/contain no-repeat;
+backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);  padding: 80px 20px;
   text-align: center;
   position: relative;
   margin-bottom: 8rem;
@@ -553,7 +548,7 @@
 .serviceOverviewSection h1 {
   font-size: clamp(2rem, 6vw, 3rem);
   margin-bottom: 2rem;
-  color: #222;
+  color: #ffffff;
 }
 
 .overviewText {
@@ -602,7 +597,7 @@
 }
 
 .scrolling-strip {
-  width: min(60%, 500px);
+  width: min(60%, 655px);
   background: #155993;
   padding: 12px 10px;
   margin: 40px auto 0;
@@ -610,7 +605,7 @@
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  margin-bottom: -20px;
+  margin-bottom: 40px;
   /* Performance optimization */
   contain: layout;
 }
@@ -1185,7 +1180,7 @@
   }
 }
 
-/* Desktop: show nav-links, hide mobile menu */
+/* Desktop: show nav-links, hide mobile menu button */
 @media (min-width: 769px) {
   .nav-links.desktop-nav {
     display: flex !important;
@@ -1195,6 +1190,84 @@
     display: none !important;
   }
 }
+
+
+/* Overlay: glass, covers all, transitions, disables scroll */
+.mobile-nav-blur {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  z-index: 1200;
+  background: #ebebebe5;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-nav-blur.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.mobile-nav-content {
+  display: flex;
+  width: 90vw;
+  max-width: 850px;
+  border-radius: 38px;
+  background: transparent;
+  box-shadow: 0 6px 38px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+/* Logo on left: big and centered */
+.mobile-logo-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid #d5d5d5ad;
+  background: transparent;
+  img {
+    width: 132px;
+    height: 132px;
+    object-fit: contain;
+  }
+}
+@media (max-width: 600px) {
+  .mobile-logo-side img {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+/* Nav links on the right, stacked, right-aligned */
+.mobile-nav-links {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  padding-right: 20px;
+  li {
+    a, button.close-menu {
+      color: #000;
+      
+      &:hover { color: #ff0000; }
+    }
+    button.close-menu {
+      font-size: 1.1rem;
+      margin-top: 1em;
+      color: #555;
+      text-align: right;
+      &:hover { color: #ff0000; }
+    }
+  }
+}
+
 
 /* Ultra-small phones optimization */
 @media (max-width: 480px) {
@@ -1258,6 +1331,7 @@
   .nav {
     gap: 1.5rem;
     padding: 1rem 1.5rem;
+    position: fixed;
   }
 
   .nav-links {
@@ -1308,3 +1382,4 @@
     padding: 4rem;
   }
 }
+
