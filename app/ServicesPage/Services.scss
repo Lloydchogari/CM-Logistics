@@ -1268,6 +1268,18 @@ backdrop-filter: blur(15px);
   }
 }
 
+/* Optional: Responsive logo size inside nav */
+@media (max-width: 480px) {
+  .mobile-nav-content { width: 98vw; }
+  .mobile-nav-links {
+    margin-right: 1em;
+    padding-top: 90px;
+    gap: 1px;
+    li a, li button.close-menu { font-size: 1em; }
+  }
+}
+
+
 
 /* Ultra-small phones optimization */
 @media (max-width: 480px) {
@@ -1373,7 +1385,7 @@ backdrop-filter: blur(15px);
   .servicesContainer.topContainer {
     margin-right: 50px;
   }
-
+ 
   .servicesContainer.bottomContainer {
     margin-left: 50px;
   }
