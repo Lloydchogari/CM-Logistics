@@ -106,6 +106,8 @@ const useMemberCycling = (isMobile: boolean, totalMembers: number) => {
 
 export default function About() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   
   // Custom hooks
   const isMobile = useMobileDetection();
@@ -117,6 +119,15 @@ export default function About() {
   // Use carousel animation hook
   useCarouselAnimation(topContainersRef, isMobile);
 
+  // Handle component mounting and loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Memoized handlers
   const handleMenuToggle = useCallback(() => {
     setMenuOpen(prev => !prev);
@@ -124,6 +135,10 @@ export default function About() {
 
   const handleMenuClose = useCallback(() => {
     setMenuOpen(false);
+  }, []);
+
+  const handleImageLoad = useCallback(() => {
+    setImageLoaded(true);
   }, []);
 
   // Memoized card class function
@@ -226,8 +241,8 @@ export default function About() {
 
   return (
     <div className="aboutWrapper">
-      {/* Hero Section */}
-      <section className="aboutHeroSection">
+      {/* Hero Section - Updated with loading states */}
+      <section className={`aboutHeroSection ${isLoaded && imageLoaded ? 'loaded' : 'loading'}`}>
         {Navigation}
         
         <div className="imageContainer">
@@ -239,6 +254,8 @@ export default function About() {
             height={600}
             className="heroImage"
             priority
+            onLoad={handleImageLoad}
+            data-loaded={imageLoaded}
           />
           <div className="heroTextOverlay">
             <h1>About <span>CM Logistics</span></h1>
