@@ -100,7 +100,7 @@ export default function Services() {
   // Optimized images array - Use proper dimensions
   const images = [
     { src: "/abt.jpg", title: "Work One", author: "John Doe" },
-    { src: "/shiplink-logo2.png", title: "Work Two", author: "Jane Smith" },
+    { src: "/d3.jpg", title: "Work Two", author: "Jane Smith" },
     { src: "/the1.jpg", title: "Work Three", author: "Alex Ray" },
     { src: "/solo.jpg", title: "Work Four", author: "Lisa Brown" },
     { src: "/tlogo.png", title: "Work Five", author: "David Lee" },
@@ -320,8 +320,8 @@ export default function Services() {
       <section className="our-works">
         <h2>Our Works</h2>
         <p className="work-text">
-          We create visually striking branding and marketing campaigns that
-          captivate audiences and tell your story.
+         Our work connects businesses and people worldwide. From port to port, we make shipping simple, 
+         delivering seamless solutions across the globe.
         </p>
 
         <div className="carousel">
@@ -386,8 +386,12 @@ export default function Services() {
       <div className="pricingline"></div>
       <div className="scrolling-strip">
         <div className="scrolling-text">
-          <span>Digital Design ✱ Digital Marketing ✱ Web Design & Development ✱ Creative Marketing ✱ Media Production ✱ Signage Solutions ✱</span>
-          <span>Digital Design ✱ Digital Marketing ✱ Web Design & Development ✱ Creative Marketing ✱ Media Production ✱ Signage Solutions ✱</span>
+          <span>
+            Global Shipping ✱ Sea Freight ✱ Port-to-Port Delivery ✱ Cargo Handling ✱ Logistics Solutions ✱ Container Transport ✱ Supply Chain Management ✱
+          </span>
+          <span>
+            Gustoms clearance ✱ Goods Tracking ✱ Customer purchase support ✱ Great care ✱ Logistics Solutions ✱ Container Transport ✱ Supply Chain Management ✱
+          </span>
         </div>
       </div>
 
@@ -413,37 +417,37 @@ export default function Services() {
 
         <div className="pricing-cards">
           {[
-            {
-              title: 'Basic Plan',
+             {
+              title: 'Basic Shipping',
               price: '$460',
-              target: 'Good For Personal Portfolio',
+              target: 'Small Packages & Personal Shipments',
               benefits: [
-                'Logo design + social kit',
-                '1-Page Website',
-                '1 Month Support',
+                'Domestic Port-to-Port Delivery',
+                'Cargo Tracking',
+                'Insurance Included',
               ],
             },
             {
-              title: 'Premium Plan',
+              title: 'Premium Shipping',
               price: '$1000',
-              target: 'Good For Small Company',
+              target: 'Small Businesses & Frequent Shippers',
               benefits: [
-                'Full branding & guidelines',
-                'Corporate Website (5 Pages)',
-                '2 Months Support + SEO Setup',
+                'International Shipping',
+                'Priority Handling & Tracking',
+                'Customs Clearance Assistance',
               ],
               highlight: true,
             },
             {
-              title: 'Corporate Plan',
-              price: '$1500',
-              target: 'Good For Big Company',
-              benefits: [
-                'Brand strategy + marketing kit',
-                'Advanced Website + eCommerce',
-                '3 Months Support & Analytics',
-              ],
-            },
+            title: 'Corporate Shipping',
+            price: '$1500',
+            target: 'Large Cargo & Enterprise Solutions',
+            benefits: [
+              'Full Logistics Management',
+              'Container & Bulk Shipping',
+              'Dedicated Account Manager & Analytics',
+            ],
+          },
           ].map((plan, index) => (
             <div
               className={`pricing-card ${plan.highlight ? 'highlight-card' : ''}`}

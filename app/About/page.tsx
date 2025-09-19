@@ -11,20 +11,20 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 const MEMBER_DATA = [
   {
     id: 1,
-    image: "/client1.jpeg",
-    name: "John Doe",
+    image: "/BossZegg.jpg",
+    name: "Boss Zego",
     description: "Logistics Manager with 10 years of experience ensuring smooth operations."
   },
   {
     id: 2,
-    image: "/client3.jpeg",
-    name: "Jane Smith",
+    image: "/avatar 2.jpg",
+    name: "Boss Bee",
     description: "Customer Relations Lead, dedicated to client satisfaction and support."
   },
   {
     id: 3,
-    image: "/client4.jpeg",
-    name: "Michael Brown",
+    image: "/avata 1.jpg",
+    name: "Boss Tinmac",
     description: "Operations Specialist handling logistics planning and tracking shipments."
   }
 ];
